@@ -1,0 +1,92 @@
+{% load i18n %}
+{% load dajaxice_templatetags%}
+{% load static %}
+{% comment %}{% load compress %}{% endcomment %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{LANGUAGE_CODE}}" xml:lang="{{LANGUAGE_CODE}}">
+<head>
+<title>{% block subtitle %}{% endblock %}{%trans "Turkologischer Anzeiger Online" %}</title>
+
+<link rel="canonical" href="{{ CANONICAL_URL|safe }}" />
+{% for other_lang, other_url in OTHER_LANGUAGES %}<link rel="alternate" hreflang="{{ other_lang }}" href="{{ other_url|safe }}" />{% endfor %}
+{% comment %}{% compress css %}{% endcomment %}<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}" media="all"/>{% comment %}{% endcompress %}{% endcomment %}
+<link href='http://fonts.googleapis.com/css?family=Brawler' rel='stylesheet' type='text/css'/>
+<link rel="SHORTCUT ICON" href="{% static "images/favicon.ico" %}"/>
+
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+<meta name="google-site-verification" content="wOupk6Fmvedt150cuYLtssmatgNERsTYIIAGvNUDbIw" />
+{% block meta %}{% endblock %}
+
+{% dajaxice_js_import %}
+
+<script type="text/javascript">mylist_messages = new Array("{% trans "Zur Merkliste hinzufügen" %}", "{% trans "Aus Merkliste entfernen" %}");</script>
+{% comment %}{% compress js %}{% endcomment %}
+<script type="text/javascript" src="{% static "scripts/jquery.js" %}"></script>
+<!--script type="text/javascript" src="{% static "scripts/jquery-ui.js" %}"></script-->
+<script type="text/javascript" src="{% static "scripts/base.js" %}"></script>
+{% comment %}{% endcompress %}{% endcomment %}
+
+<script language="javascript" type="text/javascript">
+	function setLanguage(lang){
+		document.forms['ChangeLanguage'].language.value = lang;
+		document.forms['ChangeLanguage'].submit();
+	};
+</script>
+{%  block script %}
+{% endblock %}
+</head>
+
+
+<body>
+
+<div id="container">
+
+<div id="navi">{% include "navigation.html"%}</div>
+
+
+
+
+<div id="header">
+<!--<a href="http://www.asia-europe.uni-heidelberg.de/{% ifequal LANGUAGE_CODE "de" %}de{% else %}en{% endifequal %}" title="Asia and Europe in a Global Context">--><p id="cluster-logo"></p>
+<div id="header-left">
+<a href="{% url home %}">{%trans "Turkologischer Anzeiger Online" %}</a>
+
+
+
+
+</div><!--header-left-->
+
+<div id="header-right">
+
+<div id="quicksearch" title="{%trans "Schnellsuche"%}">
+<form method="get" action="{% url home %}" name="quicksearch" >
+<input type="text" name="query" value="{%if request.GET.query%}{{request.GET.query}}{%else%}{%trans "Suchen..."%}{%endif%}" id="searchfield"
+onfocus="if(this.value=='{%trans "Suchen..."%}')this.value=''"
+onpaste="if(this.value=='{%trans "Suchen..."%}')this.value=''"
+ondragenter="if(this.value=='{%trans "Suchen..."%}')this.value=''"
+onblur="if(this.value=='')this.value='{%trans "Suchen..."%}'" />
+
+<!--<a href="javascript:document.quicksearch.submit();">Schnellsuche</a>-->
+<span id="quicksearch-button"><input type="submit" value="" /></span>
+</form>
+
+</div><!--quicksearch-->
+
+</div><!--header-right-->
+</div><!--header-->
+
+
+
+<div id="middle">
+<h1>{%block headline%}{% trans "Startseite" %}{%endblock%}</h1>
+<div id="content">
+{% block content %}
+Willkommen beim Turkologischen Anzeiger!
+{% endblock %}
+</div><!--content-->
+</div><!--midle-->
+
+
+</div><!--container-->
+</body>
+</html>

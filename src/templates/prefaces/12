@@ -1,0 +1,44 @@
+{%extends "base.html"%}
+{%load i18n %}
+{%block headline%}Vorwort: Band 12{%endblock%}
+{%block content%}
+
+
+<p>TURKOLOGISCHER ANZEIGER (<i>TA</i> 12)</p>
+<p>Dieser Band setzt die Reihe des Turkologischen Anzeigers der letzten Jahre fort, ohne wesentliche Neuerungen zu bringen. Es ist aber vorauszusehen, da&szlig; sich unsere Bibliographie in den n&auml;chsten Jahren, vielleicht schon im n&auml;chsten Jahr, in einigen Punkten wird &auml;ndern m&uuml;ssen, um unter ver&auml;nderten Umst&auml;nden fortbestehen zu k&ouml;nnen. Die Notwendigkeit einer bibliographischen Ubersicht &uuml;ber unser gesamtes Fachgebiet ist das bleibende Faktum; die finanziellen und arbeitskraftm&auml;&szlig;igen Schwierigkeiten werden &uuml;berwunden werden m&uuml;ssen.</p>
+<p>In <i>TA</i> 12 wurden die Abschnitte A-AJ, DEB-DECA und DH-DHH von Gy&ouml;rgy Hazai, B-BX von Lars Johanson, C-CJX von Ingeborg Hauenschild, DA-DGX, DI-DJB, DK-DKI und X von Ilona Dorogi, Sahla Fahmi, Pál Fodor, Anna Horváth und János Hóvári, DJC-DJX von Barbara Kellner-Heinkele und NA-NF von István Vásáry ausgearbeitet.</p>
+<p>Die Materialsammlung, soweit sie in Wien durchgef&uuml;hrt werden konnte, hatte Andreas Tietze &uuml;bernommen. Unterst&uuml;tzt wurde sie durch die Einsendungen der Mitarbeiter, denen wir wie immer sehr herzlich danken. Einige haben ganz Au&szlig;erordentliches geleistet. Leider mu&szlig;ten andere durch pers&ouml;nliche Umst&auml;nde gezwungen in diesem Jahr aussetzen, weshalb einige Unterabteilungen recht mager ausgefallen sind. Wir hoffen, da&szlig; sie diese L&uuml;cken im n&auml;chsten Band ausf&uuml;llen. Als neuen Mitarbeiter begr&uuml;&szlig;en wir M. S. D&#x017e;ikija, die uns eine vollst&auml;ndige Liste der georgischen Ver&ouml;ffentlichungen zur Osmanistik geliefert hat, und V. G. Guzev, dem wir die russischen Titel zur osmanisch-t&uuml;rkischen Sprachwissenschaft verdanken. Die Mitarbeiter dieses Bandes sind:</p>
+<p>&Auml;gypten: Doris Behrens-Abouseif</p>
+<p>Albanien: Mahir Domi, Selami Pulaha</p>
+<p>Arabische L&auml;nder: Donald Cioeta, Barbara Kellner-Heinkele</p>
+<p>Armenische Publikationen: Kevork Bardakjian</p>
+<p>Bulgarien: Stefka Angelova</p>
+<p>China: Wei Cuiyi</p>
+<p>England: Ildikó Bellér Hann</p>
+<p>Frankreich: Alexandre Popovic</p>
+<p>Georgien: Marina S. D&#x017e;ikija</p>
+<p>Griechenland, Zypern: Paul Hidiroglou</p>
+<p>Israel: Jacob M. Landau</p>
+<p>Italien: Aldo Gallotta, Biancamaria Scarcia Amoretti</p>
+<p>Japan: Yuzo Nagata</p>
+<p>Jugoslawien: Olga Zirojevi&#x0107;</p>
+<p>Kanada: &Uuml;ner Turgay</p>
+<p>Niederlande: Dick Koopman</p>
+<p>Polen: Tadeusz Majda</p>
+<p>Rum&auml;nien: Cristina Fene&#x015f;an</p>
+<p>Russische historische Publikationen: S. F. Ore&#x0161;kova, Z. O&#x017e;erel'eva, N. Rozalieva</p>
+<p>Russische sprachwissenschaftliche Publikationen: V. G. Guzev</p>
+<p>Skandinavische L&auml;nder: Bernt Brendemoen</p>
+<p>Tschechoslowakei: Vojtech Kop&#x010d;an</p>
+<p>T&uuml;rkei: Suraiya Faroqhi, &#x0130;lber Ortayl&#x0131;, Gani Yener</p>
+<p>Ungarn: Pál Fodor</p>
+<p>USA: Ronald C. Jennings, Paul J. Magnarella, Peter T. Suzuki</p>
+<p>Mit tiefer Trauer hat uns der Tod unserer langj&auml;hrigen Mitarbeiterin Susan Skilliter erf&uuml;llt.</p>
+<p>Wie in fr&uuml;heren Jahren schulden wir Franz G&ouml;rner von der Staatsbibliothek Berlin Dank f&uuml;r fachm&auml;nnische Hilfe, ferner der albanischen Akademie der Wissenschaften in Tirana, dem Centre d'Information sur les Sources d'Histoire Balkanique in Sofia, dem Institut f&uuml;r Orientalistik der sowjetischen Akademie der Wissenschaften in Moskau und dem Institut f&uuml;r Orientalistik der georgi schen Akademie der Wissenschaften in Tbilisi f&uuml;r die fruchtbare Zusammenarbeit, sowie - last but not least - dem Bundesministerium f&uuml;r Wissenschaft und Forschung, Wien, und der Unesco, Paris, f&uuml;r ihre finanzielle Unterst&uuml;tzung, die es erm&ouml;glicht, dieses Forschungsinstrument den Kollegen und Interessenten in aller Welt zu einem erschwinglichen Preis zur Verf&uuml;gung zu stellen.</p>
+<p>Georg Hazai</p>
+<p>Andreas Tietze</p>
+
+
+
+
+{%endblock%}

@@ -1,0 +1,18 @@
+TY - MGZN
+{% for author in entry.authors %}
+AU - {{ author }}
+{% endfor %}
+T1 - {{ entry.title }}
+{% ifequal entry.collections.0.type 'conference' %}
+TI - {{ entry.collections.0.title }}
+Y1 - {{ entry.collections.0.date.startYear }}/{{ entry.collections.0.date.startMonth }}
+CY - {{ entry.collections.0.cities|join:", "  }}
+{% endifequal %}
+{% if entry.references.0.title %}
+JO - {{ entry.references.0.title }}
+VL - {{ entry.references.0.referenceParts.0.volume }}
+IS - {{ entry.references.0.referenceParts.0.issue }}
+PY - {{ entry.references.0.referenceParts.0.year }}
+{% endif %}
+SP - {{ entry.references.0.referenceParts.0.pages.0.start }}
+EP - {{ entry.references.0.referenceParts.0.pages.0.end }}

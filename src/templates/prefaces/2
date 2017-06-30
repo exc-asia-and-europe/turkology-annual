@@ -1,0 +1,38 @@
+{%extends "base.html"%}
+{%load i18n %}
+{%block headline%}Vorwort: Band 2{%endblock%}
+{%block content%}
+
+
+<p>TURKOLOGISCHER ANZEIGER (<i>TA</i> 2)</p>
+<p>Die &Uuml;bersicht &uuml;ber die Ver&ouml;ffentlichungen ab 1973 auf dem Gebiet der osmanisch-t&uuml;rkischen Sprache, Literaturgeschichte und Geschichte (das vorosmanische t&uuml;rkische Kleinasien inbegriffen) wird fortgesetzt. Wegen der vielen Nachtr&auml;ge zu den Jahren 1973 und 1974 ist <i>TA</i> 2, der eigentlich dem Jahr 1975 gewidmet sein sollte, noch umfangreicher als der die beiden vorhergehenden Jahre umfassende <i>TA </i>1.</p>
+<p>F&uuml;r die Gesamtplanung sind wiederum Georg Hazai (Berlin) und Andreas Tietze (Wien) verantwortlich. In <i>TA</i> 2 wurden die Abschnitte A, C, D (ohne DJC-DJGA) und X von A. Tietze, B von G. Hazai und DJC-DJGA von Barbara Kellner-Heinkele (Hamburg) ausgearbeitet. Die Verbesserungen gegen&uuml;ber <i>TA</i> 1 ergaben sich aus der aktiven Mitarbeit einer Anzahl von Kollegen, die die Materialsammlung jeweils f&uuml;r ein Land &uuml;bernommen haben. Die f&uuml;r die einzelnen L&auml;nder verantwortlichen Mitarbeiter sind:</p>
+<p>Albanien: Eqrem Çabej, Mahir Domi und Selami Pulaha (Tirana)</p>
+<p>Bulgarien: Vera Mutaf&#x010d;ieva und Salih Baklad&#x017e;iev (Sofia)</p>
+<p>Deutsches Sprachgebiet: Klaus Kreiser (M&uuml;nchen)</p>
+<p>England: Susan Skilliter (Cambridge)</p>
+<p>Frankreich: Alexandre Popovic und Jean-Louis Bacqué-Grammont (Paris)</p>
+<p>Griechenland: I. G. Giannopoulos (Athen)</p>
+<p>Israel: Avigdor Levy (Tel-Aviv)</p>
+<p>Italien: Bianca Maria Scarcia-Amoretti (Rom)</p>
+<p>Japan: Masao Mori (Tokio)</p>
+<p>Jugoslavien: Van&#x010d;o Bo&#x0161;kov (Sarajevo)</p>
+<p>Niederlande: Dick Koopman (Leiden)</p>
+<p>Polen: Tadeusz Majda (Warschau)</p>
+<p>Rum&auml;nien: Cristina Rotman-Bulgaru (Bukarest)</p>
+<p>Skandinavische L&auml;nder: Lars Johanson (Sp&#x00e5;nga)</p>
+<p>Spanien: Ana María Schop Soler (M&uuml;nchen)</p>
+<p>Tschechoslovakei: Josef Braun (Prag)</p>
+<p>T&uuml;rkei: Heath Lowry (Istanbul)</p>
+<p>Ungarn: Valéria Csikai (Budapest)</p>
+<p>USA: Svat Soucek (Ann Arbor, Michigan)</p>
+<p>Zypern: Paul Hidiroglou (Nicosia)</p>
+<p>Alle Kollegen werden gebeten, unsere Arbeit dadurch zu unterst&uuml;tzen, da&szlig; sie einen der obengenannten Mitarbeiter oder die Herausgeber (Turkologischer Anzeiger, Orientalisches Institut der Universit&auml;t, 1010 Wien, &Ouml;sterreich) auf Ver&ouml;ffentlichungen in Festschriften oder an anderen leicht &uuml;bersehenen Orten aufmerksam machen.</p>
+<p>Unser Dank gilt der Albanischen Akademie der Wissenschaften, dem Institut d'Études Balkaniques an der Bulgarischen Akademie der Wissenschaften, dem Centro di Cultura e Civiltà, Sezione Venezia e l'Oriente, der Fondazione Giorgio Cini (insbesondere Signora Carla Bonò), und dem Fonds f&uuml;r die F&ouml;rderung der wissenschaftlichen Forschung in Wien f&uuml;r die teils moralische, teils materielle Unterst&uuml;tzung, die sie dieser Arbeit gew&auml;hrt haben.</p>
+<p>Vor allem aber sei hier den Kollegen, die in geduldiger und uneigenn&uuml;tziger Weise am Zustandekommen der zweiten Lieferung des Turkologischen Anzeigers mitgeholfen haben, im Namen der Zeitschrift und der Fachwelt der herzlichste Dank ausgesprochen.</p>
+<p>Andreas Tietze</p>
+
+
+
+
+{%endblock%}

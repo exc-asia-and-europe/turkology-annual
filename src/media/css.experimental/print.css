@@ -1,0 +1,32 @@
+
+div#greyBarUB{
+  visibility:hidden;
+}
+
+form, input, .control, .options{
+  visibility:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:black;
+}
+
+table.matches{
+  border-spacing:20px;
+  
+}
+td{
+  font-size:1.3em;
+}
+
+
+span.author{
+  display:block;
+  font-weight:bold;
+}
+
+h2{
+  font-size:1.8em;
+  font-style:italic;
+}

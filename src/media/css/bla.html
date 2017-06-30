@@ -1,0 +1,591 @@
+<body>
+<div class="unsichtbar">[<a href="link" accesskey="6">Navigation &uuml;berspringen</a>]</div>
+<a name="top"></a>
+<div id="topBarInstitute2spalterVariabelUB"><a name="up" id="up"></a></div>
+<table summary="Layouttabelle" id="logotab"><tr><td id="logolinks"><a href="link"><img src="/nav4/grafik/layout/header_heidi.gif" alt="HEIDI" height="56" width="278"></a></td><td id="logorechts"><a href="link" title="Zur Universit&auml;tsbibliothek" accesskey="1"><img src="/nav4/grafik/layout/header_ub_hd.gif" alt="Universit&auml;tsbibliothek Heidelberg" height="56" width="418"></a></td></tr></table>
+
+<div id="pageContainer2spalterVariabel">
+<div id="container">
+<div id="greyBarUB"></div>
+<div id="content2">
+<div class='nobut'>
+<a name="contentbegin"></a>
+
+<ul id='hmenue'>
+<li><a href='search.cgi?sess=037a5861ad533e6877f0291b5f545be8' id='hmenuecurr'>Einfache Suche</a></li><li><a href='search.cgi?art=f&amp;sess=037a5861ad533e6877f0291b5f545be8'>Erweiterte&nbsp;Suche</a></li><li><a href='konto.cgi?sess=037a5861ad533e6877f0291b5f545be8'>Konto</a></li><li><a href='export.cgi?sess=037a5861ad533e6877f0291b5f545be8'>Merkliste</a></li><li><a href='http://www.ub.uni-heidelberg.de/cgi-bin/pflopac.cgi'>Fernleihe</a></li><li><a href='zweigstelle.cgi?sess=037a5861ad533e6877f0291b5f545be8'>Leihstelle: <span>UB Altstadt</span></a></li><li><a href="link" id="spr"><img src="/opacicon/flagge_engl_small.gif" alt="english"></a></li><li><a href="link" target="_blank" id="help">Hilfe</a></li><li><a href='logout.cgi?sess=037a5861ad533e6877f0291b5f545be8' id='logout'>Beenden</a></li><li class='schrift'><a href="link" id="schriftk"><img src="/opacicon/schrift_k.gif" alt="kleine Schriftgr&ouml;&szlig;e"></a><a href="link" id="schriftm"><img src="/opacicon/schrift_m.gif" alt="mittlere Schriftgr&ouml;&szlig;e"></a><a href="link" id="schriftg"><img src="/opacicon/schrift_g.gif" alt="gro&szlig; Schriftgr&ouml;&szlig;e"></a></li>
+
+</ul>
+
+    <script language="JavaScript1.2" src="/opacjs/ezb.js" type="text/javascript"></script>
+    <script language="JavaScript1.2" src="/opacjs/digikat.js" type="text/javascript"></script>
+    <script language="JavaScript1.2" src="/opacjs/base.js" type="text/javascript"></script>
+    <script language="JavaScript1.2" src="/opacjs/cixbase.js" type="text/javascript"></script>
+    <script language="JavaScript1.2" src="/opacjs/drilldown.js" type="text/javascript"></script>
+
+    <script language="JavaScript1.2" src="/opacjs/bibtip.js" type="text/javascript"></script>
+    <script language="JavaScript1.2" src="/opacjs/javascripts/prototype.js" type="text/javascript"></script>
+    <script language="JavaScript1.2" src="/opacjs/javascripts/scriptaculous.js" type="text/javascript"></script>
+    <script language="JavaScript1.2" src="/opacjs/javascripts/effects.js" type="text/javascript"></script>
+    <script language="JavaScript1.2" src="/opacjs/javascripts/controls.js" type="text/javascript"></script>
+    <div class="suchbox">
+
+      <form method="get" class="suchform" name="form1" action="search.cgi" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
+        <input type="submit" class="hiddbut" value="Suchen"/><input type="hidden" name="fsubmit" value="1">Anfrage: <input id="suchfeld" type="text" name="query" class="eingabe" value="chomsky" maxlength="254" tabindex="1" onFocus="auto.url = 'autocomplete.cgi?feld=feitext';"/><div class="auto_complete" id="query_auto_complete"></div>
+<script language="JavaScript1.2" type="text/javascript">
+   var auto = new Ajax.Autocompleter('suchfeld', 'query_auto_complete', 'autocomplete.cgi?feld=freitext', {minChars: 2, frequency: 0.6});
+</script>
+<div class="suchbuttons">
+<input type="hidden" name="sess" value="037a5861ad533e6877f0291b5f545be8" />
+<input type="hidden" name="sprache" value="GER" />
+<input type="hidden" name="art" value="" />
+<label for="sor">Sortierung</label>:
+<select id="sor" name="sort" class="eingabe">
+  <option value="0"  selected>Relevanz
+  <option value="1" >Jahr (abst.)
+  <option value="5" >Jahr (aufst.)
+  <option value="2" >Autor, Titel
+  <option value="4" >Bände
+
+</select>&nbsp;
+<input id="ac" type="checkbox" name="autocomp" onClick="if (document.form1.autocomp.checked) {document.cookie='autoc=j'; auto.options.minChars=2;} else {document.cookie='autoc=n'; auto.options.minChars=200;}"><script language="JavaScript1.2" type="text/javascript">if (document.cookie.indexOf("autoc=j") != -1) {document.form1.autocomp.checked = true;} else {auto.options.minChars=200;}</script><label for='ac'><span class='autocompl1'>Vervollst|</span><span class='autocompl2'>&auml;ndigen</span></label>
+&nbsp;&nbsp;<input type="submit" name="reset" tabindex="4" class="button" value="Felder&nbsp;leeren" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" tabindex="5" class="suchbutton" value="  Suchen  " />&nbsp;
+</div>
+<div class="suchopt">
+<input type='hidden' name='opt' value=''>
+<script language="JavaScript1.2" type="text/javascript">
+  document.write("<a href='#' onClick='document.form1.opt.value = &quot;N&quot;;document.form1.submit();'><img src='/opacicon/minus.gif' alt='-'>&nbsp;Optionen<\/a>");
+</script>
+<noscript>
+  <a href="link"><img src="/opacicon/minus.gif" alt="-">&nbsp;Optionen</a>
+</noscript>
+<table summary="Layouttabelle">
+<tr><th><label for="teilk">Teilkatalog</label>:</th>
+
+<td colspan='4'><select id="teilk" name="teil" class="eingabe">
+<option value="">Gesamtbestand
+          <option value='zs'>- Zeitschriften, Zeitungen, Serien
+          <option value='hdre'>- Faksimile
+          <option value='vide'>- Filme
+          <option value='fest'>- Festschriften
+          <option value='hs'>- Hochschulschriften
+          <option value='karten'>- Karten
+          <option value='sgka'>- Sondersammelgebiet Archäologie
+          <option value='sgkg'>- Sondersammelgebiet Kunstgeschichte
+          <option value='sgay'>- Sondersammelgebiet Ägyptologie
+          <option value='sgsa'>- Sondersammelgebiet Südasien
+</select></td></tr>
+<tr><th></th><td><input id="nZ" type="checkbox" name="nurZS">&nbsp;<label for="nZ">nur Zeitschriften, Zeitungen</label></td><td><input id="nO" type="checkbox" name="nurOnl">&nbsp;<label for="nO">nur Online-Angebote</label></td></tr>
+<tr><th><label for="teilk2">Einrichtung</label>:</th>
+
+<td colspan='4'><select id="teilk2" name="teil2" class="eingabe">
+  <optgroup label="Gesamtbestand">
+    <option value="">Gesamtbestand: alle Einrichtungen
+  </optgroup>
+          <optgroup label='Universitätsbibliothek'> 
+            <option value='Z00'>Gesamtbestand: Universitätsbibliothek
+            <option value='freih'>UB Freihandbestand
+            <option value='lbs'>UB Lehrbuchsammlung u. Lesesaal
+            <option value='praes'>UB Lesesaal
+          </optgroup>
+          <optgroup label='Wirtschafts- und Sozialwissenschaften'> 
+            <option value='Z06'>Gesamtbestand: Wirtschafts- und Sozialwissenschaften
+            <option value='WS'>Campus-Bibliothek Bergheim
+          </optgroup>
+
+          <optgroup label='Zentrale Einrichtungen'> 
+            <option value='Z10'>Gesamtbestand: Zentrale Einrichtungen
+            <option value='AF'>Netzwerk Alternsforschung
+            <option value='AR'>Zentrum f&uuml;r Astronomie / Astronomisches Recheninstitut
+            <option value='AV'>Universit&auml;tsarchiv
+            <option value='BI'>Bibliothek des Biochemie-Zentrums
+            <option value='RE'>Rechenzentrum der Universit&auml;t
+            <option value='SA'>S&uuml;dasien-Institut
+            <option value='JC'>Karl-Jaspers-Center
+            <option value='SU'>Studentenb&uuml;cherei
+            <option value='TA'>Zentrum f&uuml;r Astronomie / Theoretische Astrophysik
+            <option value='WR'>Interdisziplin&auml;res Zentrum f&uuml;r Wissenschaftliches Rechnen
+            <option value='ZM'>Zentrum f&uuml;r Molekulare Biologie
+            <option value='LS'>Zentrum f&uuml;r Astronomie / Landessternwarte
+          </optgroup>
+
+          <optgroup label='Fakultätsbibliothek Theologie (FBT)'> 
+            <option value='Z11'>Gesamtbestand: Fakultätsbibliothek Theologie (FBT)
+            <option value='DW'>Diakoniewissenschaftliches Institut
+            <option value='OE'>&Ouml;kumenisches Institut
+            <option value='PT'>Praktisch-Theologisches Seminar
+            <option value='WT'>Wissenschaftlich-Theologisches Seminar
+          </optgroup>
+          <optgroup label='Rechtswissenschaften'> 
+            <option value='Z12'>Gesamtbestand: Rechtswissenschaften
+            <option value='GR'>Institut f&uuml;r Geschichtliche Rechtswissenschaft
+            <option value='GW'>Institut f&uuml;r Deutsches und Europ. Gesellschafts- und Wirtschaftsrecht
+            <option value='IP'>Institut f&uuml;r Ausl&auml;nd. und Internat. Privat- und Wirtschaftsrecht
+            <option value='JU'>Bibliothek der Juristischen Fakult&auml;t
+            <option value='VR'>Institut f&uuml;r Deutsches und Europ. Verwaltungsrecht
+          </optgroup>
+
+          <optgroup label='Medizin'> 
+            <option value='Z13'>Gesamtbestand: Medizin
+            <option value='AH'>Institut f&uuml;r Humangenetik
+            <option value='AN'>Institut f&uuml;r Anatomie und Zellbiologie
+            <option value='DS'>Institut f&uuml;r Medizinische Biometrie und Informatik
+            <option value='HY'>Hygiene-Institut: Hygiene und Medizinische Mikrobiologie
+            <option value='IS'>Institut f&uuml;r Immunologie und Serologie
+            <option value='KA'>Medizinische Univ.-Klinik und Poliklinik: Allgemeinmedizin
+            <option value='MG'>Institut f&uuml;r Geschichte der Medizin
+            <option value='NS'>Sektion Psychoonkologie
+            <option value='OP'>Orthop&auml;dische Universit&auml;tsklinik Heidelberg
+            <option value='PA'>Pathologisches Institut
+            <option value='PL'>Physiologisches Institut
+            <option value='RM'>Institut f&uuml;r Rechtsmedizin
+            <option value='SK'>Medizinische Univ.-Klinik und Poliklinik: Klinische Sozialmedizin
+            <option value='SM'>Institut und Poliklinik f&uuml;r Arbeits- und Sozialmedizin
+            <option value='UA'>Universit&auml;tsaugenklinik
+            <option value='UC'>Chirurgische Univ.-Klinik / Univ.-Klinik f&uuml;r An&auml;sthesiologie
+            <option value='UF'>Universit&auml;tsfrauenklinik
+            <option value='UG'>Universit&auml;tsklinikum / Akademie f&uuml;r Gesundheitsberufe
+            <option value='UH'>Universit&auml;tshautklinik
+            <option value='UI'>Med. Univ.-Klinik und Poliklinik: Allg. Klin. u. Psychosomatische Med.
+            <option value='UK'>Universit&auml;tsklinik f&uuml;r Kinder- und Jugendmedizin
+            <option value='UM'>Medizinische Univ.-Klinik und Poliklinik (Ludolf-Krehl-Klinik)
+            <option value='UN'>Bereichsbibliothek f&uuml;r Neurologie und Neurochirurgie
+            <option value='UO'>Universit&auml;ts-Hals-Nasen-Ohrenklinik
+            <option value='US'>Radiologische Universit&auml;tsklinik
+            <option value='UW'>Bibliothek der Med. Fakult&auml;t Mannheim der Universit&auml;t Heidelberg
+            <option value='UZ'>Universit&auml;tsklinik f&uuml;r Mund-, Zahn- und Kieferkrankheiten
+            <option value='VI'>Hygiene-Institut: Virologie
+            <option value='Z94'>Zentrum f&uuml;r Psychosoziale Medizin
+          </optgroup>
+
+          <optgroup label='Philosophie, Geschichts- und Kulturwiss., Musik'> 
+            <option value='Z16'>Gesamtbestand: Philosophie, Geschichts- und Kulturwiss., Musik
+            <option value='Z92'>Bereichsbibliothek Geschichts- und Kulturwiss. (BGK)
+            <option value='Z91'>Bereichsbibliothek Altertumswissenschaften (BA)
+            <option value='Z93'>Bereichsbibliothek Ostasien (BO)
+            <option value='AC'>Institut f&uuml;r Klassische Arch&auml;ologie
+            <option value='AG'>Seminar f&uuml;r Alte Geschichte und Epigraphik
+            <option value='AY'>&Auml;gyptologisches Institut
+            <option value='KP'>Seminar f&uuml;r Klassische Philologie
+            <option value='FG'>Institut f&uuml;r Ur- und Fr&uuml;hgeschichte
+            <option value='GE'>Historisches Seminar
+            <option value='IR'>Institut f&uuml;r Religionswissenschaft
+            <option value='JA'>Japanologisches Seminar
+            <option value='KI'>Kunsthistorisches Institut: Iberische und Ibero-Amerikanische Kunst
+            <option value='KO'>Institut f&uuml;r Kunstgeschichte Ostasiens
+            <option value='KU'>Institut f&uuml;r Europ&auml;ische Kunstgeschichte
+            <option value='MU'>Musikwissenschaftliches Seminar
+            <option value='OG'>Seminar f&uuml;r Osteurop&auml;ische Geschichte
+            <option value='OR'>Seminar f&uuml;r Sprachen und Kulturen des Vorderen Orients
+            <option value='PG'>Institut f&uuml;r Fr&auml;nkisch-Pf&auml;lzische Geschichte und Landeskunde
+            <option value='PI'>Philosophisches Seminar
+            <option value='SC'>Historisches Seminar: Schurman-Bibl. f. Amerikanische Geschichte
+            <option value='SG'>Institut f&uuml;r Sozial- und Wirtschaftsgeschichte
+            <option value='SI'>Sinologisches Seminar
+            <option value='YU'>Seminar f&uuml;r Papyrologie
+          </optgroup>
+
+          <optgroup label='Neuphilologie'> 
+            <option value='Z18'>Gesamtbestand: Neuphilologie
+            <option value='DE'>Germanistisches Seminar
+            <option value='DI'>Sem. f. &Uuml;bersetzen u. Dolmetschen / Deutsch als Fremdsprachenphil.
+            <option value='EN'>Anglistisches Seminar
+            <option value='ML'>Seminar f&uuml;r Lateinische Philologie des Mittelalters und der Neuzeit
+            <option value='RO'>Romanisches Seminar
+            <option value='SL'>Slavisches Institut
+            <option value='SW'>Sprachwissenschaftliches Seminar
+          </optgroup>
+          <optgroup label='Bereichsbibl. Verhaltens- und Empirische Kulturwiss.'> 
+            <option value='Z20'>Gesamtbestand: Bereichsbibl. Verhaltens- und Empirische Kulturwiss.
+            <option value='EW'>Institut f&uuml;r Bildungswissenschaft
+            <option value='GO'>Institut f&uuml;r Gerontologie
+            <option value='PS'>Psychologisches Institut
+            <option value='SP'>Institut f&uuml;r Sport- und Sportwissenschaft
+          </optgroup>
+
+          <optgroup label='Bereichsbibliothek Mathematik und Informatik (BMI)'> 
+            <option value='Z21'>Gesamtbestand: Bereichsbibliothek Mathematik und Informatik (BMI)
+            <option value='MA'> Zentrale der BMI
+            <option value='WR'>Interdisziplin&auml;res Zentrum f&uuml;r Wissenschaftliches Rechnen
+          </optgroup>
+          <optgroup label='Bereichsbibliothek Physik und Astronomie (BPA)'> 
+            <option value='Z24'>Gesamtbestand: Bereichsbibliothek Physik und Astronomie (BPA)
+            <option value='AR'>Zentrum f&uuml;r Astronomie / Astronomisches Recheninstitut
+            <option value='EP'>Physikalisches Institut
+            <option value='HE'>Kirchhoff-Institut f&uuml;r Physik
+            <option value='PU'>Institut f&uuml;r Umweltphysik
+            <option value='PY'>Zentrale der BPA
+            <option value='TA'>Zentrum f&uuml;r Astronomie / Theoretische Astrophysik
+            <option value='LS'>Zentrum f&uuml;r Astronomie / Landessternwarte
+          </optgroup>
+
+          <optgroup label='Biowissenschaften'> 
+            <option value='Z25'>Gesamtbestand: Biowissenschaften
+            <option value='BO'>Heidelberger Institut für Pflanzenwiss. (HIP)
+            <option value='PB'>Inst. für Pharmazie und Molekulare Biotechnologie / Pharm. Biologie
+            <option value='PV'>Inst. f. Pharmazie und Molekul. Biotechnologie / Pharm.Technologie
+            <option value='PZ'>Inst. f. Pharmazie und Molekul. Biotechnologie / Pharm. Chem.
+            <option value='SB'>Heidelberger Institut für Pflanzenwiss. (HIP) / Pflanzensystematik
+            <option value='ZO'>Zoologisches Institut
+          </optgroup>
+          <optgroup label='Chemie und Geowissenschaften'> 
+            <option value='Z26'>Gesamtbestand: Chemie und Geowissenschaften
+            <option value='CH'>Bibliothek der Chemischen Institute
+            <option value='GG'>Geographisches Institut
+            <option value='GP'>Institut f&uuml;r Geowissenschaften
+          </optgroup>
+
+          <optgroup label='Außeruniversitäre Einrichtungen'> 
+            <option value='Z30'>Gesamtbestand: Außeruniversitäre Einrichtungen
+            <option value='AJ'>Zentralarchiv zur Erforschung der Gesch. der Juden in Deutschl.
+            <option value='ES'>Forschungsst&auml;tte der Evangelischen Studiengemeinschaft
+            <option value='FE'>Reichspr&auml;sident-Friedrich-Ebert-Gedenkst&auml;tte
+            <option value='HK'>Heidelberger Kunstverein
+            <option value='JD'>Hochschule f&uuml;r J&uuml;dische Studien
+            <option value='LI'>Litauisches Kulturinstitut
+            <option value='TR'>Siebenb&uuml;rgische Bibliothek (Transsylvanische Forschungsstelle)
+          </optgroup>
+
+        </select></td></tr>
+        <tr><th>Anzeige:</th>
+        <td><select id="aT" name="pagesize" class="eingabe">
+          <option value="10" selected>10
+          <option value="15">15
+          <option value="20">20
+          <option value="50">50
+        </select>&nbsp;<label for="aT">Treffer pro Seite</label></td>
+        <td><input id="verf" type="checkbox" name="vr" checked>&nbsp;<label for="verf">Verfügbarkeit anzeigen</label></td></tr>
+
+        </table>
+        </div>
+      </form>
+      <div class='suchhistbox'><div class='suchhist'><p><a href="link"><img src="/opacicon/plus.gif" alt="+"/>&nbsp;Suchhistorie</a>&nbsp;<span class='klein'>(2&nbsp;Recherchen)</span></p></div>
+        <div class='prech'>
+          <p><strong>Treffer aus externen Quellen:</strong></p>
+
+<div id='dk'>
+<script type="text/javascript">
+  document.write("<span class='meld2'><img src='/opacicon/activity.gif' alt='-'/>&nbsp;Parallelrecherche im DigiKat läuft noch...<\/span>");
+  sndReqDK("chomsky","GER");
+</script>
+</div>
+
+<div id ='base'>
+<script type="text/javascript">
+  document.write("<span class='meld2'><img src='/opacicon/activity.gif' alt='-'/>&nbsp;Parallelrecherche im BASE läuft noch...<\/span>");
+  sndReqBase("chomsky","GER");
+</script>
+</div>
+
+
+<div id ='cb'>
+<script type="text/javascript">
+  sndReqCB("chomsky","GER");
+</script>
+</div>
+        </div>
+
+      </div>
+      <div class='suchboxende'></div>
+
+        <div class="sucherg">360&nbsp;Treffer in HEIDI 
+&nbsp;&nbsp;&nbsp;<a href="link" title="RSS-Feed"><img src="/opacicon/rss.png" alt="RSS" title="RSS-Feed"/></a>&nbsp;<span class='rsshinw'>(RSS: Neue Titel zu dieser Suche)</span>&nbsp;&nbsp;<span class='printforms'><a href="link" target="_blank"><img src="/opacicon/druckansicht.gif" alt="Drucker"/>&nbsp;Druckansicht</a></span>
+<span class='printforms'><a href="link"><img src='/opacicon/disk.gif' alt="disk" title="zur Merkliste hinzufügen"/>&nbsp;Alle&nbsp;Treffer&nbsp;dieser&nbsp;Seite&nbsp;markieren</a></span>
+
+
+        </div>
+    </div>
+<script type="text/javascript">
+document.forms[0].query.focus();
+</script>
+
+
+<div class="header"><a href="link"><img src='/opacicon/b_first.gif' width='13' height='9' alt='|&lt;' title='Erste Trefferseite' /></a>&#160;&#160;<strong>[1-10]</strong>
+&#160;<a href="link">[11-20]</a>
+&#160;<a href="link">[21-30]</a>
+&#160;<a href="link">[31-40]</a>
+
+&#160;<a href="link">[41-50]</a>
+&#160;<a href="link">[51-60]</a>
+&#160;<a href="link">[61-70]</a>
+...&#160;<a href="link"><img src='/opacicon/b_last.gif' width='13' height='9' alt='&gt;|' title='Letzte Trefferseite' /></a>
+
+</div>
+<hr size=1 noshade>
+<table summary='Layouttabelle'><tr><td><table class='treffer' summary='Treffer'>
+ 
+
+<tr><td><a href="link" class="nr">1.</a></td>
+  <td><a href="link"><img src="/opacicon/disk.gif" alt="disk" title="zur Merkliste hinzufügen"></a>
+
+<br /><a href="link"><img src="/opacicon/notiz_grau_padlock.gif" title="F&uuml;r den Zugriff auf die Notizfunkion ist ein Login erforderlich."/></a>
+</td>
+<td>
+</td><td class='kurztit'>Smith, Neilson V.: <a href="link"><strong>Chomsky</strong></a> : ideas and ideals / Neil Smith. -Repr.<br />Cambridge [u.a.]: Cambridge University Press, <strong>2000</strong>. - IX, 268 S.<br /><i>Themen:</i>
+ <a href="link">Chomsky, Noam</a>
+
+
+<div class='verkn'>
+<a href="link">&rarr;&nbsp;Ähnliche Titel suchen</a>
+</div>
+<a href="link"><span id='k64228095'></span></a><div class='zinfo'><img src='/opacicon/toc.jpg' alt='' title='Inhaltsverzeichnis'>&nbsp;<a href='http://www.gbv.de/dms/bs/toc/313775605.pdf' target='_blank'>Inhaltsverzeichnis</a> </div>
+<span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft_id=http://katalog.ub.uni-heidelberg.de/titel/64228095&amp;rft.genre=book&amp;rft.btitle=Chomsky&amp;rft.date=2000&amp;rft.au=Smith%2C%20Neilson%20V.&amp;rft.isbn=0-521-47517-1&amp;rft.isbn=0-521-47570-8&amp;rft.place=Cambridge%20%5Bu.a.%5D&amp;rft.pub=Cambridge%20University%20Press" />
+</td><td class='kurzstat'>ausleihbar
+<div class='sigstatus'>Signatur: 2000 A 5460
+<br />(<a href="link">&rarr;&nbsp;weitere Exemplare</a>)
+</div>
+<br /><div><a href="link">&rarr;&nbsp;Andere Auflagen/Ausgaben</a></div>
+</td></tr>
+
+ 
+
+<tr><td><a href="link" class="nr">2.</a></td>
+  <td><a href="link"><img src="/opacicon/disk.gif" alt="disk" title="zur Merkliste hinzufügen"></a>
+<br /><a href="link"><img src="/opacicon/notiz_grau_padlock.gif" title="F&uuml;r den Zugriff auf die Notizfunkion ist ein Login erforderlich."/></a>
+</td>
+<td>
+</td><td class='kurztit'>McGilvray, James A.: <a href="link"><strong>Chomsky</strong></a> : language, mind, and politics / James McGilvray<br />Cambridge: Polity Press, <strong>1999</strong>. - XIII, 274 S.<br /><i>Themen:</i>
+
+ <a href="link">Chomsky, Noam</a> |  <a href="link">Sprachphilosophie</a>
+
+
+<div class='verkn'>
+<a href="link">&rarr;&nbsp;Ähnliche Titel suchen</a>
+</div>
+<a href="link"><span id='k65170330'></span></a>
+<span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft_id=http://katalog.ub.uni-heidelberg.de/titel/65170330&amp;rft.genre=book&amp;rft.btitle=Chomsky&amp;rft.date=1999&amp;rft.au=McGilvray%2C%20James%20A.&amp;rft.isbn=0-7456-1887-1&amp;rft.isbn=0-7456-1888-X&amp;rft.place=Cambridge&amp;rft.pub=Polity%20Press" />
+</td><td class='kurzstat'>ausleihbar
+<div class='sigstatus'>Signatur: 2002 A 8901
+<br />(<a href="link">&rarr;&nbsp;weitere Exemplare</a>)
+
+</div>
+</td></tr>
+ 
+
+<tr><td><a href="link" class="nr">3.</a></td>
+  <td><a href="link"><img src="/opacicon/disk.gif" alt="disk" title="zur Merkliste hinzufügen"></a>
+<br /><a href="link"><img src="/opacicon/notiz_grau_padlock.gif" title="F&uuml;r den Zugriff auf die Notizfunkion ist ein Login erforderlich."/></a>
+</td>
+<td>
+</td><td class='kurztit'>Smith, Neilson V.: <a href="link"><strong>Chomsky</strong></a> : ideas and ideals / Neil Smith. -2. ed.<br />Cambridge [u.a.]: Cambridge University Press, <strong>2004</strong>. - XIII, 282 S. : graph. Darst.<br /><i>Themen:</i>
+
+ <a href="link">Chomsky, Noam</a>
+
+
+<div class='verkn'>
+<a href="link">&rarr;&nbsp;Ähnliche Titel suchen</a>
+</div>
+<a href="link"><span id='k65845889'></span></a><div class='zinfo'><img src='/opacicon/toc.jpg' alt='' title='Inhaltsverzeichnis'>&nbsp;<a href='http://www.ulb.tu-darmstadt.de/tocs/122288297.pdf' target='_blank'>Inhaltsverzeichnis</a> </div>
+<span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft_id=http://katalog.ub.uni-heidelberg.de/titel/65845889&amp;rft.genre=book&amp;rft.btitle=Chomsky&amp;rft.date=2004&amp;rft.au=Smith%2C%20Neilson%20V.&amp;rft.isbn=0-521-83788-X&amp;rft.isbn=0-521-54688-5&amp;rft.place=Cambridge%20%5Bu.a.%5D&amp;rft.pub=Cambridge%20University%20Press" />
+</td><td class='kurzstat'>nicht ausleihbar (<a href="link">Institutsbestand</a>)
+<br /><div><a href="link">&rarr;&nbsp;Andere Auflagen/Ausgaben</a></div>
+
+</td></tr>
+ 
+
+<tr><td><a href="link" class="nr">4.</a></td>
+  <td><a href="link"><img src="/opacicon/disk.gif" alt="disk" title="zur Merkliste hinzufügen"></a>
+<br /><a href="link"><img src="/opacicon/notiz_grau_padlock.gif" title="F&uuml;r den Zugriff auf die Notizfunkion ist ein Login erforderlich."/></a>
+</td>
+<td>
+</td><td class='kurztit'>Lyons, John: <a href="link"><strong>Chomsky</strong></a> / John Lyons. -2. ed.<br />Hassocks: Harvester Pr., <strong>1977</strong>. - 184 S.<br /><i>Themen:</i>
+
+ <a href="link">Chomsky, Noam</a>
+
+
+<div class='verkn'>
+<a href="link">&rarr;&nbsp;Ähnliche Titel suchen</a>
+</div>
+<a href="link"><span id='k3002250'></span></a>
+<span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft_id=http://katalog.ub.uni-heidelberg.de/titel/3002250&amp;rft.genre=book&amp;rft.btitle=Chomsky&amp;rft.date=1977&amp;rft.au=Lyons%2C%20John&amp;rft.isbn=0-85527-690-8&amp;rft.isbn=978-0-85527-690-4&amp;rft.place=Hassocks&amp;rft.pub=Harvester%20Pr." />
+</td><td class='kurzstat'><a href='bestellung.cgi?sess=037a5861ad533e6877f0291b5f545be8&amp;ks=3002250&amp;format=html'>bestellbar</a>
+<div class='sigstatus'>Signatur: 78 B 455
+<br />(<a href="link">&rarr;&nbsp;weitere Exemplare</a>)
+
+</div>
+</td></tr>
+ 
+
+<tr><td><a href="link" class="nr">5.</a></td>
+  <td><a href="link"><img src="/opacicon/disk.gif" alt="disk" title="zur Merkliste hinzufügen"></a>
+<br /><a href="link"><img src="/opacicon/notiz_grau_padlock.gif" title="F&uuml;r den Zugriff auf die Notizfunkion ist ein Login erforderlich."/></a>
+</td>
+<td>
+</td><td class='kurztit'>Lyons, John: <a href="link"><strong>Chomsky</strong></a> / John Lyons. -3. impr.<br />London [u.a.]: Collins [u.a.], <strong>1970</strong>. - 120 S.<br /><i>Themen:</i>
+
+ <a href="link">Chomsky, Noam</a> |  <a href="link">Linguistik</a>
+
+
+<div class='verkn'>
+<a href="link">&rarr;&nbsp;Ähnliche Titel suchen</a>
+</div>
+<a href="link"><span id='k66219122'></span></a>
+<span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft_id=http://katalog.ub.uni-heidelberg.de/titel/66219122&amp;rft.genre=book&amp;rft.btitle=Chomsky&amp;rft.date=1970&amp;rft.au=Lyons%2C%20John&amp;rft.place=London%20%5Bu.a.%5D&amp;rft.pub=Collins%20%5Bu.a.%5D" />
+</td><td class='kurzstat'>nicht ausleihbar (<a href="link">Institutsbestand</a>)
+
+</td></tr>
+ 
+
+<tr><td><a href="link" class="nr">6.</a></td>
+  <td><a href="link"><img src="/opacicon/disk.gif" alt="disk" title="zur Merkliste hinzufügen"></a>
+<br /><a href="link"><img src="/opacicon/notiz_grau_padlock.gif" title="F&uuml;r den Zugriff auf die Notizfunkion ist ein Login erforderlich."/></a>
+</td>
+<td>
+</td><td class='kurztit'>Lyons, John: <a href="link"><strong>Chomsky</strong></a> / John Lyons. -1. publ.<br />London: Fontana [u.a.], <strong>1970</strong>. - 120 S.<br /><i>Themen:</i>
+
+ <a href="link">Chomsky, Noam</a> |  <a href="link">Linguistik</a>
+
+
+<div class='verkn'>
+<a href="link">&rarr;&nbsp;Ähnliche Titel suchen</a>
+</div>
+<a href="link"><span id='k66341433'></span></a>
+<span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft_id=http://katalog.ub.uni-heidelberg.de/titel/66341433&amp;rft.genre=book&amp;rft.btitle=Chomsky&amp;rft.date=1970&amp;rft.au=Lyons%2C%20John&amp;rft.place=London&amp;rft.pub=Fontana%20%5Bu.a.%5D" />
+</td><td class='kurzstat'>nicht ausleihbar (<a href="link">Institutsbestand</a>)
+
+</td></tr>
+ 
+
+<tr><td><a href="link" class="nr">7.</a></td>
+  <td><a href="link"><img src="/opacicon/disk.gif" alt="disk" title="zur Merkliste hinzufügen"></a>
+<br /><a href="link"><img src="/opacicon/notiz_grau_padlock.gif" title="F&uuml;r den Zugriff auf die Notizfunkion ist ein Login erforderlich."/></a>
+</td>
+<td>
+</td><td class='kurztit'><a href="link"><strong>¬The¬ Cambridge companion to Chomsky</strong></a> / ed. by James McGilvray. -1. publ.<br />New York, NY ; Cambridge [u.a.]: Cambridge Univ. Press, <strong>2005</strong>. - IX, 335 S.<br /><i>Themen:</i>
+
+ <a href="link">Chomsky, Noam</a>
+
+
+<div class='verkn'>
+<a href="link">&rarr;&nbsp;Ähnliche Titel suchen</a>
+</div>
+<a href="link"><span id='k65896104'></span></a><div class='zinfo'><img src='/opacicon/toc.jpg' alt='' title='Inhaltsverzeichnis'>&nbsp;<a href='http://swbplus.bsz-bw.de/bsz115933395inh.htm' target='_blank'>Inhaltsverzeichnis</a> </div>
+<div class='highlighttext'>
+<a href="link">[-]</a>&nbsp;<em>Treffer in Inhaltsverzeichnis, Abstract etc.:</em>
+<br /> <span class="highlight">Chomsky</span> on the human language 1 <span class="highlight">Chomsky</span>'s... <span class="highlight">Chomsky</span> and Halle's revolution in... AND CYNTHIA FISHER Part II <span class="highlight">Chomsky</span> on the... III <span class="highlight">Chomsky</span> on values and politics 11... WILSON 13 Noam <span class="highlight">Chomsky</span>: the struggle
+
+</div>
+<span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft_id=http://katalog.ub.uni-heidelberg.de/titel/65896104&amp;rft.genre=book&amp;rft.btitle=%C2%ACThe%C2%AC%20Cambridge%20companion%20to%20Chomsky&amp;rft.date=2005&amp;rft.isbn=0-521-78431-X&amp;rft.isbn=0-521-78013-6&amp;rft.place=New%20York%2C%20NY%20%3B%20Cambridge%20%5Bu.a.%5D&amp;rft.pub=Cambridge%20Univ.%20Press" />
+</td><td class='kurzstat'>ausleihbar
+<div class='sigstatus'>Signatur: 2005 A 2153
+<br />(<a href="link">&rarr;&nbsp;weitere Exemplare</a>)
+</div>
+</td></tr>
+ 
+
+<tr><td><a href="link" class="nr">8.</a></td>
+  <td><a href="link"><img src="/opacicon/disk.gif" alt="disk" title="zur Merkliste hinzufügen"></a>
+<br /><a href="link"><img src="/opacicon/notiz_grau_padlock.gif" title="F&uuml;r den Zugriff auf die Notizfunkion ist ein Login erforderlich."/></a>
+</td>
+<td>
+
+</td><td class='kurztit'>Chomsky, Noam: <a href="link"><strong>¬Die¬ Verantwortlichkeit der Intellektuellen</strong></a> : zentrale Schriften zur Politik / Noam Chomsky. Hrsg. von Anthony Arnove. Aus dem Engl. von Kollektiv Druck-reif<br />München: Kunstmann, <strong>2008</strong>. - 462 S.<br /><i>Themen:</i>
+ <a href="link">Chomsky, Noam</a> |  <a href="link">USA</a> |  <a href="link">Gewalt</a> |  <a href="link">Internationale Politik</a> |  <a href="link">Politik</a> |  <a href="link">Politisches Denken</a>
+
+
+<div class='verkn'>
+<a href="link">&rarr;&nbsp;Ähnliche Titel suchen</a>
+</div>
+<a href="link"><span id='k66596370'></span></a><div class='zinfo'><img src='/opacicon/toc.jpg' alt='' title='Inhaltsverzeichnis'>&nbsp;<a href='http://bvbr.bib-bvb.de:8991/F?func=service&doc%5Flibrary=BVB01&doc%5Fnumber=016708977&line%5Fnumber=0001&func%5Fcode=DB%5FRECORDS&service%5Ftype=MEDIA' target='_blank'>Inhaltsverzeichnis</a> </div>
+<span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft_id=http://katalog.ub.uni-heidelberg.de/titel/66596370&amp;rft.genre=book&amp;rft.btitle=%C2%ACDie%C2%AC%20Verantwortlichkeit%20der%20Intellektuellen&amp;rft.date=2008&amp;rft.au=Chomsky%2C%20Noam&amp;rft.isbn=978-3-88897-527-1&amp;rft.place=M%C3%BCnchen&amp;rft.pub=Kunstmann" />
+</td><td class='kurzstat'><a href='bestellung.cgi?sess=037a5861ad533e6877f0291b5f545be8&amp;ks=66596370&amp;format=html'>entliehen (gesamte Vormerkungen: 0)</a>
+<div class='sigstatus'>Signatur: 2008 A 9090
+</div>
+</td></tr>
+ 
+
+<tr><td><a href="link" class="nr">9.</a></td>
+
+  <td><a href="link"><img src="/opacicon/disk.gif" alt="disk" title="zur Merkliste hinzufügen"></a>
+<br /><a href="link"><img src="/opacicon/notiz_grau_padlock.gif" title="F&uuml;r den Zugriff auf die Notizfunkion ist ein Login erforderlich."/></a>
+</td>
+<td>
+</td><td class='kurztit'>Lyons, John: <a href="link"><strong>Chomsky</strong></a> / John Lyons. -4. impr.<br />London: Fontana/Collins, <strong>1971</strong>. - 120 S.
+
+<div class='verkn'>
+<a href="link">&rarr;&nbsp;Ähnliche Titel suchen</a>
+</div>
+<a href="link"><span id='k61357536'></span></a>
+
+<span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft_id=http://katalog.ub.uni-heidelberg.de/titel/61357536&amp;rft.genre=book&amp;rft.btitle=Chomsky&amp;rft.date=1971&amp;rft.au=Lyons%2C%20John&amp;rft.place=London&amp;rft.pub=Fontana%2FCollins" />
+</td><td class='kurzstat'>nicht ausleihbar (<a href="link">Institutsbestand</a>)
+</td></tr>
+ 
+
+<tr><td><a href="link" class="nr">10.</a></td>
+  <td><a href="link"><img src="/opacicon/disk.gif" alt="disk" title="zur Merkliste hinzufügen"></a>
+<br /><a href="link"><img src="/opacicon/notiz_grau_padlock.gif" title="F&uuml;r den Zugriff auf die Notizfunkion ist ein Login erforderlich."/></a>
+</td>
+<td>
+</td><td class='kurztitlast'>Foucault, Michel: <a href="link"><strong>Absolute(ly) Macht und Gerechtigkeit</strong></a> / Michel Foucault ; Noam Chomsky ; Fons Elders. Aus d. Engl. von Jürgen Reuß. -Dt. Erstausg.<br />Freiburg: Orange Press, <strong>2008</strong>. - 61 S. : Ill.<br /><i>Themen:</i>
+
+ <a href="link">Chomsky, Noam</a> |  <a href="link">Foucault, Michel</a> |  <a href="link">Gerechtigkeit</a> |  <a href="link">Macht</a>
+
+
+<div class='verkn'>
+<a href="link">&rarr;&nbsp;Ähnliche Titel suchen</a>
+
+</div>
+<a href="link"><span id='k66509555'></span></a>
+<span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft_id=http://katalog.ub.uni-heidelberg.de/titel/66509555&amp;rft.genre=book&amp;rft.btitle=Absolute(ly)%20Macht%20und%20Gerechtigkeit&amp;rft.date=2008&amp;rft.au=Foucault%2C%20Michel&amp;rft.au=Chomsky%2C%20Noam&amp;rft.au=Elders%2C%20Fons&amp;rft.isbn=978-3-936086-37-9&amp;rft.place=Freiburg&amp;rft.pub=Orange%20Press" />
+</td><td class='kurzstatlast'><a href='bestellung.cgi?sess=037a5861ad533e6877f0291b5f545be8&amp;ks=66509555&amp;format=html'>bestellbar</a>
+<div class='sigstatus'>Signatur: WS/MS 4450 E37
+<br />(<a href="link">&rarr;&nbsp;weitere Exemplare</a>)
+</div>
+</td></tr>
+</td>
+<td>
+<div class='drilldown'>
+<p><strong>Treffer&nbsp;einschränken:</strong></p>
+
+<div id='dd'>
+<a href="link"><img src="/opacicon/plus.gif" alt="+"/> Jahr</a><br />
+<a href="link"><img src="/opacicon/plus.gif" alt="+"/> Einrichtung</a><br />
+<a href="link"><img src="/opacicon/plus.gif" alt="+"/> Sprache</a><br />
+<a href="link"><img src="/opacicon/plus.gif" alt="+"/> Medienart</a><br />
+<a href="link"><img src="/opacicon/plus.gif" alt="+"/> Schlagwörter</a><br />
+<a href="link"><img src="/opacicon/plus.gif" alt="+"/> Dokumenttyp</a><br />
+
+<a href="link"><img src="/opacicon/plus.gif" alt="+"/> Personen</a><br />
+</div>
+<script language="JavaScript1.2" type="text/javascript">
+  var xCookie = document.cookie.split("; ");
+  var dd = '';
+  for (var i=0; i < xCookie.length; i++){
+          var xCrumb = xCookie[i].split("=");
+          if (xCrumb[0] == 'dd') {dd = unescape(xCrumb[1]);}
+  }
+  if (dd != '') {
+    sndReqDD('chomsky',dd,'037a5861ad533e6877f0291b5f545be8','','','nurZS%3D0%26nurOnl%3D0%26sort%3D0%26pagesize%3D10','GER','');
+  }
+</script>
+</div></td>
+</tr></table>
+<hr size=1 noshade>
+<div class="header"><a href="link"><img src='/opacicon/b_first.gif' width='13' height='9' alt='|&lt;' title='Erste Trefferseite' /></a>&#160;&#160;<strong>[1-10]</strong>
+&#160;<a href="link">[11-20]</a>
+&#160;<a href="link">[21-30]</a>
+&#160;<a href="link">[31-40]</a>
+
+&#160;<a href="link">[41-50]</a>
+&#160;<a href="link">[51-60]</a>
+&#160;<a href="link">[61-70]</a>
+...&#160;<a href="link"><img src='/opacicon/b_last.gif' width='13' height='9' alt='&gt;|' title='Letzte Trefferseite' /></a>
+
+</div>
+<p>Bei Erscheinungsjahren bis 1977 prüfen Sie bitte auch die Bestände im <a href='http://www.ub.uni-heidelberg.de/helios/kataloge/digikat.html' target='_blank'><acronym title='Digitalisierter Alphabetischer Zettelkatalog'>DigiKat</acronym></a>.</p>
+<div class="fussabstand"></div>
+<div class="topVariabel"><a href="link"><img src="/nav4/grafik/layout/icon_top.gif" alt="zum Seitenanfang" height="13" width="39"></a></div>
+</div>
+
+<br />
+</div>
+<div id="footerBar"></div>
+<div id="footer">
+</div>
+<div class="copyright">&copy; Universit&auml;tsbibliothek Heidelberg<a href="link"><img src="/nav1/grafik/layout/icon_mailto.gif" width="12" height="8" hspace="10" alt="Mail"></a><a href="link">Impressum</a>&nbsp;&nbsp;&nbsp;<a href="link" target="_blank">Design</a></div>
+<br /><br />
+</div>
+</div>
+</body>
+</html>
+

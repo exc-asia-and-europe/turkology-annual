@@ -1,0 +1,17 @@
+@{% ifequal entry.collections.0.type 'conference' %}inproceedings{% else %}article{% endifequal %}{ {{ entry.authors.0.lastname|slugify }}{{entry.references.0.referenceParts.0.year }},
+  author = { {{ entry.authors|join:" and " }} },
+  title = { {{ entry.title }} },
+{% ifequal entry.collections.0.type 'conference' %}
+  booktitle = { {{ entry.collections.0.title }} },
+  year = { {{ entry.collections.0.date.startYear }} },
+  month = { {{ entry.collections.0.date.startMonth }} },
+  address = { {{ entry.collections.0.cities|join:", "  }} },
+{% endifequal %}
+{% if entry.references.0.title %}
+  journal = { {{ entry.references.0.title }} },
+  volume = { {{ entry.references.0.referenceParts.0.volume }} },
+  number = { {{ entry.references.0.referenceParts.0.issue }} },
+{% endif %}
+  year = { {{ entry.references.0.referenceParts.0.year }} },
+  pages = { {{ entry.references.0.referenceParts.0.pages.0.start }}--{{ entry.references.0.referenceParts.0.pages.0.end }} }
+}

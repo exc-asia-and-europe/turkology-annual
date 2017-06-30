@@ -1,0 +1,14 @@
+{%extends "base.html"%}
+{% load i18n%}
+
+{%block headline%}"Person" bearbeiten: #{{person.id}}{%endblock%}
+
+{%block content%}
+{{request.POST}}
+<form method="POST" action=".">
+{%csrf_token%}
+  {{ form.as_p }}
+  <input type=submit>
+</form>
+
+{%endblock%}

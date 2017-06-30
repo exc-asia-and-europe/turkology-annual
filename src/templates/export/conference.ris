@@ -1,0 +1,5 @@
+TY - CONF 
+T1 - {{ entry.title }}
+Y1 - {{ entry.date.startYear }}/{{ entry.date.startMonth }}/{{ entry.date.startDay }}
+Y2 - {{ entry.date.endYear }}/{{ entry.date.endMonth }}/{{ entry.date.endDay }}
+CY - {{ entry.cities|join:", " }}

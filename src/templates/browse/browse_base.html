@@ -1,0 +1,4 @@
+{% extends "hitlist_base.html" %}
+{% load i18n%}
+{% block subtitle %}{{ title|safe }} - {% endblock %}
+{%block number%}{{match.number}}{%endblock%}

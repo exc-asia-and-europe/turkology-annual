@@ -1,0 +1,73 @@
+{%extends "base.html"%}
+{%load i18n %}
+{%block headline%}Vorwort: Band 25{%endblock%}
+{%block content%}
+
+
+<p>TURKOLOGISCHER ANZEIGER</p>
+<p>(<i>TA</i> 25)</p>
+<p>TURKOLOGY ANNUAL</p>
+<p>Herausgegeben von / Edited by</p>
+<p>Gy&ouml;rgy Hazai - Barbara Kellner-Heinkele - Andreas Tietze</p>
+<p>Redaktion:</p>
+<p>Gy&ouml;rgy Hazai (B)</p>
+<p>Pál Fodor (D-DIX, DK-DKI)</p>
+<p>Miklós Fóti (A-AJ, X)</p>
+<p>Ingeborg Hauenschild (C-CJX)</p>
+<p>Barbara Kellner-Heinkele (DJA-DJX)</p>
+<p>Peter Zieme (N)</p>
+<p>Heidi Stein, Martin Strohmeier (allgemeine Redaktion)</p>
+<p>Es ist eine gro&szlig;e Freude, mit dieser Ausgabe den Kollegen und Benutzern in aller Welt den 25. Band des <i>Turkologischen Anzeigers</i> an die Hand geben zu k&ouml;nnen. In gut einem Vierteljahrhundert hat sich der <i>TA</i> als Arbeitsmittel der Forschung und Lehre bew&auml;hrt und soll auch in Zukunft in der praktischen Buchform erscheinen. Dennoch stellen die Herausgeber seit einiger Zeit &Uuml;berlegungen an, in welcher Weise die neuen Medien auch f&uuml;r den <i>Turkologischen Anzeiger</i> und seine Benutzer fruchtbar gemacht werden k&ouml;nnen. Sie laden Kollegen und Interessenten ein, ihnen ihre Vorschl&auml;ge und Ideen mitzuteilen. Damit sei ein Dialog &uuml;ber die weitere Entwicklung des <i>TA</i> angeregt.</p>
+<p>Seit seinen Anf&auml;ngen entstehen die B&auml;nde des <i>Turkologischen Anzeigers</i> fast ausschlie&szlig;lich in ehrenamtlicher Arbeit. Die uneigenn&uuml;tzig gew&auml;hrte, regelm&auml;&szlig;ige Sammelt&auml;tigkeit von Kollegen in zahlreichen L&auml;ndern sicherte den Grundstock des Materials eines jeden Bandes, w&auml;hrend die Organisation der F&uuml;lle von Angaben in den bew&auml;hrten H&auml;nden von Einzelpersonen und Teams lag, die sich &uuml;ber die Jahre neuen technischen Gegebenheiten anzupassen wu&szlig;ten. Dem freundlichen Entgegenkommen einzelner Kollegen war jeweils die Strukturierung der Sachkapitel zu verdanken. Um die Kl&auml;rung von bibliographischen Einzelproblemen, die &Uuml;bersetzungen und das Korrekturlesen haben sich wiederum zahlreiche Personen verdient gemacht. Der <i>Turkologische Anzeiger</i> konnte dank der Druckkostenzusch&uuml;sse mehrerer Institutionen zu einem vern&uuml;nftigen Preis angeboten werden. Allen, die sich an diesem Unternehmen in der einen oder anderen Weise beteiligt haben, sei aufs herzlichste gedankt. Insbesondere gilt unser Dank den folgenden Institutionen, die &uuml;ber viele Jahre durch bibliographisches Material, Zuwendungen und personelle Unterst&uuml;tzung den Turkologischen Anzeiger gef&ouml;rdert haben:</p>
+<p>Fonds zur F&ouml;rderung der Wissenschaftlichen Forschung (Wien)</p>
+<p>Bundesministerium f&uuml;r Wissenschaft und Forschung (Wien)</p>
+<p>Conseil International des Sciences Humaines et de la Philosophie/Union Internationale des Études Orientales et Asiatiques (Paris)</p>
+<p>OTKA (Országos Tudományos Kutatási Alapprogramok (Budapest)</p>
+<p>Ungarische Akademie der Wissenschaften (Budapest)</p>
+<p>Albanische Akademie der Wissenschaften (Tirana)</p>
+<p>Centre d'Information sur les Sources de l'Histoire Balkanique (Sofia)</p>
+<p>Institut f&uuml;r Orientalistik der Ru&szlig;l&auml;ndischen Akademie der Wissenschaften (Moskau)</p>
+<p>Institut f&uuml;r Orientalistik der Georgischen Akademie der Wissenschaften (Tbilisi)</p>
+<p>Mag ein <i>TA</i>-Band auch hier und da seine L&uuml;cken und Schw&auml;chen haben, es steckt immer sehr viel kollegiales Engagement und der Wunsch nach einem m&ouml;glichst verl&auml;&szlig;lichen Arbeitsinstrument darin.</p>
+<p>***</p>
+<p>Die in der Forschungsgruppe "Turkologie" der Ungarischen Akademie der Wissenschaften durchgef&uuml;hrte Redaktionsarbeit wurde auch f&uuml;r diesen Band von</p>
+<p>Pál Fodor und Miklós Fóti</p>
+<p>geleitet.</p>
+<p>Dem treuen Einsatz von Kollegen aus verschiedenen L&auml;ndern ist wieder eine gro&szlig;e Zahl von Angaben zu verdanken:</p>
+<p>&Auml;gypten: Michael Tuchscherer</p>
+<p>Albanien: Mahir Domi, Gazmend Shpuza</p>
+<p>Arabische Publikationen: Donald Cioeta</p>
+<p>Bosnien: Ekrem &#x010c;au&#x0161;evi&#x0107;</p>
+<p>Bulgarien: Stefka Angelova, Maria Georgieva, Rumjana Michneva</p>
+<p>Deutschsprachige L&auml;nder: Arife Ramovi&#x0107;, Heidi Stein, Richard Wittmann</p>
+<p>Frankreich: Alexandre Popovic, Frédéric Hitzel</p>
+<p>Georgien: Marija S. D&#x017e;ikija</p>
+<p>Griechenland: Eleni Gara, Iakovos J. Aktsoglou</p>
+<p>Gro&szlig;britannien: Kate Fleet, Vanessa Shepherd</p>
+<p>Israel: Jacob M. Landau</p>
+<p>Italien: Biancamaria Scarcia Amoretti</p>
+<p>Japan: Kayoko Hayashi</p>
+<p>Jugoslawien: Olga Zirojevi&#x0107;</p>
+<p>Kroatien: Nenad Moa&#x010d;anin</p>
+<p>Polen: Tadeusz Majda</p>
+<p>Rum&auml;nien: Cristina Fene&#x015f;an</p>
+<p>Ru&szlig;l&auml;ndische historische Publikationen: S. F. Ore&#x0161;kova, J. L. Pe&#x0161;kovskij</p>
+<p>Ru&szlig;l&auml;ndische sprachwissenschaftliche Publikationen zur Osmanistik: V. G. Guzev, D. M. Nasilov</p>
+<p>Skandinavische L&auml;nder: Bernt Brendemoen</p>
+<p>Slowakei: Vojtech Kop&#x010d;an</p>
+<p>T&uuml;rkei: Hatice Aynur, Mustafa S. Kaçalin, &#x0130;lber Ortayl&#x0131;, Mahmut &#x015e;akiro&#x011f;lu, Oktay &Ouml;zel, Muhittin Eren, Salahattin &Ouml;zt&uuml;rk</p>
+<p>Ukraine: Alexander Halenko, Victor Ostapchuk</p>
+<p>Ungarn: Géza Dávid, Ilona Dorogi, Pál Fodor, Miklós Fóti, Balázs Sudár, Andrea Zsiga-Kiss</p>
+<p>USA: Paul J. Magnarella, András Riedlmayer, Peter T. Suzuki</p>
+<p>Zypern: Eftihios Gavriel</p>
+<p>M&ouml;gen sie, aber auch andere Kollegen in aller Welt, auch in Zukunft durch ihr uneigenn&uuml;tziges Engagement zum Fortbestand des <i>TA</i> beitragen!</p>
+<p>Wie auch schon in fr&uuml;heren Jahren schuldet das Projekt Dr. Franz G&ouml;rner von der Staatsbibliothek zu Berlin, Abteilung Osteuropa,   Dank f&uuml;r fachm&auml;nnische Hilfe, ferner au&szlig;er der schon oben genannten Ungarischen Akademie der Wissenschaften, dem Institut f&uuml;r Orientalistik der Russischen Akademie der Wissenschaften in Moskau f&uuml;r die reibungslose Zusammenarbeit sowie der UNESCO in Paris f&uuml;r ihre finanzielle Unterst&uuml;tzung, die es uns erm&ouml;glicht, diese Bibliographie den Kollegen und Interessenten in aller Welt zu einem erschwinglichen Selbstkostenpreis zur Verf&uuml;gung zu stellen.</p>
+<p>Bei der gro&szlig;en Zerstreutheit der Publikationen ist es unausweichlich, da&szlig; nicht wenige neue Arbeiten der Redaktion entgehen. Daher ist es immer willkommen, wenn Fachkollegen freundlicherweise auf L&uuml;cken aufmerksam machen und Erg&auml;nzungen oder Korrekturen &uuml;bermitteln.</p>
+<p>Gy&ouml;rgy Hazai</p>
+<p>Barbara Kellner-Heinkele</p>
+<p>Andreas Tietze</p>
+
+
+
+
+{%endblock%}

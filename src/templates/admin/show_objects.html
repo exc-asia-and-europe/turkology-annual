@@ -1,0 +1,42 @@
+{%extends "base.html"%}
+{%load search_extras%}
+{%block headline%}{{class_name}}{%endblock%}
+{%block content%}
+<div id="navigation">
+{% if current_page.has_previous %}
+<a href="{% addurlparameter 'page' current_page.previous_page_number %}">[&lt;]</a>
+{% endif %}
+{% for range, num in page_ranges %}
+{% if num %}
+<a href="{% addurlparameter 'page' num %}">{{ range }}</a>
+{% else %}
+{{range}}
+{%endif%}
+{% endfor %}
+{% if current_page.has_next %}
+<a href="{% addurlparameter 'page' current_page.next_page_number %}">[&gt;]</a>
+{% endif %}
+</div>
+
+<table>
+<tr>
+{% for attr in attributes%}
+<th>{{attr}}</th>
+{%endfor%}
+</tr>
+
+
+
+{%for object in current_page.object_list%}
+<tr>
+  {%for attr in attributes %}
+<td>{% for key, val in object.dict.items %}
+{%ifequal key attr%}{{val}}{%endifequal%}
+{%endfor%}
+</td>
+{%endfor%}
+</tr>
+{%endfor%}
+
+{%endblock%}
+</table>

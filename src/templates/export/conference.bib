@@ -1,0 +1,6 @@
+@proceedings{ {{ entry.authors.0.lastname|slugify }}{{entry.year }},
+  title = { {{ entry.title }} },
+  year = { {{ entry.date.startYear }} },
+  month  = { {{ entry.date.startMonth }} },
+  address = { {{ entry.cities|join:", " }} }
+}

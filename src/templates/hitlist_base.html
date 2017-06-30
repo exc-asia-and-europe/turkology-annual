@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+{% load search_extras %}
+{% load i18n%}
+{% block meta %}<meta name="robots" content="noindex" />{% endblock %}
+{% block script %}
+
+<script lang="javascript" type="text/javascript">
+function toggleFacet(name){
+	facet = document.getElementById(name);
+	if (facet.style.display == ""){
+		facet.style.display = "block";
+	} else{
+		facet.style.display = "";
+	}
+};
+</script>
+{% block subscript %}
+<script type="text/javascript" src="{{ STATIC_URL }}scripts/hitlist.js"></script>
+{% endblock %}
+{% endblock %}
+{% block headline %}{{title|safe}}{%endblock%}
+{% block subtitle %}{{ title|safe }} - {% endblock %}
+
+{% block content %}
+
+{% block list-options %}
+<div id="list-options">
+<div id="hits-per-page">
+{% trans "Treffer pro Seite"%}:
+<select name="hitsperpage"  onchange="window.location='{%addurlparameter 'page' '1' 'hitsperpage' 'XXX'%}'.replace(/XXX/g, this.value)">
+{% for size in page_sizes%}
+<option value="{{size}}" {%ifequal hits_per_page size%} selected="selected"{%endifequal%}>{{size}}</option>
+{%endfor%}
+</select>
+</form>
+</div><!--hits-per-page-->
+
+<div id="sorting">
+{%trans "Sortierung"%}:
+{% for code, name in sort_fields %}
+{%ifequal code order_by%}
+
+{%if ascending%}
+ <a href="{% addurlparameter 'orderby' code 'page' '1' 'order' 'desc' %}" class="active">{{name}}&uarr;</a>
+{%else%}
+ <a href="{% addurlparameter 'orderby' code 'page' '1' 'order' 'asc' %}" class="active">{{name}}&darr;</a>
+{%endif%}
+{%else%}
+ <a href="{% addurlparameter 'orderby' code 'page' '1' 'order' 'asc' %}">{{name}}</a>
+{%endifequal%}
+</a>
+{%endfor%}
+</div><!--sorting-->
+</div><!--list-options-->
+{% endblock %}
+
+
+{% if total_matches == 0 %}
+{% block emptymessage %} 
+	{% trans "Die Suche ergab keine Treffer." %}
+{% endblock %}
+{%else%}
+
+
+{%block extra%}
+	<div class="categories">
+	{% for cat in categories %}
+	<div class="{% if not cat.active %}in{%endif%}active-tab">
+	<a href="{% addurlparameter 'category' cat.name 'page' 1%}">{{cat.repr|safe}}{%if cat.count%} ({{cat.count}}){%endif%}</a></div>
+	{%endfor%}
+	</div><!--categories-->
+{%endblock%}
+
+
+{% block pages-top %}
+	<div class="pages">
+	{%if preface%}<a href="{% url prefaces %}{{preface}}" class="preface">{% trans "Vorwort"%}</a>{%endif%}
+	{% if current_page.has_previous %}
+	<a href="{% addurlparameter 'page' current_page.previous_page_number %}">&lt;</a>&#160;
+	{% endif %}
+	{% for range, num in page_ranges %}
+	{% if num %}
+	<a href="{% addurlparameter 'page' num %}">{{ range }}</a>
+	{% else %}
+	<span class="current">{{range}}</span>
+	{%endif%}
+	&#160;
+	{% endfor %}
+	{% if current_page.has_next %}
+	<a href="{% addurlparameter 'page' current_page.next_page_number %}">&gt;</a>
+	{% endif %}
+	</div><!--pages-->
+{% endblock %}
+
+
+<!--<form method="GET" name="sort" action="{{request.path_info}}">
+<select name="orderby" onchange="document.forms.sort.submit();">
+{% for name, repr in sort_fields %}
+<option value="{{name}}">{{repr}}</option>
+{%endfor%}
+{% for key, val in request.GET.items %}
+{% ifnotequal key "orderby"%}
+<input type="hidden" name="{{key}}" value="{{val}}"/>
+{%endifnotequal%}
+{%endfor%}
+</select>
+</form>-->
+<div id="groups">
+<ul>
+{% for name, group in groups.items%}
+<li>{{name}}({{group.size}})</li>
+<ul>
+{% for g in group%}
+<li><a href="{% addurlparameter 'criterion3' name 'query3' g %}">{{g}}</a></li>
+{%endfor%}
+</ul>
+{%endfor%}
+</ul>
+</div>
+
+{% block list-column %}
+{% comment %}<div id="entry-options">
+Treffer einschr&auml;nken:
+<ul>
+{% for facet, pairs in facets.items%}
+<li><a href="javascript:toggleFacet('{{facet}}')">{{facet}}</a>
+<ul id="{{facet}}">
+{% for value, count in pairs%}
+<li><a href="{%addurlparameter 'filter_name' facet 'filter_value' value %}">{{value}} ({{count}})</a></li>
+{%endfor%}
+</ul></li>
+{%endfor%}
+</li>
+</div>
+{% endcomment %}
+{% endblock %}
+
+<div id="matches">
+{% for match in current_page.object_list %}
+<div class="entry" id="entry-{{match.id}}">
+<table>
+ <tr><td class="entry-nr"><a class="nr" href = "{% url show_entry match.id %}?sess={{search_key}}">{%block number%}{{forloop.counter0|add:current_page.start_index}}{%endblock%}</a></td>
+
+   <td class="entry-body">
+    <span class="title"><a href="{% url show_entry match.id %}?sess={{search_key}}" title="{{ match.title }}">{%if match.title%}{{match.title|safe|truncatewords:12}}{%else%}({{match.raw}}){%endif%}</a></span>
+
+
+    
+{%if match.author%}    <span class="author">
+      {{match.author|safe}}</span>
+{%endif%}
+    <span class="location-year">
+    {%if match.city%}{{match.city|safe}}{%endif%}{%if match.year and match.city%}, {%endif%}{%if match.year%}{{match.year|safe}}{%endif%}
+    <span class="ta-pos">
+      TA <a href="{% url home %}?query1={{match.volume}}&criterion1=volume">{{match.volume}}</a>, {{match.number|safe}}
+   </span>
+
+
+    {% if match.categoryStrings %}
+<span class="keywords">  
+    <span class="field-name">{% trans "Schlagworte"%}:</span> {{match.categoryStrings|join:" | "}}</span>
+    {% else %}
+	{% if match.categories %}
+<span class="keywords">  
+    <span class="field-name">{% trans "Schlagworte"%}:</span> {{match.categories|join:" | "}}</span>
+    {%endif%}
+    {%endif%}
+
+  </td>
+  <td class="options">
+{% block toggle-entry %}
+<a href="#" class="toggleEntry">
+<img src="{{ STATIC_URL }}images/{%if match.id in mylist%}checked{%else%}unchecked{%endif%}.png" class="checkbox" id="mylist-image-{{match.id}}" title="{% if match.id in mylist%}{%trans "Aus Merkliste entfernen" %}{%else%}{%trans "Zur Merkliste hinzuf&uuml;gen"%}{%endif%}"/>
+</a>
+{% endblock %}
+</td>
+ </tr>
+</table>
+</div>
+{% endfor %}
+</div><!--matches-->
+
+
+{% comment%}
+<table id="matches">
+{% if keywords|length_is:"0" %}
+{% for match in matches %}
+<tr>
+<td class="counter">{{ forloop.counter0|add:start_index }}.</td>
+<td><a href = "/show_entry/{{match.entry.id}}">{{match.content}}</a></td>
+<tr>
+{% endfor %}
+{% else %}
+{% for match in matches %}
+<tr>
+<td class="counter">{{ forloop.counter0|add:cur_page.start_index }}.</td>
+<td><a href = "/show_entry/{{match.entry.id}}">{{match.string}}<!-- |highlight:keywords--></a></td>
+<td>{{match.sphinx.weight}}</td>
+</tr>
+{% endfor %}
+{% endif %}
+</table>
+{%endcomment%}
+
+{% block pages-bottom %}
+	<div class="pages">
+	{% if current_page.has_previous %}
+	<a href="{% addurlparameter 'page' current_page.previous_page_number %}">&lt;</a>&#160;
+	{% endif %}
+	{% for range, num in page_ranges %}
+	{% if num %}
+	<a href="{% addurlparameter 'page' num %}">{{ range }}</a>
+	{% else %}
+	<span class="current">{{range}}</span>
+	{%endif%}
+	&#160;
+	{% endfor %}
+	{% if current_page.has_next %}
+	<a href="{% addurlparameter 'page' current_page.next_page_number %}">&gt;</a>
+	{% endif %}
+	</div><!--pages-->
+{% endblock %}
+
+{%endif%}
+{% endblock %}

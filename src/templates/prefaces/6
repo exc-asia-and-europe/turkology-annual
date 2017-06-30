@@ -1,0 +1,42 @@
+{%extends "base.html"%}
+{%load i18n %}
+{%block headline%}Vorwort: Band 6{%endblock%}
+{%block content%}
+
+
+<p>TURKOLOGISCHER ANZEIGER (<i>TA</i> 6)</p>
+<p>Wie wir schon im vorigen Band angek&uuml;ndigt haben, beginnen wir mit <i>TA</i> 6 den Rahmen unserer Bibliographie zu erweitern. Leider ist es uns nicht m&ouml;glich, mit einem Schlag von einem osmanistischen <i>TA</i> zu einem gesamtturkologischen &uuml;berzugehen. Als ersten Schritt in dieser Richtung f&uuml;gen wir dem bisherigen Aufbau (der unver&auml;ndert bleibt) ein Kapitel N f&uuml;r die nicht-osmanischen t&uuml;rkischen Sprachen und Literaturen hinzu. Zun&auml;chst werden in diesem Kapitel nur die nicht in der Sowjetunion erschienenen Ver&ouml;ffentlichungen (Druckjahr 1979) zur Sprache und Literatur der nicht-osmanischen (nicht-t&uuml;rkeit&uuml;rkischen) V&ouml;lker und St&auml;mme ber&uuml;cksichtigt. Bis zu einem gewissen Grade wirkt sich diese Erweiterung auch auf die Kapitel A (Allgemeines) und X (Sonstiges) aus. F&uuml;r das neue Kapitel N gilt das Druckjahr 1979 als das Anfangsdatum, w&auml;hrend f&uuml;r die anderen Kapitel weiterhin 1973 die zeitliche Abgrenzung des Rahmens bleibt.</p>
+<p>F&uuml;r die Nichtber&uuml;cksichtigung der sowjetischen Publikationen im Kapitel N waren praktische Erw&auml;gungen ausschlaggebend: der gewaltige Umfang des Angebotes und die Unm&ouml;glichkeit, es mit unseren gegenw&auml;rtigen Arbeitskr&auml;ften zu bew&auml;ltigen. Wir sind uns des schwerwiegenden Verlustes, den dieser Verzicht bedeutet, wohl bewu&szlig;t. Jedoch gibt es gerade f&uuml;r die Neuerscheinungen in der Sowjetunion ausgezeichnete und rasch erscheinende bibliographische Hilfsmittel, deren Vollst&auml;ndigkeit und Promptheit wir niemals &uuml;berbieten k&ouml;nnten. Vor allem sei hier auf die beiden monatlich erscheinenden Reihen <i>Jazykoznanie</i> (Sprachwissenschaft) und <i>Literaturovedenie</i> (Literaturwissenschaft) des <i>Bibliografi&#x010d;eskij Ukazatel'</i>, Abteilung <i>Novaja sovetskaja literatura po ob&#x0161;&#x010d;estvennym naukam</i>, herausgegeben von der Akademie der Wissenschaften der UdSSR, Moskau, Institut nau&#x010d;noj informacii po ob&#x0161;&#x010d;estvennym naukam, Moskau, verwiesen.</p>
+<p>&Auml;hnlich wie in fr&uuml;heren B&auml;nden wurden auch in <i>TA</i> 6 die Abschnitte A-AJ, DEB-DECA und DH-DHX von Georg Hazai, B-BX von Lars Johanson, C-CJG von Ernst A. Gruber, DJC-DJX in Vertretung von Barbara Kellner-Heinkele von Machiel Kiel und alles &uuml;brige von Edith Ambros ausgearbeitet. Die Bearbeitung des neuen Kapitels N hat István Vásáry &uuml;bernommen.</p>
+<p>F&uuml;r den Hauptteil der Materialsammlung ist wieder Markus K&ouml;hbach verantwortlich. Unser und aller Benutzer herzlicher Dank gilt den Mitarbeitern in vielen L&auml;ndern, die uns wertvolles Material zugesandt und die immer wieder auftauchenden Fragen in freundlicher Weise beantwortet haben:</p>
+<p>&Auml;gypten: Doris Behrens-Abouseif</p>
+<p>Albanien: Eqrem Çabej, Mahir Domi, Selami Pulaha</p>
+<p>Arabische L&auml;nder: Ronald Cioeta</p>
+<p>Armenische Publikationen: Kevork Bardakjian</p>
+<p>Bulgarien: Salih Baklad&#x017e;iev</p>
+<p>Deutschsprachige L&auml;nder: Wolfdieter Bihl, Karl Binswanger, Detlev Finke, Pia Hochhut, Barbara Kellner-Heinkele, Otmar Oehring</p>
+<p>England: Susan Skilliter</p>
+<p>Frankreich: Jean-Louis Bacqué-Grammont, Alexandre Popovic</p>
+<p>Iran: Mahdi Roschanzamir</p>
+<p>Israel: Abraham Haim, Jacob M. Landau</p>
+<p>Italien: Aldo Gallotta, Biancamaria Scarcia-Amoretti</p>
+<p>Japan: Masao Mori, Kunihiro Shidara</p>
+<p>Jugoslawien: Van&#x010d;o Bo&#x0161;kov, Olga Zirojevi&#x0107;</p>
+<p>Kanada: Daniel Boyd</p>
+<p>Niederlande: Dick Koopman</p>
+<p>Polen: Tadeusz Majda</p>
+<p>Rum&auml;nien: Cristina Fene&#x015f;an-Bulgaru</p>
+<p>Skandinavien: Bernt Brendemoen (Finnland und Norwegen), Lars Johanson (Schweden und D&auml;nemark)</p>
+<p>Tschechoslowakei: Vojtech Kop&#x010d;an</p>
+<p>T&uuml;rkei: Suraiya Faroqhi, &#x0130;lber Ortayl&#x0131;, Mahmut &#x015e;akiro&#x011f;lu, Gani Yener</p>
+<p>Ungarn: Valéria Csikai</p>
+<p>USA: Ronald C. Jennings, Paul J. Magnarella, Svat Soucek, Peter T. Suzuki</p>
+<p>Ferner m&ouml;chten wir unseren speziellen Dank Dr. Franz G&ouml;rner (Staatsbibliothek, Berlin) f&uuml;r seine sachkundige Hilfe bei der L&ouml;sung bibliographischer Probleme aussprechen, der Albanischen Akademie der Wissenschaften und dem Centre International d'Information sur les Sources de l'Histoire Balkanique an der Bulgarischen Akademie der Wissenschaften f&uuml;r die fruchtbare Zusammenarbeit und dem Bundesministerium f&uuml;r Wissenschaft und Forschung, Wien, sowie der Unesco f&uuml;r ihre finanzielle Unterst&uuml;tzung.</p>
+<p>Schlie&szlig;lich kann hier schon angek&uuml;ndigt werden, dass sich ein Kumulativband f&uuml;r die Serie <i>TA</i> 1-5 in Vorbereitung befindet.</p>
+<p>Georg Hazai</p>
+<p>Andreas Tietze</p>
+
+
+
+
+{%endblock%}

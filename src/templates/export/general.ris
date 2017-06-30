@@ -1,0 +1,11 @@
+TI  - {{entry.title|safe}}
+{%if entry.year%}PY  - {{entry.year|safe}}{%endif%}
+{%if entry.authors%}
+A1  - {{entry.authors|first|safe}}
+{%if entry.authors.1%}A2  - {{entry.authors.1|safe}}{%endif%}
+{%endif%}
+{%if entry.cities%}CY - {{entry.cities|first|safe}}{%endif%}
+{%block specific%}{%endblock%}
+
+ER  - 
+

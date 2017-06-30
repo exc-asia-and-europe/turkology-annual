@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n%}
+{%block headline%}{%endblock%}
+
+{% block content %}
+<table class="makro">
+<tr>
+    <th>TA Volume:</th>
+    <!--<td>TA-Band</td>-->
+    <td>{{entry.volume}}</td>
+  </tr>
+  <tr>
+    <th>Entry Number:</th>
+    <!--<td>Eintrag Nummer</td>-->
+    <td>{{entry.number}}</td>
+  </tr>
+</table>
+
+
+
+
+<table class="titelsatz">
+{% for key,val in attributes%}
+<tr><td>{{key}}</td><td><input type="text" value="{{val}}" /></tr>
+{%endfor%}
+</table>
+{%comment%}<p>{{entry_object}}</p>{%endcomment%}
+{% endblock %}

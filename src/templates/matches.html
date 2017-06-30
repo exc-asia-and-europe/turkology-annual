@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% load search_extras %}
+{% load i18n%}
+{% block script %}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/simpletree.css" />
+
+{% endblock %}
+{% block headline %}{{total_matches}} {% trans "Treffer f&uuml;r" %} "{{query}}":{%endblock%}
+
+{% block content %}
+{% if total_matches == 0 %}
+{% trans "Die Suche ergab keine Treffer." %}
+{%else%}
+<div class="header">
+<p class="pubtypes">{% for type, pretty_type, count in pubtypes %}
+<div class="{% if type != pubtype %}in{%endif%}active-tab"><a href="{% addurlparameter 'pubtype' type 'page' 1%}">{{pretty_type|safe}} ({{count}})</a></div>
+{%endfor%}
+</p>
+<div id="pages">
+{% if current_page.has_previous %}
+<a href="{% addurlparameter 'page' current_page.previous_page_number %}">[&lt;]</a>&#160;
+{% endif %}
+{% for range, num in page_ranges %}
+{% if num %}
+<a href="{% addurlparameter 'page' num %}">{{ range }}</a>
+{% else %}
+<strong>{{range}}</strong>
+{%endif%}
+&#160;
+{% endfor %}
+{% if current_page.has_next %}
+<a href="{% addurlparameter 'page' current_page.next_page_number %}">[&gt;]</a>
+{% endif %}
+</div>
+<!--<form method="GET" name="sort" action="{{request.path_info}}">
+<select name="orderby" onchange="document.forms.sort.submit();">
+{% for name, repr in sort_fields %}
+<option value="{{name}}">{{repr}}</option>
+{%endfor%}
+{% for key, val in request.GET.items %}
+{% ifnotequal key "orderby"%}
+<input type="hidden" name="{{key}}" value="{{val}}"/>
+{%endifnotequal%}
+{%endfor%}
+</select>
+</form>-->
+
+</div>
+<hr size=1 noshade>
+<table id="matches">
+{% for match in current_page.object_list %}
+<tr class="entry">
+ <td class="entry-nr"><a class="nr" href = "/show_entry/{{match.id}}">{{ forloop.counter0|add:current_page.start_index}}.</a></td>
+ <td class="entry-body">
+  <table>
+   <tr class="title">
+    <td  colspan="2"><a href = "/show_entry/{{match.id}}?search_result=true">{{match.title|safe}}</a></td></tr>
+    
+    <tr class="author">
+      <td colspan="2">{{match.author|safe}}</td>
+    </tr>
+    <tr class="ta-pos">
+      <td colspan="2">TA <a href="/?query1={{match.volume}}&criterion1=volume">{{match.volume}}</a>, {{match.number}}</td>
+    </tr>
+    
+    {% if match.category %}
+    <tr class="category">
+     <th width="20">{% trans "Schlagwort"%}:</th>
+     <td>{{match.category}}</td>
+    </tr>
+    {%endif%}
+    
+    <tr class="options">
+    <td colspan="2">
+     {% if not match.id in mylist %}
+     <a href="/mylist/add/{{match.id}}?back_link={{request.path_info}}?{{request.META.QUERY_STRING}}">{% trans "Zur Merkliste hinzuf&uuml;gen" %}</a>
+     {% else %}
+     <a href="/mylist/remove/{{match.id}}?back_link={{request.path_info}}?{{request.META.QUERY_STRING}}">{% trans "Aus der Merkliste entfernen" %}</a>
+     {%endif%}
+    </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+{% endfor %}
+</table>
+</td>
+<td>
+</tr>
+</table>
+
+
+{% comment%}
+<table id="matches">
+{% if keywords|length_is:"0" %}
+{% for match in matches %}
+<tr>
+<td class="counter">{{ forloop.counter0|add:start_index }}.</td>
+<td><a href = "/show_entry/{{match.entry.id}}">{{match.content}}</a></td>
+<tr>
+{% endfor %}
+{% else %}
+{% for match in matches %}
+<tr>
+<td class="counter">{{ forloop.counter0|add:cur_page.start_index }}.</td>
+<td><a href = "/show_entry/{{match.entry.id}}">{{match.string}}<!-- |highlight:keywords--></a></td>
+<td>{{match.sphinx.weight}}</td>
+</tr>
+{% endfor %}
+{% endif %}
+</table>
+{%endcomment%}
+<div id="navigation">
+{% if current_page.has_previous %}
+<a href="{% addurlparameter 'page' current_page.previous_page_number %}">[&lt;]</a>
+{% endif %}
+{% for range, num in page_ranges %}
+{% if num %}
+<a href="{% addurlparameter 'page' num %}">{{ range }}</a>
+{% else %}
+{{range}}
+{%endif%}
+{% endfor %}
+{% if current_page.has_next %}
+<a href="{% addurlparameter 'page' current_page.next_page_number %}">[&gt;]</a>
+{% endif %}
+</div>
+{%endif%}
+{% endblock %}

@@ -1,0 +1,68 @@
+from ta_online.search import models
+import sqlalchemy
+from django.http import HttpResponse, HttpResponseRedirect
+from django.core.paginator import Paginator
+from django.template import Context, loader, RequestContext
+from django.shortcuts import render_to_response, redirect
+from django.utils.translation import ugettext as _
+import gettext
+from django import forms
+import re
+from ta_online.settings import getSession, LANGUAGES, ROOT_DIRECTORY
+import time
+import os
+
+
+
+
+
+def createBibtex(entry):
+	type = entry.type
+
+	if type == "monograph":
+		templateFile = open(os.path.join(ROOT_DIRECTORY, "mylist/monograph.bib"))
+		template = templateFile.read()
+		templateFile.close()
+		return template%("%s-%s"%("-".join([a.lastname.lower() for a in entry.authors]),entry.year), " AND ".join([author.__unicode__() for author in entry.authors]), entry.title, "publisher", entry.year)	
+	elif type == "article":
+		templateFile = open(os.path.join(ROOT_DIRECTORY, "mylist/article.bib"))
+		template = templateFile.read()
+		templateFile.close()
+		return template%("-".join([a.lastname.lower() for a in entry.authors]), " AND ".join([author.__unicode__() for author in entry.authors]), entry.title, entry.references[0].title, "year")
+	else:
+		return ""
+
+def showMyList(request):
+	mylist = request.session.get('mylist', [])
+	mylist = getSession().query(models.Entry).filter(models.Entry.id.in_(mylist)).all()
+	t = loader.get_template('mylist.html')
+	c = RequestContext(request, {'entries':mylist, "LANGUAGES":LANGUAGES})
+	return HttpResponse(t.render(c))
+
+def addToMyList(request, entry_id):
+		entry_id = int(entry_id)
+		mylist = request.session.get('mylist', [])
+		if not entry_id in mylist:
+			mylist.append(entry_id)
+		request.session['mylist'] = mylist
+		return redirect(showMyList)
+
+def removeFromMyList(request, entry_id):
+	entry_id = int(entry_id)
+	mylist = request.session.get('mylist', [])
+	if entry_id in mylist:
+		mylist.remove(entry_id)
+	request.session['mylist'] = mylist
+	return redirect(showMyList)
+
+def clearMyList(request):
+	request.session['mylist'] = []
+	return redirect(showMyList)
+	
+def bibtexExport(request):
+	mylist = request.session.get('mylist', [])
+	mylist =getSession().query(models.Entry).filter(models.Entry.id.in_(mylist))
+	bibEntries = [createBibtex(entry) for entry in mylist]
+	response = HttpResponse("\n\n".join(bibEntries), mimetype='Application/X-BibTeX')
+	response['Content-Disposition'] = 'attachment; filename=bibliography_%s.bib'%request.session.session_key
+	return response

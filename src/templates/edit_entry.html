@@ -1,0 +1,253 @@
+{% extends "base.html" %}
+{% load i18n%}
+{%block headline%}Edit #{{entry.id}}{%endblock%}
+{%block script %}
+<script language="JavaScript">
+function addAuthor(){
+var tbl = document.getElementById('authors');
+  var lastRow = tbl.rows.length;
+  // if there's no header row in the table, then iteration = lastRow + 1
+  var iteration = lastRow;
+  var row = tbl.insertRow(lastRow);
+  
+  // number
+  var cellLeft = row.insertCell(0);
+  var textNode = document.createTextNode(iteration);
+  cellLeft.appendChild(textNode);
+  
+  // last name
+  var cellMiddle = row.insertCell(1);
+  var el = document.createElement('input');
+  el.type = 'text';
+  el.name = 'author' + iteration + '-lastname';
+  //el.id = 'txtRow' + iteration;
+  //el.size = 40;
+  cellMiddle.appendChild(el);
+
+  
+
+ // first names
+   var cellRight = row.insertCell(2);
+  var firstName = document.createElement('input');
+  firstName.type = 'text';
+  firstName.name = 'author' + iteration + '-firstname1';
+  //el.id = 'txtRow' + iteration;
+  //el.size = 40;
+  cellRight.appendChild(firstName);
+}
+
+function addCity(){
+var tbl = document.getElementById('cities');
+  var lastRow = tbl.rows.length;
+  // if there's no header row in the table, then iteration = lastRow + 1
+  var iteration = lastRow;
+  var row = tbl.insertRow(lastRow);
+  
+  // number
+  var cellLeft = row.insertCell(0);
+  var textNode = document.createTextNode(iteration);
+  cellLeft.appendChild(textNode);
+  
+  // last name
+  var cellMiddle = row.insertCell(1);
+  var el = document.createElement('input');
+  el.type = 'text';
+  el.name = 'city' + iteration ;
+  //el.id = 'txtRow' + iteration;
+  //el.size = 40;
+  cellMiddle.appendChild(el);
+
+}
+
+function toggleShow(){
+	var scanPage = document.getElementById('scanpage');
+	var scanPageButton = document.getElementById('scanPageButton');
+	if (scanPage.style.display == 'none'){
+		showScan();
+		scanPageButton.value = "Scan Ausblenden";
+	} else{
+		hideScan();
+		scanPageButton.value = "Scan Einblenden";
+	}
+}
+
+function showScan(){
+	var scanPage = document.getElementById('scanpage');
+	scanPage.style.display='';
+	var editTable = document.getElementById('edit-entry');
+	editTable.style.width = '';
+	var scan = document.getElementById('scan');
+	scan.style.width='';
+
+}
+
+function hideScan(){
+	var scanPage = document.getElementById('scanpage');
+	scanPage.style.display='none';
+	//scanPage.style.height='0';
+	var editTable = document.getElementById('edit-entry');
+	editTable.style.width = '100%';
+	var scan = document.getElementById('scan');
+	//scan.style.width='0';
+}
+
+</script>
+{%endblock%}
+
+{% block content %}
+
+
+<div id="scan">
+<input type="button" onclick="toggleShow()" value="Scan Ausblenden" id="scanPageButton"/>
+<div id ="scanpage">
+<a href="{{image_url}}">
+<img src="{{image_url}}" />
+</a>
+</div>
+
+</div>
+
+
+<form method="POST" action="{{request.path_info}}">
+{%csrf_token%}
+<table id="edit-entry">
+
+ <tr>
+    <th>ID:</th>
+    <td>{{entry.id}}</td>
+  </tr>
+  <tr>
+    <th>{% trans "Typ" %}:</th>
+    <td>{{entry.type}}</td>
+  </tr>
+  <tr>
+    <th>Band</th>
+    <td><input type="text" name="volume" value="{{entry.volume}}"/></td>
+  </tr>
+  <tr>
+    <th>Eintragsnr.</th>
+    <td><input type="text" name="number" value="{{entry.number}}"/></td>
+  </tr>
+  <tr>
+    <th>
+      {% blocktrans count entry.authors|length as count%}
+      Autor{% plural %}Autoren
+      {% endblocktrans %}
+    <a href="#" onclick="addAuthor()">Neuer Autor</a>
+    </th> 
+    <!--<td>Autor{{entry.authors|pluralize:"en"}}</td>-->
+    <td>
+    <table id="authors" class="edit-field"><tr><td>Nr.</td><td>Nachname</td><td>Vornamen</td></tr>
+    {% for author in entry.authors %}
+    <tr><td>{{forloop.counter}}</td>
+    <td><input type="text" name="author{{forloop.counter}}-lastname" value="{{author.lastname}}" /></td>
+    <td>
+    {% for firstname in author.firstnames %}
+    <input type="text" name="author{{forloop.parentloop.counter}}-firstname{{forloop.counter}}" value="{{firstname}}" />
+    {%endfor%}
+    <!--<input type="button" onclick="addFirstName({{forloop.counter}})" value="+"/> -->
+    </td></tr>
+    {%endfor%}
+    </table>
+
+   </td>
+  </tr>
+  <tr>
+    <th>{% trans "Titel"%}:</th>
+    <!--<td>Titel</td>-->
+    <td><textarea name="title">{{entry.title}}</textarea></td>
+  </tr>
+  <tr>
+    <th>{% trans "Ort"%}{{entry.cities|pluralize}}:
+    <a href="#" onclick="addCity()">Neuer Ort</a>
+</th>
+    <!--<td>Ort{{entry.cities|pluralize:"e"}}</td>-->
+    <td>
+    <table class="edit-field" id="cities"><tr><td>Nr.</td><td>Ort</td></tr>
+    {% for city in entry.cities %}
+    <tr><td>{{forloop.counter}}</td>
+    <td><input type="text" name="city{{forloop.counter}}" value="{{city.name}}" /></td>
+    </tr>
+    {%endfor%}
+    </table>
+  </td>
+  </tr>
+
+  <tr>
+    <th>{% trans "In"%}:</th>
+    <!--<td>In</td>-->
+    <td>{{entry.referenceString|safe}}</td>
+  </tr>
+<!--Konferenzen?-->
+  <tr>
+    <th>{% trans "Datum"%}:</th>
+    <!--<td>Datum</td>-->
+    <td>{{entry.date}}</td>
+  </tr>
+  <tr>
+    <th>{% trans "Jahr"%}:</th>
+    <!--<td>Jahr</td>-->
+    <td>
+    <table class="edit-field"><tr><td>Von</td><td>Bis</td></tr>
+    <tr><td><input type="text" name="year-start" value="{{entry.year.start}}" /></td>
+    <td><input type="text" name="year-end" value="{{entry.year.end}}" /></td></tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <th>{% trans "Seiten"%}:</th>
+    <!--<td>Seiten</td>-->
+    <td>{{entry.pages}}</td>
+  </tr>
+  <tr>
+    <th>{% trans "Kommentar"%}:</th>
+    <!--<td>Kommentar</td>-->
+    <td><textarea name="comment">{{entry.comment}}</textarea></td>
+  </tr>
+  <tr>
+    <th>Raw:</th>
+    <!--<td></td>-->
+    <td><textarea name="raw">{{entry.raw}}</textarea></td>
+  </tr>
+  <tr>
+    <th>{% trans "Schlagwort" %}{{entry.categories|pluralize}}:</th>
+   <!-- <td>Schlagw{{entry.categories|pluralize:"ort,&ouml;rter"}}</td>-->
+    <td><input type="text" name="category" value="{{entry.category.name}}" /></td></tr>
+  </tr>
+  <tr>
+    <th>{% trans "Rezension" %}{{entry.reviews|pluralize}}:</th>
+    <!--<td>Rezension{{entry.reviews|pluralize:"en"}}</td>-->
+    <td><a href="/show_review/{{entry.review.id}}">{{entry.review.reference}}</a></td>
+  </tr>
+  <tr>
+    <th>{% trans "Abstract" %}:</th>
+    <!--<td>Abstract</td>-->
+    <td>{{entry.abstract}}</td>
+  </tr>
+  <tr>
+    <th>{% trans "Herausgeber" %}:</th>
+    <!--<td>Abstract</td>-->
+    <td>{{entry.editors}}</td>
+  </tr>
+  <tr>
+    <th>Scan-Page</th>
+    <td><input type="text" name="scanPage" value="{{entry.scanPage}}"/></td>
+  </th>
+  <tr>
+    <th>Problem:</th>
+    <td><select name="problem">
+	<option name="true" value="true" {%if entry.problem%} selected="selected"{%endif%}>True</option>
+	<option name="false" value="false"{%if not entry.problem%} selected="selected"{%endif%}>False</option>
+	</select>
+	</td>
+  </tr>
+              
+<!--  <tr>
+    <td>RawID</td>
+    <td>{{entry.rawId.id}}</td>
+  </tr>-->
+</table>
+<input type="submit" value="Senden"/>
+</form>
+{%comment%}<p>{{entry_object}}</p>{%endcomment%}
+{% endblock %}

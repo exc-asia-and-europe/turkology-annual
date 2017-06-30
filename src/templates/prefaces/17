@@ -1,0 +1,43 @@
+{%extends "base.html"%}
+{%load i18n %}
+{%block headline%}Vorwort: Band 17{%endblock%}
+{%block content%}
+
+
+<p>TURKOLOGISCHER ANZEIGER (<i>TA</i> 17)</p>
+<p>Auch dieser Band setzt die Reihe der Turkologischen Anzeiger der letzten Jahre ohne wesentliche Ver&auml;nderungen fort. Wir bem&uuml;hen uns die Qualit&auml;t dieses Forschungsinstruments aufrechtzuerhalten, die Qualit&auml;t, die sich in erster Linie aus den Komponenten P&uuml;nktlichkeit, vollst&auml;ndige Erfassung und Zuverl&auml;ssigkeit zusammensetzt. Wir bitten unsere Ben&uuml;tzer Verst&auml;ndnis zu haben, wenn uns das nicht immer gelingt. Zugleich m&ouml;chten wir um Entschuldigung f&uuml;r die Versp&auml;tung dieses Bandes bitten, die vor allem aus der Umstellung auf Computertechnik entstand. Der Grund f&uuml;r die formalen &Auml;nderungen liegt auch in der neuen Technik. In <i>TA</i> 17 wurden die Abschnitte A von Anna Horváth, B und N von Georg Hazai, C von Ingeborg Hauenschild, D-DDIA, DH-DIX, DK und X von Andrea Zsiga-Kiss, DE-DGX und DJ von Ilona Dorogi ausgearbeitet. Einen gro&szlig;en Teil der Materialsammlung haben Andrea Zsiga-Kiss, Ilona Dorogi, Pál Fodor, Sehla Fahmi, Gábor Ágoston, Géza Dávid und Anna Horváth geleistet.</p>
+<p>Die Redaktionsarbeit und die technische Durchf&uuml;hrung wurden von</p>
+<p>Ilona Dorogi</p>
+<p>Sehla Fahmi</p>
+<p>Pál Fodor</p>
+<p>Andrea Zsiga-Kiss</p>
+<p>verrichtet, alle Mitarbeiter der Forschungsgruppe f&uuml;r Orientalistik der Ungarischen Akademie der Wissenschaften, die damit in ihren eigenen Arbeitsprojekten dem <i>TA</i> einen besonderen Platz einger&auml;umt hat. Daf&uuml;r gilt unser besonderer Dank. Weiteres Material f&uuml;r diesen Band wurde von unseren Mitarbeitern in verschiedenen L&auml;ndern geliefert:</p>
+<p>&Auml;gypten: Michael Tuchscherer</p>
+<p>Albanien: Mahir Domi, Selami Pulaha</p>
+<p>Arabische Publikationen: Donald Cioeta</p>
+<p>Bulgarien: Stepka Angelova</p>
+<p>Deutschsprachige L&auml;nder: Barbara Kellner-Heinkele, Christoph K. Neumann, Heidi Stein</p>
+<p>England: Ildikó Bellér-Hann</p>
+<p>Frankreich: Alexandre Popovic</p>
+<p>Griechenland und Zypern: Paul Hidiroglou</p>
+<p>Israel: Jacob M. Landau</p>
+<p>Italien: Aldo Callotta, Biancamaria Scarcia Amoretti</p>
+<p>Jugoslawien: Ekrem &#x010c;au&#x0161;evi&#x0107;, Olga Zirojevi&#x0107;, Nenad Moa&#x010d;anin, Pajo Avirovi&#x0107;</p>
+<p>Polen: Tadeusz Majda</p>
+<p>Rum&auml;nien: Cristina Fene&#x015f;an</p>
+<p>Russische historische Publikationen: S. F. Ore&#x0161;kova, Z. O&#x017e;erel'eva, N. Rozalieva</p>
+<p>Russische sprachwissenschaftliche Publikationen zur Osmanistik: V. G. Guzev, D. M. Nasilov</p>
+<p>Skandinavische L&auml;nder: Bernt Brendemoen</p>
+<p>Tschechoslowakei: Vojtech Kop&#x010d;an</p>
+<p>T&uuml;rkei: &#x0130;lber Ortayl&#x0131;, Mahmut &#x015e;akiro&#x011f;lu</p>
+<p>Ungarn: siehe die Mitarbeiter oben</p>
+<p>USA: Ronald Jennings, Paul J. Magnarella, Peter T. Suzuki, András Riedlmayer</p>
+<p>Wie auch schon in fr&uuml;heren Jahren schulden wir Franz G&ouml;rner von der Staatsbibliothek Berlin, Abteilung Osteuropa, Dank f&uuml;r fachm&auml;nnische Hilfe, ferner au&szlig;er der schon oben genannten Ungarischen Akademie der Wissenschaften, dem Centre d'Information sur les Sources d'Histoire Balkanique in Sofia, dem Institut f&uuml;r Orientalistik der Sowjetischen Akademie der Wissenschaften in Moskau f&uuml;r die reibungslose Zusammenarbeit, sowie - last but not least - dem Bundesministerium f&uuml;r Wissenschaft und Forschung in Wien und der UNESCO in Paris f&uuml;r ihre finanzielle Unterst&uuml;tzung, die es uns erm&ouml;glicht, diesen Forschungsbehelf den Kollegen und Interessenten in aller Welt zu einem erschwinglichen Selbstkostenpreis zur Verf&uuml;gung zu stellen.</p>
+<p>Wir erfuhren mit Schmerzen, da&szlig; unser Kollege und Freund, alter Korrespondent des <i>TA</i>, Selami Pulaha 1991 dahingeschieden ist. Wir m&ouml;chten an dieser Stelle von ihm Abschied nehmen und seiner Mitarbeit gedenken.</p>
+<p>Georg Hazai</p>
+<p>Andreas Tietze</p>
+
+
+
+
+{%endblock%}

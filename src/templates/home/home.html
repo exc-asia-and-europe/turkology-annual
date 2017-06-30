@@ -1,0 +1,26 @@
+{%extends "base.html"%}
+{% load i18n%}
+
+{%block headline%}{%trans "Willkommen"%}{%endblock%}
+
+{%block content%}
+{%blocktrans%}
+<h3>Turkologischer Anzeiger</h3>
+<p>Der „Turkologische Anzeiger/Turkology Annual“ (TA), begr&uuml;ndet von Andreas Tietze (&dagger;) und Gy&ouml;rgy Hazai, ist eine unverzichtbare systematische Bibliographie f&uuml;r die Turkologie und die Osmanistik. Fachleute aus aller Welt sind an seiner Zusammenstellung beteiligt, die von mehreren Institutionen, einschlie&szlig;lich der UNESCO, finanziell unterst&uuml;tzt wird. Die 26 vom Institut f&uuml;r Orientalistik der Universit&auml;t Wien herausgegebenen B&auml;nde liegen bislang nur in gedruckter Form vor.<br/><br/>
+Ziel unseres Projekts ist es, alle 26 B&auml;nde zu digitalisieren und die Eintr&auml;ge in einer Online-Datenbank mit neuen effizienten Suchoptionen bereitzustellen. Eine Bearbeitungsumgebung zur Vorbereitung der Folgeb&auml;nde soll ebenfalls zur Verf&uuml;gung gestellt werden.</p>
+	<div class="details"><h3>Das Problem</h3>
+<p>Der TA umfasst Eintr&auml;ge in vielen verschiedenen Sprachen, einschlie&szlig;lich Transkriptionen aus dem Arabischen und aus Sprachen mit kyrillischem Alphabet. Bereits einzelne Eintr&auml;ge k&ouml;nnen aus Abschnitten in verschiedenen Sprachen bestehen. Wir erwarteten, dass dies ein ernsthaftes Problem bei der Digitalisierung mit Hilfe der am KJC verf&uuml;gbaren Optical Character Recognition (OCR)-Software darstellen w&uuml;rde: Auch sehr gute OCR-Ergebnisse k&ouml;nnen noch keine akzeptable Grundlage f&uuml;r den Aufbau einer Datenbank liefern, denn Eintr&auml;ge mit Erkennungsfehlern lassen sich bei der Suche nicht zuverl&auml;ssig abfragen.
+<br/><br/>
+ Es stellte sich jedoch heraus, dass nach entsprechender Feinjustierung die OCR Ergebnisse von so guter Qualit&auml;t lieferte, dass die wenigen verbleibenden Fehler &uuml;berwiegend irrelevant f&uuml;r typische Suchanfragen waren. W&auml;hrend dies bedeutete, dass f&uuml;r unser Projekt der Aufwand der Entwicklung automatischer Software zur Korrektur der OCR-Ergebnisse nicht gerechtfertigt schien, stie&szlig;en wir auf andere Probleme: Die Syntaxanalyse der TA-Eintr&auml;ge erwies sich als weitaus schwieriger als erwartet, da die verschiedenen Eintrags-Typen und ihre Datenstrukturen oft nur implizit gekennzeichnet sind und sich einige von ihnen von Band zu Band &auml;ndern. Au&szlig;erdem musste die Syntaxanalyse (Parsing) mit Fehlern in der Struktur von Eintr&auml;gen zurechtkommen - Fehler, die menschliche Bearbeiter gemacht haben und die menschliche Leser kaum wahrnehmen w&uuml;rden, und dennoch Fehler, die ernsthafte Probleme f&uuml;r das Parsing darstellen k&ouml;nnen. Unsere Parsing-Software musste entsprechend auf die Daten zugeschnitten werden, um sowohl umfassend als auch robust zu sein.<br />&nbsp;
+</p>
+<h3>Partner</h3>
+<ul id="partners">
+<li><a href="http://orientalistik.univie.ac.at/home" class="external-link-new-window" >Institut f&uuml;r Orientalistik, Universit&auml;t Wien</li>
+<li><a href="http://www.nytud.hu/eng/index.html"  class="external-link-new-window" >Research Institute for  Linguistics, Ungarische Akademie der Wissenschaften, Budapest</a></li>
+<li><a href="http://www.cl.uni-heidelberg.de/"  class="external-link-new-window" >Institut f&uuml;r Computerlinguistik, Universit&auml;t Heidelberg</a></li>
+<li><a href="http://www.islamwissenschaft.uni-hd.de/" class="external-link-new-window" >Seminar f&uuml;r Sprachen und Kulturen des Vorderen Orients (Islamwissenschaft), Universit&auml;t Heidelberg</a></li>
+</ul>
+<h3>Wichtiger Hinweis:</h3>
+<p>Wir sind nicht beteiligt an der Redaktion des TA selbst. Bitte kontaktieren Sie f&uuml;r Anfragen&nbsp;die Herausgeber oder die Universit&auml;t Wien.</p></div>
+{%endblocktrans%}
+{%endblock%}

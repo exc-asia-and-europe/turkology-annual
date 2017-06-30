@@ -1,0 +1,10 @@
+{% extends "hitlist_base.html" %}
+{% load i18n%}
+{%block extra%}
+<ul id="small-tree">
+<li class="indent-1"><a href="{% url category_tree %}">({%trans "Alle Schlagworte" %})</a></li>
+{%for category in category_tree%}
+<li class="indent-{{forloop.counter|add:"1"}}{%if forloop.last%} current{%endif%}">{{category|safe}}</li>
+{%endfor%}
+</ul>
+{%endblock%}

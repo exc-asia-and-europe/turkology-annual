@@ -1,0 +1,38 @@
+{% extends "hitlist_base.html" %}
+{% load i18n%}
+{% block subscript %}
+<script type="text/javascript" src="{{ STATIC_URL }}scripts/mylist.js"></script>
+{% endblock %}
+{% block list-options %}{% endblock %}
+{% block pages-top %}{% endblock %}
+{% block pages-bottom %}{% endblock %}
+
+
+{% block number %}{% endblock %}
+{% block emptymessage %}
+{% trans "Keine Eintr&auml;ge vorhanden." %}
+{% endblock %}
+
+{% block extra %}
+<div id="mylist-options">
+<ul>
+<li>
+<img src="{{ STATIC_URL }}images/disk.png" class="icon"/>
+      {% trans "Liste exportieren" %}:
+	<a href="{% url mylist_export_list "bibtex"%}">BibTeX</a>
+	<span class="separator"> | </span>
+	<a href="{% url mylist_export_list "ris"%}">RIS</a>
+	</li>
+	{% comment %}<li><a href="#" id="delete-all"><img src="{{ STATIC_URL }}images/edit-delete-2.png"/>{% trans "Alle löschen" %}</a></li>
+	<li><a id="undo" class="inactive"><img src="{{ STATIC_URL }}images/edit-undo.png" class="icon" />{% trans "Löschen rückgängig machen" %}</a></li>{% endcomment %}
+
+</ul>
+</div>
+{% endblock %}
+
+{% block toggle-entry %}
+<a href="#" class="toggleEntry">
+<img src="{{ STATIC_URL }}images/remove.png" class="icon" id="mylist-image-{{match.id}}" title="{%trans "Aus Merkliste entfernen" %}"/>
+</a>
+{% endblock %}
+

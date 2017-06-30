@@ -1,0 +1,11 @@
+{%extends "base.html"%}
+{%block headline%}Query-Log{%endblock%}
+{%block content%}
+
+<table id="query_log">
+<tr><th>Query</th><th>Date</th><th>Session Key</th><th>IP Address</th></tr>
+{%for date, key, query, ip in queries %}
+<tr><td>{{query}}</td><td class="date">{{date}}</td><td class="session_key">{{key}}</td><td class="ip_address">{{ip}}</td></tr>
+{%endfor%}
+</table>
+{%endblock%}

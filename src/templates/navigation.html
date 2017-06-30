@@ -1,0 +1,35 @@
+{% load i18n %}
+{% load localeurl_tags %}
+
+<div id="languages">
+{% for lang in LANGUAGES %}
+    {% ifequal lang.0 LANGUAGE_CODE %}
+    {% else %}
+        <a href="{{ request.path|chlocale:lang.0 }}{% if request.META.QUERY_STRING %}?{{ request.META.QUERY_STRING }}{% endif %}">{{ lang.1 }}</a>
+
+    {% endifequal %}
+{% endfor %}
+
+</div><!--languages-->
+
+<ul id="nav" class="dropdown dropdown-horizontal">
+
+<li><a href="{% url home %}">{% trans "Start" %}</a></li>
+<li><a href="{% url advanced_search %}">{% trans "Suche" %}</a></li>
+<li class="dir">{% trans "Bl&auml;ttern" %}
+<ul>
+<li><a href="{% url browse_ta %}">{% trans "B&auml;nde" %}</a></li>
+<li><a href="{% url category_tree %}">{% trans "Schlagworte" %}</a></li>
+</ul>
+</li>
+{% comment %}
+<li><a href="{% url browse_journals %}">{% trans "Zeitschriften" %}</a></li>
+{% endcomment %}
+<li id="navi-mylist"> <a href="{% url mylist_show %}">{% trans "Merkliste" %}<span id="list_count">{% if request.session.mylist %} ({{request.session.mylist|length}}){% endif %}</span></a></li>
+
+<li><a href="{% url admin %}">{% trans "Login" %}</a></li>
+{% if request.user.is_authenticated %}
+<li> <a   href="{% url admin %}logout?next={% url home %}">{% trans "Logout" %}</a></li>
+{% endif %}
+</ul>
+

@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+{% block headline %}Administration{% endblock%}
+
+
+{% block content %}
+<h2>Allgemein</h2>
+<ul>
+<li><a href="/admin/query_log/">Query-Log</a></li>
+</ul>
+
+<h2>Objektkatalog</h2>
+<ul>
+<li><a href="/admin/show_objects/Category">Kategorien</a></li>
+<li><a href="/admin/show_objects/Bullet">Bullets</a></li>
+<li><a href="/admin/show_objects/ArticleRepetition">ArticleRepetitions</a></li>
+<li><a href="/admin/show_objects/LanguageString">LanguageStrings</a></li>
+</ul>
+{%comment%}<ul>
+  <!--<li><a href="/admin/check_database">Datenbank-Check</a> (Überprüft alle Einträge der Datenbank und markiert sie ggf. als fehlerhaft)</li>-->
+  <li><a href="/problems">Fehlerhafte Eintr&auml;ge</a>
+    <ul><li>Zeigt eine Liste von IDs aller Einträge, die als fehlerhaft markiert wurden.</li></ul>
+  </li>
+  <li><a href="/admin/build_index">Index erstellen</a>
+    <ul><li>Erstellt einen neuen Index</li></ul>
+  </li>
+</ul>
+{%endcomment%}
+{% endblock %}

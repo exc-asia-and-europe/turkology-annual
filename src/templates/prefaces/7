@@ -1,0 +1,41 @@
+{%extends "base.html"%}
+{%load i18n %}
+{%block headline%}Vorwort: Band 7{%endblock%}
+{%block content%}
+
+
+<p>TURKOLOGISCHER ANZEIGER (<i>TA</i> 7)</p>
+<p>Der diesj&auml;hrige Band setzt den Aufbau von <i>TA</i> 6 fort. Auch diesmal erfa&szlig;t das Kapitel <i>N</i> nur die au&szlig;ersowjetischen Publikationen zu den nicht-osmanischen T&uuml;rksprachen und ihren Literaturen. F&uuml;r die entsprechenden sowjetischen Publikationen verweisen wir wieder auf die beiden monatlich erscheinenden Reihen <i>Jazykoznanie</i> und <i>Literaturovedenie</i> des <i>Bibliografi&#x010d;eskij Ukazatel'</i>, Abteilung <i>Novaja sovetskaja literatura po ob&#x0161;&#x010d;estvennym naukam</i>, herausgegeben von der Akademie der Wissenschaften der UdSSR, Moskau, Institut nau&#x010d;noj informacii po ob&#x0161;&#x010d;estvennym naukam, Moskau.</p>
+<p>In <i>TA</i> 7 wurden die Abschnitte A-AJ, DEB-DECA und DH-DHX von Georg Hazai, B-BX von Lars Johanson, C-CJX von Ernst A. Gruber und Ingeborg Hauenschild, DA-DDIA von Edith Ambros, DE-DEAA, DED-DJB, DK-DKI und X von Markus K&ouml;hbach, DJC-DJX von Machiel Kiel und N-NF von István Vásáry ausgearbeitet.</p>
+<p>Wie in fr&uuml;heren B&auml;nden ist f&uuml;r den Hauptteil der Materialsammlung Markus K&ouml;hbach verantwortlich. Erg&auml;nzt wurde sein Material durch das von den freiwilligen Mitarbeitern aus vielen L&auml;ndern gelieferte, f&uuml;r das wir diesen im Namen aller Ben&uuml;tzer des <i>TA</i> den herzlichsten Dank aussprechen. Zu unserem tiefen Bedauern haben wir einen derselben, den wertvollen Wissenschaftler und Menschen Professor Eqrem Çabej in Tirana, im Sommer 1980 durch den Tod verloren.</p>
+<p>&Auml;gypten: Doris Behrens-Abouseif</p>
+<p>Albanien: Mahir Domi, Selami Pulaha</p>
+<p>Arabische L&auml;nder au&szlig;er &Auml;gypten: Donald Cioeta</p>
+<p>Armenische Publikationen: Kevork Bardakjian</p>
+<p>Bulgarien: Salih Baklad&#x017e;iev</p>
+<p>Deutschsprachige L&auml;nder: Wolfdieter Bihl, Pia Hochhut, Barbara Kellner-Heinkele, Otmar Oehring</p>
+<p>England: Susan Skilliter</p>
+<p>Frankreich: Jean-Louis Bacqué-Grammont, Alexandre Popovic</p>
+<p>Griechenland und Zypern: Paul Hidiroglou</p>
+<p>Israel: Abraham Haim, Jacob M. Landau</p>
+<p>Italien: Aldo Gallotta, Biancamaria Scarcia-Amoretti</p>
+<p>Japan: Masao Mori, Kunihiro Shidara</p>
+<p>Jugoslawien: Van&#x010d;o Bo&#x0161;kov, Olga Zirojevi&#x0107;</p>
+<p>Kanada: &Uuml;ner Turgay</p>
+<p>Niederlande: Dick Koopman</p>
+<p>Polen: Tadeusz Majda</p>
+<p>Rum&auml;nien: Cristina Fene&#x015f;an</p>
+<p>Skandinavien: Bernt Brendemoen</p>
+<p>Tschechoslowakei: Vojtech Kop&#x010d;an</p>
+<p>T&uuml;rkei: Suraiya Faroqhi, &#x0130;lber Ortayl&#x0131;, Mahmut &#x015e;akiro&#x011f;lu, Gani Yener</p>
+<p>Ungarn: Valéria Csikai</p>
+<p>USA: Ronald C.Jennings, Paul J. Magnarella, Svat Soucek, Peter T. Suzuki</p>
+<p>(Im vorigen Band war durch einen Irrtum die Erw&auml;hnung unseres Mitarbeiters in Griechenland, Dr. Paul Hidiroglou, vergessen worden, wof&uuml;r wir ihn um Verzeihung bitten.)</p>
+<p>Unser spezieller Dank gilt Dr. Franz G&ouml;rner (Staatsbibliothek, Berlin) f&uuml;r seine Hilfe bei der L&ouml;sung schwieriger bibliographischer Fragen, der Albanischen Akademie der Wissenschaften und dem Centre International d'Information sur les Sources de l'Histoire Balkanique an der Bulgarischen Akademie der Wissenschaften f&uuml;r die fruchtbare Zusammenarbeit, sowie dem Ministerium f&uuml;r Wissenschaft und Forschung und der UNESCO f&uuml;r ihre finanzielle Unterst&uuml;tzung.</p>
+<p>Georg Hazai</p>
+<p>Andreas Tietze</p>
+
+
+
+
+{%endblock%}

@@ -1,0 +1,10 @@
+/*Selects*/
+.NFSelect {height:21px; position:absolute; border:1px solid transparent;}
+.NFSelectLeft {float:left; width:3px; height:21px; background:url(/site_media/images/niceforms/select-left.png) no-repeat 0 0; vertical-align:middle;}
+.NFSelectRight {height:21px; width:auto; background:url(/site_media/images/niceforms/select-right.png) no-repeat 100% 0; cursor:pointer; font:12px/21px Arial, Helvetica, sans-serif; color:#fff; padding-left:3px; margin-left:3px;}
+.NFSelectTarget {position:absolute; background:none; margin-left:-13px; margin-top:18px; z-index:3; left:0; top:0; padding-bottom:13px;}
+.NFSelectOptions {position:relative; background:#707175; margin-left:16px; margin-top:0; list-style:none; padding:4px 0; color:#fff; font:11px/13px Arial, Helvetica, sans-serif; z-index:4; max-height:200px; overflow-y:auto; overflow-x:hidden; left:0; top:0;}
+.NFSelectOptions li {padding-bottom:1px;}
+.NFSelectOptions a {display:block; text-decoration:none; color:#fff; padding:2px 3px; background:none;}
+.NFSelectOptions a.NFOptionActive {background:#464646;}
+.NFSelectOptions a:hover {background:#333;}

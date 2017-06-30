@@ -1,0 +1,40 @@
+{%extends "base.html"%}
+{%load i18n %}
+{%block headline%}Vorwort: Band 9{%endblock%}
+{%block content%}
+
+
+<p>TURKOLOGISCHER ANZEIGER (<i>TA</i> 9)</p>
+<p>Im allgemeinen Aufbau schlie&szlig;t sich auch dieser Band der Anlage von <i>TA</i> 6 an. Das hei&szlig;t, das Kapitel N ist nach wie vor auf die au&szlig;er-sowjetischen Publikationen ab 1979 zu den nicht-osmanischen T&uuml;rksprachen und ihren Literaturen beschr&auml;nkt. Zu den entsprechenden sowjetischen Ver&ouml;ffentlichungen verweisen wir auf die einschl&auml;gigen sowjetischen Bibliographien (siehe Vorwort, <i>TA</i> 6 und <i>TA</i> 7). Diese Einschr&auml;nkung gilt aber nur f&uuml;r das Kapitel N.</p>
+<p>In <i>TA</i> 9 wurden die Abschnitte A-AJ, DEB-DECA und DH-DHX von Georg Hazai, B-BX von Lars Johanson, C-CJG von Ernst A. Gruber und Ingeborg Hauenschild, DA-DDIA von Edith Ambros, DEA-DEAA, DED-DGX, DI-DJB, DJX, DKA-DKJ und X von Markus K&ouml;hbach, DJA-DJGA von Barbara Kellner-Heinkele und N-NF von István Vásáry ausgearbeitet.</p>
+<p>Wie in den vorhergehenden B&auml;nden ist f&uuml;r den Hauptteil der Materialsammlung Markus K&ouml;hbach verantwortlich. Erg&auml;nzt wurde sein Material durch das von den Mitarbeitern in vielen L&auml;ndern gelieferte, f&uuml;r das wir ihnen im Namen aller Benutzer des <i>TA</i> unseren herzlichsten Dank aussprechen. Es ist uns eine besondere Freude, Frau Svetlana Filippovna Ore&#x0161;kova als neue Mitarbeiterin begr&uuml;&szlig;en zu k&ouml;nnen.</p>
+<p>&Auml;gypten: Doris Behrens-Abouseif</p>
+<p>Albanien: Mahir Domi, Selami Pulaha</p>
+<p>Arabische L&auml;nder (au&szlig;er &Auml;gypten): Donald Cioeta, Barbara Kellner-Heinkele</p>
+<p>Armenische Publikationen: Kevork Bardakjian</p>
+<p>Bulgarien: Salih Baklad&#x017e;iev</p>
+<p>Deutschsprachige L&auml;nder: Wolfdieter Bihl, Klaus Kreiser</p>
+<p>England: Susan Skilliter</p>
+<p>Frankreich: Alexandre Popovic</p>
+<p>Griechenland und Zypern: Paul Hidiroglou</p>
+<p>Israel: Abraham Haim, Jacob M. Landau</p>
+<p>Italien: Aldo Gallotta, Biancamaria Scarcia-Amoretti</p>
+<p>Jugoslawien: Van&#x010d;o Bo&#x0161;kov, Ekrem &#x010c;au&#x0161;kevi&#x0107;, Olga Zirojevi&#x0107;</p>
+<p>Kanada: A. &Uuml;ner Turgay</p>
+<p>Niederlande: Dick Koopman</p>
+<p>Polen: Tadeusz Majda</p>
+<p>Rum&auml;nien: Cristina Fene&#x015f;an</p>
+<p>Skandinavische L&auml;nder: Bernt Brendemoen</p>
+<p>Tschechoslovakei: Vojtech Kop&#x010d;an</p>
+<p>T&uuml;rkei: Suraiya Faroqhi, Hans-Peter Laqueur, Otmar Oehring, &#x0130;lber Ortayl&#x0131;, Gani Yener</p>
+<p>UdSSR: Svetlana Filippovna Ore&#x0161;kova</p>
+<p>Ungarn: Valéria Csikai</p>
+<p>USA: Ronald C. Jennings, Paul J. Magnarella, Peter T. Suzuki</p>
+<p>Unser besonderer Dank gilt Dr. Franz G&ouml;rner (Staatsbibliothek, Berlin) f&uuml;r seine unerm&uuml;dliche Hilfe bei der L&ouml;sung schwieriger bibliographischer Fragen, der Albanischen Akademie der Wissenschaften (Tirana) und dem Centre d'Information sur les Sources de l'Histoire Balkanique (Sofia) f&uuml;r die fruchtbare Zusammenarbeit, sowie dem Ministerium f&uuml;r Wissenschaft und Forschung (Wien) und der Unesco f&uuml;r ihre finanzielle Unterst&uuml;tzung. Auch den Kollegen, die den <i>TA</i> durch ihre Abonnements unterst&uuml;tzen und so zu seinem Weiterbestehen beitragen, sei hier der Dank ausgesprochen.</p>
+<p>Georg Hazai</p>
+<p>Andreas Tietze</p>
+
+
+
+
+{%endblock%}

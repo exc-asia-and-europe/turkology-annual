@@ -1,0 +1,40 @@
+{%extends "base.html"%}
+{%load i18n %}
+{%block headline%}Vorwort: Band 8{%endblock%}
+{%block content%}
+
+
+<p>TURKOLOGISCHER ANZEIGER (<i>TA</i> 8)</p>
+<p>Auch in diesem Band wird der Aufbau von <i>TA</i> 6 fortgesetzt. Neu hinzugekommen ist nur das Unterkapitel DIK. Gesundheitswesen. Das Kapitel N ist wiederum auf die au&szlig;er-sowjetischen Publikationen zu den nicht-osmanischen T&uuml;rksprachen und ihren Literaturen beschr&auml;nkt. F&uuml;r die entsprechenden sowjetischen Ver&ouml;ffentlichungen m&uuml;ssen wir den Leser wieder auf die einschl&auml;gigen sowjetischen Bibliographien verweisen (siehe Vorwort, <i>TA</i> 6 und <i>TA</i> 7).</p>
+<p>In <i>TA</i> 8 wurden die Abschnitte A-AJ, DEB-DECA und DH-DHX von Georg Hazai, B-BX von Lars Johanson, C-CJG von Ernst A. Gruber und Ingeborg Hauenschild, DA-DDFA und DEGB-DEI von Edith Ambros, DDG-DEAA, DED-DEGA, DF-DGX, DI-DJB, DJX-DKJ und X von Markus K&ouml;hbach, DJC-DJGA von Machiel Kiel und N-NF von István Vásáry ausgearbeitet.</p>
+<p>Wie in den vorhergehenden B&auml;nden ist f&uuml;r den Hauptteil der Materialsammlung Markus K&ouml;hbach verantwortlich. Erg&auml;nzt wurde sein Material durch das von den freiwilligen Mitarbeitern aus vielen L&auml;ndern gelieferte, f&uuml;r das wir diesen im Namen aller Benutzer des <i>TA</i> den herzlichsten Dank aussprechen.</p>
+<p>&Auml;gypten: Doris Behrens-Abouseif</p>
+<p>Albanien: Mahir Domi, Selami Pulaha</p>
+<p>Arabische L&auml;nder: Donald Cioeta, Barbara Kellner-Heinkele</p>
+<p>Armenische Publikationen: Kevork Bardakjian</p>
+<p>Bulgarien: Salih Baklad&#x017e;iev</p>
+<p>Deutschsprachige L&auml;nder: Wolfdieter Bihl, Klaus Kreiser</p>
+<p>England: Susan Skilliter</p>
+<p>Frankreich: Alexandre Popovic</p>
+<p>Griechenland und Zypern: Paul Hidiroglou</p>
+<p>Israel: Abraham Haim, Jacob M. Landau</p>
+<p>Italien: Aldo Gallotta, Biancamaria Scarcia-Amoretti</p>
+<p>Japan: Masao Mori, Kunihiro Shidara</p>
+<p>Jugoslavien: Van&#x010d;o Bo&#x0161;kov, Olga Zirojevi&#x0107;</p>
+<p>Kanada: &Uuml;ner Turgay</p>
+<p>Niederlande: Dick Koopman</p>
+<p>Polen: Tadeusz Majda</p>
+<p>Rum&auml;nien: Cristina Fene&#x015f;an</p>
+<p>Skandinavische L&auml;nder: Bernt Brendemoen</p>
+<p>Tschechoslowakei : Vojtech Kop&#x010d;an</p>
+<p>T&uuml;rkei: Suraiya Faroqhi, Hans-Peter Laqueur, Otmar Oehring, &#x0130;lber Ortayl&#x0131;, Gani Yener</p>
+<p>Ungarn: Valéria Csikai</p>
+<p>USA: Ronald C. Jennings, Paul J. Magnarella, Svat Soucek, Peter T. Suzuki</p>
+<p>Unser ganz besonderer Dank gilt Dr. Franz G&ouml;rner (Staatsbibliothek, Berlin) f&uuml;r seine stete Hilfe bei der L&ouml;sung schwieriger bibliographischer Fragen, der Albanischen Akademie der Wissenschaften und dem Centre International d'Information sur les Sources de l'Histoire Balkanique an der Bulgarischen Akademie der Wissenschaften f&uuml;r die fruchtbare Zusammenarbeit, sowie dem Ministerium f&uuml;r Wissenschaft und Forschung und der UNESCO f&uuml;r ihre finanzielle Unterst&uuml;tzung. Auch den Kollegen, die den <i>TA</i> durch ihre Abonnements unterst&uuml;tzen und so zu seinem Weiterbestehen beitragen, sei hier der Dank ausgesprochen.</p>
+<p>Georg Hazai</p>
+<p>Andreas Tietze</p>
+
+
+
+
+{%endblock%}

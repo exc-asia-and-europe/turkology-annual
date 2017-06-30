@@ -1,0 +1,10 @@
+{%extends "base.html"%}
+{%load i18n%}
+{%block headline%}{%trans "Vorworte"%}{%endblock%}
+{%block content%}
+<ul>
+{%for vol in volumes%}
+<li><a href="/prefaces/{{vol}}">{{vol}}</a></li>
+{%endfor%}
+</ul>
+{%endblock%}

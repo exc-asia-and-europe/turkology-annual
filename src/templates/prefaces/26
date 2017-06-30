@@ -1,0 +1,73 @@
+{%extends "base.html"%}
+{%load i18n %}
+{%block headline%}Vorwort: Band 26{%endblock%}
+{%block content%}
+
+
+<p>TURKOLOGISCHER ANZEIGER</p>
+<p>(<i>TA</i> 26)</p>
+<p>TURKOLOGY ANNUAL</p>
+<p>Herausgegeben von / Edited by</p>
+<p>Hatice Aynur - Pál Fodor - Gy&ouml;rgy Hazai</p>
+<p>Barbara Kellner-Heinkele - Oktay &Ouml;zel</p>
+<p>Redaktion:</p>
+<p>Gy&ouml;rgy Hazai (B)</p>
+<p>Pál Fodor, Andrea Zsiga-Kiss (D-DIX, DK-DKI, X)</p>
+<p>Miklós Fóti (A-AJ)</p>
+<p>Ingeborg Hauenschild (C-CJX)</p>
+<p>Barbara Kellner-Heinkele (DJA-DJX)</p>
+<p>Peter Zieme (N)</p>
+<p>Ákos Tasnádi (Index)</p>
+<p>Heidi Stein (allgemeine Redaktion)</p>
+<p>In den &uuml;ber 30 Jahren seiner Geschichte war ein jeder Band des Turkologischen Anzeigers durch die Hand von Andreas Tietze gegangen. In den ersten beiden Jahrzehnten hatte er selbst einen gro&szlig;en Teil des Bibliographierens, Systematisierens, &Uuml;bersetzens und der Druckvorbereitungen &uuml;bernommen und im Zusammenwirken mit Gy&ouml;rgy Hazai einen inneren Kreis von TA-Mitarbeitern und -Enthusiasten schaffen k&ouml;nnen, die teilweise heute noch beteiligt sind. Weitere Kollegen und Kolleginnen sind in der Folge zu dem Kreis dazugesto&szlig;en, und so konnte der Turkologische Anzeiger dank dieses kollegialen und ehrenamtlichen Einsatzes ein wertvolles Instrument der internationalen Osmanistik und T&uuml;rkeiwissenschaft bleiben. Auch bei den letzten Jahrg&auml;ngen gab es keine Phase in der Entstehung eines TA-Bandes, an der Andreas Tietze nicht beratend und ideengebend mitgewirkt h&auml;tte.</p>
+<p>Andreas Tietze starb am 22. Dezember 2003 in Wien. Der nun vorliegende Band des Turkologischen Anzeigers ist der erste, an dem er sich nicht mehr aktiv beteiligen konnte. Eine Neuerung in der Darstellung des bibliographischen Materials (Monographien und Aufs&auml;tze), die Leserinnen und Leser des Bandes 26 schnell feststellen werden, hatte Andreas Tietze allerdings noch gutgehei&szlig;en. Es handelt sich bei dieser Neuerung um eine Reorganisation der Auflistung, n&auml;mlich um eine alphabetische Darstellung der Titel, wie sie in vielen Bibliographien anzutreffen ist. Sie ersetzt die bisherige hierarchische Struktur, die eine Auflistung ausgehend vom Allgemeineren hin zum Spezielleren anstrebte. Von dieser neuen alphabetischen Darbietung des Materials ausgenommen sind die Kapitel CEA, CFA, CGA, CHA, DEAA, DEF, DGAA und DJFA, bei denen wie bisher die alphabetische Abfolge der Personennamen, bzw. der Ortsnamen ma&szlig;geblich ist. Die neue Anordnung des Materials wird, wie wir hoffen, auch die Zustimmung der TA-Benutzer finden. Sie hat den Vorteil, da&szlig; manche Arbeitsschritte in der Vorbereitung des Manuskripts entfallen, und auf diese Weise, so hoffen wir, der Turkologische Anzeiger wieder eine aktuellere Berichterstattung erreichen wird. Die systematische Erfassung der Titel, die den Folgeband TA 27 bilden sollen, reicht zur Zeit der Drucklegung des TA 26 bis zum Ende des Jahres 2004. In der Hoffnung, da&szlig; die nicht unerheblichen finanziellen Probleme, die sich f&uuml;r TA 27 erheben, gel&ouml;st werden k&ouml;nnen, rechnen wir mit einem Erscheinen dieses Bandes in einem deutlich geringeren Zeitabstand als dies bei den letzten B&auml;nden der Fall war.</p>
+<p>Seit seinen Anf&auml;ngen entstehen die B&auml;nde des <i>Turkologischen Anzeigers</i> fast ausschlie&szlig;lich in ehrenamtlicher Arbeit. Die gro&szlig;z&uuml;gig gew&auml;hrte, regelm&auml;&szlig;ige Sammelt&auml;tigkeit von Kolleginnen und Kollegen in zahlreichen L&auml;ndern sicherte den Grundstock des Materials eines jeden Bandes, w&auml;hrend die Organisation der F&uuml;lle von Angaben in den bew&auml;hrten H&auml;nden von Einzelpersonen und Teams lag, die sich &uuml;ber die Jahre neuen technischen Gegebenheiten anzupassen wu&szlig;ten. Dem freundlichen Entgegenkommen einzelner Kollegen war jeweils die Strukturierung der Sachkapitel zu verdanken. Um die Kl&auml;rung von bibliographischen Einzelproblemen, die &Uuml;bersetzungen und das Korrekturlesen haben sich wiederum zahlreiche Personen verdient gemacht. Der <i>Turkologische Anzeiger</i> konnte dank der Druckkostenzusch&uuml;sse mehrerer Institutionen zu einem vern&uuml;nftigen Preis angeboten werden. Allen, die sich an diesem Unternehmen in der einen oder anderen Weise beteiligt haben, sei aufs herzlichste gedankt. Insbesondere gilt unser Dank den folgenden Institutionen, die &uuml;ber viele Jahre durch bibliographisches Material, Zuwendungen und personelle Unterst&uuml;tzung den Turkologischen Anzeiger gef&ouml;rdert haben:</p>
+<p>Conseil International des Sciences Humaines et de la Philosophie/Union Internationale des Études Orientales et Asiatiques (Paris)</p>
+<p>OTKA (Országos Tudományos Kutatási Alapprogramok/Ungarischer F&ouml;rderungsfonds der wissenschaftlichen Forschung (Budapest)</p>
+<p>Ungarische Akademie der Wissenschaften (Budapest)</p>
+<p>Albanische Akademie der Wissenschaften (Tirana)</p>
+<p>Institut f&uuml;r Orientalistik der Ru&szlig;l&auml;ndischen Akademie der Wissenschaften (Moskau)</p>
+<p>Institut f&uuml;r Orientalistik der Georgischen Akademie der Wissenschaften (Tbilisi)</p>
+<p>Mag ein <i>TA</i>-Band auch hier und da seine L&uuml;cken und Schw&auml;chen haben, es steckt immer sehr viel kollegiales Engagement und der Wunsch nach einem m&ouml;glichst verl&auml;&szlig;lichen Arbeitsinstrument darin.</p>
+<p>***</p>
+<p>Die in der Forschungsgruppe "Turkologie" der Ungarischen Akademie der Wissenschaften durchgef&uuml;hrte Redaktionsarbeit wurde auch f&uuml;r diesen Band von</p>
+<p>Miklós Fóti und Andrea Zsiga-Kiss</p>
+<p>geleitet.</p>
+<p>Dem treuen Einsatz von Kollegen aus verschiedenen L&auml;ndern ist wieder eine gro&szlig;e Zahl von Angaben zu verdanken:</p>
+<p>&Auml;gypten: Michael Tuchscherer</p>
+<p>Albanien: Etleva Domi, Gazmend Shpuza</p>
+<p>Bosnien: Ekrem &#x010c;au&#x0161;evi&#x0107;</p>
+<p>Bulgarien: Gergana Georgieva, Rositsa Gradeva, Valery Stojanov</p>
+<p>Deutschsprachige L&auml;nder: Mieste Riecke, Heidi Stein, Richard Wittmann</p>
+<p>Frankreich: Frédéric Hitzel</p>
+<p>Georgien: Marija S. D&#x017e;ikija</p>
+<p>Griechenland: Eleni Gara, Iakovos J. Aktsoglou</p>
+<p>Gro&szlig;britannien: Kate Fleet, Vanessa Shepherd</p>
+<p>Israel: Jacob M. Landau</p>
+<p>Italien: Biancamaria Scarcia Amoretti</p>
+<p>Japan: Kayoko Hayashi</p>
+<p>Jugoslawien: Olga Zirojevi&#x0107;</p>
+<p>Kroatien: Nenad Moa&#x010d;anin</p>
+<p>Polen: Tadeusz Majda</p>
+<p>Rum&auml;nien: Cristina Fene&#x015f;an</p>
+<p>Ru&szlig;l&auml;ndische historische Publikationen: S. F. Ore&#x0161;kova, J. L. Pe&#x0161;kovskij, I. V. Zajcev</p>
+<p>Ru&szlig;l&auml;ndische sprachwissenschaftliche Publikationen zur Osmanistik: V. G. Guzev, D. M. Nasilov</p>
+<p>Skandinavische L&auml;nder: Bernt Brendemoen</p>
+<p>T&uuml;rkei: Hatice Aynur, Mustafa S. Kaçalin, Oktay &Ouml;zel, Muhittin Eren, Salahattin &Ouml;zt&uuml;rk</p>
+<p>Ukraine: Alexander Halenko, Victor Ostapchuk</p>
+<p>Ungarn: Géza Dávid, Ilona Dorogi, Pál Fodor, Miklós Fóti, Balázs Sudár, Andrea Zsiga-Kiss</p>
+<p>USA: Paul J. Magnarella, András Riedlmayer, Peter T. Suzuki</p>
+<p>Zypern: Eftihios Gavriel</p>
+<p>M&ouml;gen sie, aber auch andere Kollegen in aller Welt, auch in Zukunft durch ihr uneigenn&uuml;tziges Engagement zum Fortbestand des <i>TA</i> beitragen!</p>
+<p>Wie auch schon in fr&uuml;heren Jahren schuldet das Projekt Dank der Ungarischen Akademie der Wissenschaften, dem Institut f&uuml;r Orientalistik der Russischen Akademie der Wissenschaften in Moskau f&uuml;r die reibungslose Zusammenarbeit sowie der UNESCO in Paris f&uuml;r ihre finanzielle Unterst&uuml;tzung, die es uns erm&ouml;glicht, diese Bibliographie den Kollegen und Interessenten in aller Welt zu einem erschwinglichen Selbstkostenpreis zur Verf&uuml;gung zu stellen.</p>
+<p>Bei der gro&szlig;en Zerstreutheit der Publikationen ist es unausweichlich, da&szlig; nicht wenige neue Arbeiten der Redaktion entgehen. Daher ist es immer willkommen, wenn Fachkollegen freundlicherweise auf L&uuml;cken aufmerksam machen und Erg&auml;nzungen oder Korrekturen &uuml;bermitteln.</p>
+<p>Hatice Aynur</p>
+<p>Pál Fodor</p>
+<p>Gy&ouml;rgy Hazai</p>
+<p>Barbara Kellner-Heinkele</p>
+<p>Oktay &Ouml;zel</p>
+
+
+
+
+{%endblock%}

@@ -1,0 +1,38 @@
+{%extends "base.html"%}
+{%load i18n %}
+{%block headline%}Vorwort: Band 4{%endblock%}
+{%block content%}
+
+
+<p>TURKOLOGISCHER ANZEIGER (<i>TA</i> 4)</p>
+<p>Mit dem Erscheinen seiner vierten Nummer kann der Turkologische Anzeiger schon als eine feste Einrichtung unseres Faches betrachtet werden. Fachzeitschriften in der BRD und DDR, in England, Frankreich, Israel, Jugoslawien, in den Niederlanden, in &Ouml;sterreich, der T&uuml;rkei, der UdSSR und den USA (s. <i>TA</i> 3.98, 4.102) haben ihn durch Ank&uuml;ndigungen und Besprechungen zur Kenntnis der Fachkollegen im engeren und weiteren Sinn gebracht. Seine N&uuml;tzlichkeit ist uns auch von Seiten vieler Kollegen brieflich und m&uuml;ndlich best&auml;tigt worden.</p>
+<p>Aus der Kritik und den Anregungen der Kollegen haben wir viel gelernt und bem&uuml;hen uns, die anf&auml;nglichen Fehler zu verbessern, die L&uuml;cken in der Materialerfassung auszuf&uuml;llen und das Material in m&ouml;glichst &uuml;bersichtlicher Weise darzubieten. Noch immer gibt es Nachtr&auml;ge zu den Jahren ab 1973. Den urspr&uuml;nglichen Plan, au&szlig;er der Osmanistik auch die gesamte Turkologie zu erfassen, haben wir nicht aufgegeben und hoffen, ihn ab <i>TA</i> 6 durchf&uuml;hren zu k&ouml;nnen. In dieser und jeder Hinsicht bitten wir die Kollegen um Nachsicht und Geduld. Es ist nicht leicht, alle Probleme auf einmal zu l&ouml;sen.</p>
+<p>Im vorliegenden <i>TA</i> 4 wurden die Abschnitte A-AJ, DEB-DECA und DH-DHX von Georg Hazai, B-BX von Lars Johanson, C-CJG von Horst Wilfrid Brands und Ernst A. Gruber, D-DEAA, DED-DGX, DI-DJB und DK-X von Edith Ambros und DJC-DJX von Barbara Kellner-Heinkele ausgearbeitet. Die gesamtredaktionelle Arbeit wurde wieder von Frau Dr. Edith Ambros besorgt.</p>
+<p>F&uuml;r die &Uuml;bersendung von Material und die Beantwortung zahlloser Fragen danken wir unseren eifrigen und liebensw&uuml;rdigen Kollegen rund um den Erdball:</p>
+<p>Albanien: Eqrem Çabej, Mahir Domi, Selami Pulaha</p>
+<p>Arabische L&auml;nder: Mohammed Hadi Chérif, Jon Mandaville</p>
+<p>Bulgarien: Salih Baklad&#x017e;iev, Vera Mutaf&#x010d;ieva</p>
+<p>Bundesrepublik Deutschland: Franz G&ouml;rner, Barbara Kellner-Heinkele, Hans Georg Majer</p>
+<p>England: Susan Skilliter</p>
+<p>Frankreich: Alexandre Popovic</p>
+<p>Griechenland und Zypern: Paul Hidiroglou</p>
+<p>Israel: Abraham Haim</p>
+<p>Italien: Carla Bonò, Bianca Maria Scarcia-Amoretti</p>
+<p>Japan: Masao Mori, Kunihiro Shidara</p>
+<p>Jugoslawien: Van&#x010d;o Bo&#x0161;kov</p>
+<p>Niederlande: Dick Koopman</p>
+<p>&Ouml;sterreich: Wolfdieter Bihl</p>
+<p>Polen: Tadeusz Majda</p>
+<p>Rum&auml;nien: Cristina Fene&#x015f;an-Bulgaru</p>
+<p>Skandinavische L&auml;nder: Lars Johanson</p>
+<p>T&uuml;rkei: Suraiya Faroqhi, &Ouml;mer K&uuml;rkç&uuml;o&#x011f;lu, Heath Lowry, &#x0130;lber Ortayl&#x0131;, Gani Yener</p>
+<p>Ungarn: Valéria Csikai</p>
+<p>USA: Ronald C. Jennings, Rudi Lindner, Paul J. Magnarella, Svat Soucek, Peter T. Suzuki</p>
+<p>Allen Mitarbeitern und Korrespondenten sei an dieser Stelle der herzlichste Dank ausgesprochen. Unser Dank gilt ferner der Albanischen Akademie der Wissenschaften und dem Balkanologischen Institut der Bulgarischen Akademie der Wissenschaften f&uuml;r die Erm&ouml;glichung der Zusammenarbeit sowie dem Fonds zur F&ouml;rderung der wissenschaftlichen Forschung in Wien f&uuml;r die materielle Unterst&uuml;tzung der Arbeit.</p>
+<p>Georg Hazai</p>
+<p>Andreas Tietze</p>
+
+
+
+
+{%endblock%}

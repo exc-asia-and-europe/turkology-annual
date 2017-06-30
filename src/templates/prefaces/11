@@ -1,0 +1,42 @@
+{%extends "base.html"%}
+{%load i18n %}
+{%block headline%}Vorwort: Band 11{%endblock%}
+{%block content%}
+
+
+<p>TURKOLOGISCHER ANZEIGER (<i>TA</i> 11)</p>
+<p>Auch dieser Band schlie&szlig;t sich im allgemeinen in seiner Anlage wieder den B&auml;nden 6-10 an. Der Abschnitt N ist auch hier wieder auf die au&szlig;er-sowjetischen Ver&ouml;ffentlichungen zu Sprache und Literatur der nicht-osmanischen T&uuml;rksprachen beschr&auml;nkt; f&uuml;r die sowjetischen Publikationen mu&szlig; auf die einschl&auml;gigen sowjetischen Bibliographien (siehe Vorwort, <i>TA</i> 6 oder <i>TA</i> 7) verwiesen werden. Das Startdatum f&uuml;r N ist 1979, w&auml;hrend es f&uuml;r die anderen Abschnitte 1973 ist.</p>
+<p>In <i>TA</i> 11 wurden die Abschnitte A-AJ, DEB-DECA und DH-DHX von Georg Hazai, B-BX von Lars Johanson, C-CJG von Ernst Gruber und Ingeborg Hauenschild, D-DDIA von Pál Fodor, DJC-DJGA von Barbara Kellner-Heinkele, N-NF von István Vásáry und der Rest von Andreas Tietze ausgearbeitet. Einen Teil des arabischen Materials behandelte Edith Ambros.</p>
+<p>Ein gro&szlig;er Teil der Materialsammlung geht auf Markus K&ouml;hbach zur&uuml;ck. Erg&auml;nzt wurde dieses Material durch das von den Mitarbeitern aus vielen L&auml;ndern gelieferte, f&uuml;r das wir ihnen auch diesmal wieder im Namen aller Leser den herzlichsten Dank aussprechen m&ouml;chten. Wir freuen uns auch wieder einige neue Mitarbeiter begr&uuml;&szlig;en zu k&ouml;nnen: Frau Idikó Bellér Hann, die die Aufgaben von Susan Skilliter &uuml;bernommen hat, Herrn Pál Fodor als Nachfolger von Valéria Csikai, und Frau Stefka Angelova als Ersatz f&uuml;r Salih Baklad&#x017e;iev. Wir danken den Ausscheidenden f&uuml;r ihre langj&auml;hrige geduldige Mitarbeit.</p>
+<p>&Auml;gypten: Doris Behrens-Abouseif</p>
+<p>Albanien: Mahir Domi, Selami Pulaha</p>
+<p>Arabische L&auml;nder (au&szlig;er &Auml;gypten): Donald Cioeta</p>
+<p>Armenische Publikationen: Kevork Bardakjian</p>
+<p>Bulgarien: Stefka Angelova</p>
+<p>China: Wei Cuiyi</p>
+<p>Deutschsprachige L&auml;nder: Christoph Neumann</p>
+<p>England: Idikó Bellér Hann</p>
+<p>Frankreich: Alexandre Popovic</p>
+<p>Griechenland und Zypern: Paul Hidiroglou</p>
+<p>Israel: Jacob M. Landau</p>
+<p>Italien: Aldo Gallotta, Biancamaria Scarcia Amoretti</p>
+<p>Japan: Yuzo Nagata</p>
+<p>Jugoslawien: Ekrem &#x010c;au&#x0161;kevi&#x0107;, Olga Zirojevi&#x0107;</p>
+<p>Kanada: &Uuml;ner Turgay</p>
+<p>Niederlande: Dick Koopman</p>
+<p>Polen: Tadeusz Majda</p>
+<p>Rum&auml;nien: Cristina Fene&#x015f;an</p>
+<p>Skandinavische L&auml;nder: Bernt Brendemoen</p>
+<p>Tschechoslowakei: Vojtech Kop&#x010d;an</p>
+<p>T&uuml;rkei: Suraiya Faroqhi, &#x0130;lber Ortayl&#x0131;, Gani Yener</p>
+<p>UdSSR: S. F. Ore&#x0161;kova, Z. O&#x017e;erel'eva, N. Rozalieva</p>
+<p>Ungarn: Pál Fodor</p>
+<p>USA: Ronald C. Jennings, Paul J. Magnarella, Peter T. Suzuki</p>
+<p>Stark betroffen wurde die Redaktion des <i>TA</i> durch den Abgang des erfahrenen Mitarbeiters Markus K&ouml;hbach, der jetzt anderweitig besch&auml;ftigt ist. Wir danken auch ihm f&uuml;r die durch viele Jahre geleistete Arbeit. Des weiteren schulden wir Dank Franz G&ouml;rner von der Staatsbibliothek Berlin f&uuml;r bibliographische Hinweise, der albanischen Akademie der Wissenschaften in Tirana, dem Centre d'Information sur les Sources de l'Histoire Balkanique in Sofia und dem Institut f&uuml;r Orientalistik der sowjetischen Akademie der Wissenschaften in Moskau f&uuml;r die fruchtbare Zusammenarbeit sowie dem Bundesministerium f&uuml;r Wissenschaft und Forschung, Wien, und der Unesco f&uuml;r ihre finanzielle Unterst&uuml;tzung.</p>
+<p>Georg Hazai</p>
+<p>Andreas Tietze</p>
+
+
+
+
+{%endblock%}

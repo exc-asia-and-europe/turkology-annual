@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{%block headline%}{% trans "Fehler melden"%}{%endblock%}
+
+{% block script %}
+<meta name="robots" content="noindex" />
+{% endblock %}
+
+{% block content %}
+<div id="scan">
+<div id ="scanpage">
+<a href="{{image_url}}">
+<img src="{{image_url}}" />
+</a>
+</div>
+</div>
+
+<p>Raw string: {{raw}}</p>
+<form action="." method="POST">
+{% csrf_token %}
+<table>
+{{form|safe}}
+</table>
+<input type="submit" value="Submit" />
+</form>
+
+{% endblock %}

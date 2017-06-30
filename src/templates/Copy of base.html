@@ -1,0 +1,69 @@
+{% load i18n %}
+<html>
+<head>
+<title>Turkologischer Anzeiger Online</title>
+<!--<script language="javascript" type="text/javascript" src="/site_media/scripts/niceforms.js"></script>-->
+<link rel="stylesheet" type="text/css" href="/site_media/css/vt.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="/site_media/css/body.css" media ="screen"/>
+<link rel="stylesheet" type="text/css" href="/site_media/css/style.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="/site_media/css/ubhduni.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="/site_media/css/print.css" media="print"/>
+<!--<link rel="stylesheet" type="text/css" href="/site_media/css/niceforms-default.css" media="screen"/>-->
+
+
+{%  block script %}
+{% endblock %}
+</head>
+
+
+<body>
+<div id="topBarInstitute2spalterVariabelUB"><a name="up" id="up"></a></div>
+<table summary="Layouttabelle" id="logotab"><tr><td id="logolinks"><img src="http://www.uni-heidelberg.de/imperia/md/images/historischesseminar/website/icons/exini_asia_europe.jpg"></td><td id="logomitte"><img src="/site_media/images/logo.gif" /></td><td id="logorechts"><img height="80px" src="http://idw-online.de/pages/de/institutionlogo1454"></td></tr></table>
+
+<div id="pageContainer2spalterVariabel">
+<div id="container">
+<div id="navi">
+  <div class="button"><a href="/">{% trans "Einfache Suche" %}</a></div>
+  <div class="button"><a href="/?method=adv">{% trans "Erweiterte Suche" %}</a></div>
+  <div class="button"><a href="/mylist">{% trans "Merkliste" %}</a></div>
+  <div class="button"><a href="/problems">Fehlerhafte Eintr&auml;ge</a></div>
+ <div class="button">
+   <form action="/i18n/setlang/" name="ChangeLanguage" method="post">
+{% csrf_token %}
+<input name="next" type="hidden" value="{{request.PATH_INFO}}?{{request.QUERY_STRING}}" />
+
+
+<select name="language" onChange="document.forms['ChangeLanguage'].submit()">
+<option selected>Select Language</option>
+{% for lang in LANGUAGES %}
+<option value="{{ lang.0 }}">{{ lang.1 }}</option>
+{% endfor %}
+</select>
+</form></div>
+</div>
+ 
+<div id="content2">
+
+
+<div class='nobut'>
+
+</div>
+
+<div id="main">
+<h2>{%block headline%}{% trans "Startseite" %}{%endblock%}</h2>
+
+{% block column %}
+
+{% endblock %}
+
+<div id="content">
+{% block content %}
+Willkommen beim Turkologischen Anzeiger!
+{% endblock %}
+<!--content--></div>
+
+
+<!--main--></div>
+<!--container--></div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load i18n%}
+{% load static %}
+
+{% block headline %}{% trans "Erweiterte Suche" %}{%endblock%}
+{% block subtitle %}{% trans "Erweiterte Suche" %} - {%endblock%}
+{% block content %}
+<div id="searchform">
+<form action="{% url home %}" method="get">
+<table>
+<tr>
+<td/>
+<td>
+	{{form.criterion1}}	
+        {{ form.query1 }}
+</td>
+</tr>
+<tr>
+<td>	{{form.conjunction1}} </td>
+<td>	{{form.criterion2}}
+        {{ form.query2 }}</td>
+</tr>
+<tr>
+<td>	{{form.conjunction2}}  </td>
+<td>	{{ form.criterion3}}
+        {{ form.query3 }}   </td>
+</tr>
+<tr>
+<td colspan="3">
+{%comment%}<p>{% trans "Treffer pro Seite" %}: {{form.hitsperpage}}</p>
+<p>{% trans "Sortierung" %}: {{form.orderby}}</p>{%endcomment%}
+<input type="submit" value="{% trans "Suchen" %}" id="submit" />
+</td>
+</tr>
+</table>
+
+
+
+</form>
+</div>
+{% endblock %}

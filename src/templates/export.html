@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{%block headline%}Report Error{%endblock%}
+
+{% block content %}
+<table>
+{{form.as_table}}
+</table>
+<p>Raw string: {{raw}}</p>
+{% endblock %}

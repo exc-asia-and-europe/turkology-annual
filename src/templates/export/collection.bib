@@ -1,0 +1,7 @@
+@book{ {{ entry.authors.0.lastname|slugify }}{{entry.year }},
+  editor = { {{ entry.authors|join:" and " }} },
+  editor = { {{ entry.editors|join:" and " }} },
+  title = { {{ entry.title }} },
+  year = { {{ entry.year }} },
+  address = { {{ entry.cities|join:", " }} }
+}

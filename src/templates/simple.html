@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n%}
+{%block headline%}{% trans "Einfache Suche" %}{%endblock%}
+{% block content %}
+<div id="searchform">
+  <div id="bla">
+<form action="/" method="get">
+<!--<input name="query" />
+<p>
+<input type="radio" name="criterion" value="author"  />Autor
+<input type="radio" name="criterion" value="title"  />Titel
+
+</p>
+
+-->
+<div class="fieldWrapper">
+{{ form.query.errors }}
+        {{ form.query }}
+    </div>
+
+<input type="submit" value="{% trans "Suchen"%}" />
+
+</form>
+</div>
+</div>
+{% endblock %}

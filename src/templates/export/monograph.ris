@@ -1,0 +1,7 @@
+TY - BOOK
+{% for author in entry.authors %}
+AU - {{ author }}
+{% endfor %}
+TI - {{ entry.title }}
+PY - {{ entry.year }}
+CY - {{ entry.cities|join:", " }}

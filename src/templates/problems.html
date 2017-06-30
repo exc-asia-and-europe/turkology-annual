@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{%block headline%}{{entries|length}} als fehlerhaft markierte Eintr&auml;ge{%endblock%}
+{% block content %}
+<ul>
+{% for entry in entries%}
+<li><a href = "/show_entry/{{entry.id}}">{{entry.id}}</a></li>
+{%endfor%}
+</ul>
+{% endblock %}

@@ -1,0 +1,73 @@
+*{
+	padding:0;
+	margin:0;
+}
+
+ul{
+	margin:10px;
+
+}
+
+li{
+	margin:5px;
+}
+
+
+h2{
+	margin-bottom:20px;
+}
+
+div#container{
+	width:100%;
+}
+
+div#header{
+	background-color:FFFF99;
+	border-bottom:1px solid black;
+	padding:20px 0 20px 20px;
+
+}
+
+div#content{
+	
+}
+
+div#column{
+	border: 1px solid black;
+	height:200px;
+	float:right;
+	padding:5px;
+	margin-left:20px;
+}
+
+div#main{
+	padding: 10px;
+
+}
+
+div.options{
+	text-align:right;
+	font-size: .8em;
+}
+
+span.highlight{
+	background-color:yellow;
+
+}
+
+table{
+	border 1px solid black;
+	border-collapse:collapse;
+}
+
+table#matches tr{
+	height:60px;
+	border-bottom:1px solid activeborder;
+	
+}
+
+table#matches tr:hover{
+	background-color:FFFF99;
+}
+
+

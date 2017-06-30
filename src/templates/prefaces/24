@@ -1,0 +1,58 @@
+{%extends "base.html"%}
+{%load i18n %}
+{%block headline%}Vorwort: Band 24{%endblock%}
+{%block content%}
+
+
+<p>TURKOLOGISCHER ANZEIGER</p>
+<p>(<i>TA</i> 24)</p>
+<p>TURKOLOGY ANNUAL</p>
+<p>Herausgegeben von / Edited by</p>
+<p>Gy&ouml;rgy Hazai - Barbara Kellner-Heinkele - Andreas Tietze</p>
+<p>Spartenredaktion:</p>
+<p>Armin Bassarak (B)</p>
+<p>Pál Fodor (D-DDIA, DI-DIX, DK-DKI)</p>
+<p>Miklós Fóti (A-AJ, X)</p>
+<p>Ingeborg Hauenschild (C-CJX)</p>
+<p>Barbara Kellner-Heinkele (DJA-DJX)</p>
+<p>Martin Strohmeier (DE-DHX)</p>
+<p>Peter Zieme (N)</p>
+<p>Ákos Tasnádi (Index)</p>
+<p>Auch dieser Band setzt die Reihe der Turkologischen Anzeiger der letzten Jahre ohne wesentliche Ver&auml;nderungen fort. Wir bem&uuml;hen uns, die Qualit&auml;t dieses Forschungsinstruments aufrechtzuerhalten, eine Qualit&auml;t, die sich in erster Linie aus den Komponenten P&uuml;nktlichkeit, vollst&auml;ndige Erfassung und Zuverl&auml;ssigkeit zusammensetzt. Wir bitten die Ben&uuml;tzer des TA um Verst&auml;ndnis, wenn uns das nicht immer gelingt.</p>
+<p>Die in der Forschungsgruppe "Turkologie" der Ungarischen Akademie der Wissenschaften durchgef&uuml;hrte Redaktionsarbeit wurde von</p>
+<p>Pál Fodor und Miklós Fóti</p>
+<p>geleitet.</p>
+<p>Kollegen aus verschiedenen L&auml;ndern stellten uns dankenswerterweise weiteres Material f&uuml;r diesen Band zur Verf&uuml;gung:</p>
+<p>&Auml;gypten: Michael Tuchscherer</p>
+<p>Albanien: Mahir Domi, Gazmend Shpuza</p>
+<p>Arabische Publikationen: Donald Cioeta</p>
+<p>Bosnien: Ekrem &#x010c;au&#x0161;evi&#x0107;</p>
+<p>Bulgarien: Stefka Angelova, Maria Georgieva, Rumjana Michneva</p>
+<p>Deutschsprachige L&auml;nder: Arife Ramovi&#x0107;, Heidi Stein</p>
+<p>England: Kate Fleet, Vanessa Shepherd</p>
+<p>Frankreich: Alexandre Popovic</p>
+<p>Georgien: Marija S. D&#x017e;ikija</p>
+<p>Griechenland: Eleni Gara, Iakovos I. Aktsoglou</p>
+<p>Israel: Jacob M. Landau</p>
+<p>Italien: Biancamaria Scarcia Amoretti</p>
+<p>Japan: Kayoko Hayashi</p>
+<p>Jugoslawien: Olga Zirojevi&#x0107;</p>
+<p>Kroatien: Nenad Moa&#x010d;anin</p>
+<p>Polen: Tadeusz Majda</p>
+<p>Rum&auml;nien: Cristina Fene&#x015f;an</p>
+<p>Russische historische Publikationen: S. F. Ore&#x0161;kova, J. L. Pe&#x0161;kovskij</p>
+<p>Russische sprachwissenschaftliche Publikationen zur Osmanistik: V. G. Guzev, D. M. Nasilov</p>
+<p>Skandinavische L&auml;nder: Bernt Brendemoen</p>
+<p>Slowakei: Vojtech Kop&#x010d;an</p>
+<p>T&uuml;rkei: Hatice Aynur, Mustafa S. Kaçalin, &#x0130;lber Ortayl&#x0131;, Mahmut &#x015e;akiro&#x011f;lu, Oktay &Ouml;zel, Muhittin Eren, Salahattin &Ouml;zt&uuml;rk</p>
+<p>Ukraine: Alexander Halenko, Victor Ostapchuk</p>
+<p>Ungarn: Géza Dávid, Ilona Dorogi, Pál Fodor, Miklós Fóti, Balázs Sudár</p>
+<p>USA: Paul J. Magnarella, András Riedlmayer, Peter T. Suzuki</p>
+<p>Zypern: Eftihios Gavriel</p>
+<p>Wie auch schon in fr&uuml;heren Jahren schuldet das Projekt Dr. Franz G&ouml;rner von der Staatsbibliothek zu Berlin, Abteilung Osteuropa, Dank f&uuml;r fachm&auml;nnische Hilfe, ferner, au&szlig;er der schon oben genannten Ungarischen Akademie der Wissenschaften, dem Institut f&uuml;r Orientalistik der Russischen Akademie der Wissenschaften in Moskau f&uuml;r die reibungslose Zusammenarbeit sowie - last but not least - der UNESCO in Paris f&uuml;r ihre finanzielle Unterst&uuml;tzung, die es uns erm&ouml;glicht, diese Bibliographie den Kollegen und Interessenten in aller Welt zu einem erschwinglichen Selbstkostenpreis zur Verf&uuml;gung zu stellen.</p>
+<p>Bei der gro&szlig;en Zerstreutheit der Publikationen ist es unausweichlich, da&szlig; nicht wenige neue Arbeiten unserem Auge entgehen. Daher sind wir immer dankbar, wenn Fachkollegen uns freundlicherweise auf solche L&uuml;cken aufmerksam machen und uns Erg&auml;nzungen bzw. Korrekturen zukommen lassen.</p>
+
+
+
+
+{%endblock%}

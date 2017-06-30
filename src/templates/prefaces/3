@@ -1,0 +1,41 @@
+{%extends "base.html"%}
+{%load i18n %}
+{%block headline%}Vorwort: Band 3{%endblock%}
+{%block content%}
+
+
+<p>TURKOLOGISCHER ANZEIGER (<i>TA</i> 3)</p>
+<p>Durch die freundliche Aufnahme des <i>TA</i> bei den Fachkollegen (s. die Besprechungen unter <i>TA</i> 3.98) angefeuert, setzen wir die Ver&ouml;ffentlichung im fr&uuml;heren Rahmen fort, k&ouml;nnen aber auch schon auf Fortschritte in der Planung des erweiterten <i>TA</i> hinweisen, der (wahrscheinlich ab <i>TA</i> 6) die gesamte Turkologie umfassen soll. Von den zahlreichen Anregungen, Verbesserungsvorschl&auml;gen und W&uuml;nschen, die uns nach dem Erscheinen des <i>TA</i> 1 von interessierten Kollegen zugegangen sind, konnten bisher nur wenige verwirklicht werden. Wir m&uuml;ssen diesbez&uuml;glich um Ihre Geduld bitten.</p>
+<p>Im vorliegenden <i>TA</i> 3 wurden die Abschnitte A und DEB-DECA von Georg Hazai, B von Lars Johanson, C von Horst Wilfrid Brands und Ernst A. Gruber, D-DEAA, DED-DJB und DK-X von Edith Ambros und DJC-DJX von Barbara Kellner-Heinkele ausgearbeitet. Frau Dr. Edith Ambros hat auch die gesamte redaktionelle Arbeit &uuml;bernommen.</p>
+<p>Als Neuerung in <i>TA</i> 3 wurden erstmals auch ungedruckte nordamerikanische Dissertationen aufgenommen, da diese f&uuml;r jedermann auf dem amerikanischen Kontinent (Bestellungen sind zu richten an: Xerox University Microfilms, Ann Arbor, Michigan 48106, USA) und in der &uuml;brigen Welt (Adresse: University Microfilms Limited, Tylers Green, High Wycombe, Buckinghamshire, England HP10 8HR) in Xerokopie erh&auml;ltlich sind. Bei der Bestellung ist die UM-Nummer anzugeben.</p>
+<p>Die neuerliche Erweiterung des Umfangs (um 30 % gegen&uuml;ber <i>TA</i> 2) verdanken wir der aktiven Mitarbeit der Kollegen, die uns das Material aus ihren L&auml;ndern zugesandt haben. F&uuml;r den vorliegenden Band wurde uns von folgenden Kollegen bibliographisches Material geliefert und Unklares brieflich erl&auml;utert:</p>
+<p>&Auml;gypten: Abdel Rahim Abdel Rahman</p>
+<p>Albanien: Eqrem Çabej, Mahir Domi, Selami Pulaha</p>
+<p>Bulgarien: Salih Baklad&#x017e;iev, Vera Mutaf&#x010d;ieva</p>
+<p>Deutschland: Klaus Kreiser, Hans Georg Majer</p>
+<p>England: Susan Skilliter</p>
+<p>Frankreich: Alexandre Popovic</p>
+<p>Griechenland und Zypern: Paul Hidiroglou</p>
+<p>Israel: Abraham Haim, Avigdor Levy</p>
+<p>Italien: Bianca Maria Scarcia-Amoretti</p>
+<p>Japan: Kunihiro Shidara</p>
+<p>Jugoslavien: Van&#x010d;o Bo&#x0161;kov</p>
+<p>Niederlande: Dick Koopman</p>
+<p>&Ouml;sterreich: Wolfdieter Bihl</p>
+<p>Polen: Tadeusz Majda</p>
+<p>Rum&auml;nien: Cristina Bulgaru</p>
+<p>Skandinavien: Lars Johanson</p>
+<p>Tschechoslovakei: Josef Braun</p>
+<p>Tunesien: Mohammed Hadi Chérif</p>
+<p>T&uuml;rkei: Suraiya Faroqhi, Heath Lowry, Gani Yener</p>
+<p>UdSSR: Fedor Dimitrievic A&#x0161;nin</p>
+<p>Ungarn: Valéria Csikai</p>
+<p>USA: Margaret S. Fearey (Linguistics), Rudi Lindner (Numismatics), Paul Magnarella (Anthropology), Svat Soucek (History), Peter Suzuki (Political Science).</p>
+<p>Allen Mitarbeitern sei an dieser Stelle der herzlichste Dank f&uuml;r ihre uneigenn&uuml;tzige und oft m&uuml;hevolle Arbeit ausgesprochen. Besonderen Dank schulden wir Herrn Dr. Franz G&ouml;rner, Direktor der Abteilung Osteuropa an der Staatsbibliothek Preu&szlig;ischer Kulturbesitz, Berlin, f&uuml;r seine sachkundige Hilfe bei der Kontrolle der Titel osteurop&auml;ischer Publikationen. Unser Dank gilt des weiteren der Albanischen Akademie der Wissenschaften und dem Balkanologischen Institut der Bulgarischen Akademie der Wissenschaften f&uuml;r die Erm&ouml;glichung der Zusammenarbeit sowie, last but not least, dem Fonds f&uuml;r die F&ouml;rderung der wissenschaftlichen Forschung in Wien f&uuml;r die materielle Unterst&uuml;tzung der Arbeit.</p>
+<p>Georg Hazai</p>
+<p>Andreas Tietze</p>
+
+
+
+
+{%endblock%}

@@ -1,0 +1,562 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-02-24 12:31+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: attic/ta-online/browse/views.py:47 attic/ta-online/browse/views.py:89
+#: attic/ta-online/templates/navigation.html:31
+#: attic/ta-online/templates/browse/category_list.html:3 browse/views.py:36
+#: browse/views.py:80 templates/navigation.html:19
+#: templates/browse/category_list.html:6
+msgid "Bl&auml;ttern"
+msgstr ""
+
+#: attic/ta-online/browse/views.py:47
+#: attic/ta-online/search/templatetags/entry_extras.py:46
+#: attic/ta-online/templates/entry_body.html:25 browse/views.py:36
+#: mylist/templatetags/entry_extras.py:45
+#: search/templatetags/entry_extras.py:45 templates/entry_body.html:24
+#: templates/show_entry.html:3
+msgid "Band"
+msgstr ""
+
+#: attic/ta-online/bugfixing/forms.py:7
+#: attic/ta-online/search/TASearcher.py:40 attic/ta-online/search/forms.py:8
+#: attic/ta-online/templates/edit_entry.html:156
+#: attic/ta-online/templates/entry_body.html:45 bugfixing/forms.py:7
+#: mylist/templatetags/entry_extras.py:45 search/TASearcher.py:37
+#: search/forms.py:8 search/templatetags/entry_extras.py:45
+#: templates/edit_entry.html:156
+msgid "Titel"
+msgstr ""
+
+#: attic/ta-online/bugfixing/forms.py:8 bugfixing/forms.py:8
+msgid "Autoren"
+msgstr ""
+
+#: attic/ta-online/bugfixing/forms.py:8 bugfixing/forms.py:8
+msgid "Ein Autor pro Zeile"
+msgstr ""
+
+#: attic/ta-online/bugfixing/forms.py:9 bugfixing/forms.py:9
+msgid "Orte"
+msgstr ""
+
+#: attic/ta-online/bugfixing/forms.py:9 bugfixing/forms.py:9
+msgid "Ein Ort pro Zeile"
+msgstr ""
+
+#: attic/ta-online/bugfixing/forms.py:10
+#: attic/ta-online/search/TASearcher.py:43 attic/ta-online/search/forms.py:11
+#: attic/ta-online/search/templatetags/entry_extras.py:46
+#: attic/ta-online/templates/edit_entry.html:188 bugfixing/forms.py:10
+#: mylist/templatetags/entry_extras.py:45 search/TASearcher.py:40
+#: search/forms.py:11 search/templatetags/entry_extras.py:45
+#: templates/edit_entry.html:188
+msgid "Jahr"
+msgstr ""
+
+#: attic/ta-online/bugfixing/forms.py:11 bugfixing/forms.py:11
+msgid "Erl&auml;uterung"
+msgstr ""
+
+#: attic/ta-online/bugfixing/forms.py:11 bugfixing/forms.py:11
+msgid "Bitte erl&auml;utern Sie gegebenenfalls Ihren Vorschlag."
+msgstr ""
+
+#: attic/ta-online/bugfixing/views.py:76 attic/ta-online/editing/views.py:85
+#: bugfixing/views.py:70 editing/views.py:85
+msgid ""
+"Vielen Dank f&uuml;r Ihren Korrekturvorschlag. Er wird so bald wie m&ouml;"
+"glich bearbeitet."
+msgstr ""
+
+#: attic/ta-online/search/TASearcher.py:38 attic/ta-online/search/forms.py:6
+#: search/TASearcher.py:35 search/forms.py:6
+msgid "Freitext"
+msgstr ""
+
+#: attic/ta-online/search/TASearcher.py:39 attic/ta-online/search/forms.py:7
+#: search/TASearcher.py:36 search/forms.py:7
+msgid "Relevanz"
+msgstr ""
+
+#: attic/ta-online/search/TASearcher.py:41 attic/ta-online/search/forms.py:9
+#: search/TASearcher.py:38 search/forms.py:9
+msgid "Autor"
+msgstr ""
+
+#: attic/ta-online/search/TASearcher.py:42
+#: attic/ta-online/search/templatetags/entry_extras.py:46
+#: attic/ta-online/templates/edit_entry.html:161
+#: mylist/templatetags/entry_extras.py:45 search/TASearcher.py:39
+#: search/templatetags/entry_extras.py:45 templates/edit_entry.html:161
+msgid "Ort"
+msgstr ""
+
+#: attic/ta-online/search/TASearcher.py:44 attic/ta-online/search/forms.py:18
+#: attic/ta-online/search/forms.py:20
+#: attic/ta-online/templates/edit_entry.html:213
+#: attic/ta-online/templates/matches.html:68 search/TASearcher.py:41
+#: search/forms.py:18 search/forms.py:20 templates/edit_entry.html:213
+#: templates/matches.html:68
+msgid "Schlagwort"
+msgstr ""
+
+#: attic/ta-online/search/TASearcher.py:45 attic/ta-online/search/forms.py:12
+#: search/TASearcher.py:42 search/forms.py:12
+msgid "TA Band"
+msgstr ""
+
+#: attic/ta-online/search/TASearcher.py:46 attic/ta-online/search/forms.py:14
+#: search/TASearcher.py:43 search/forms.py:14
+msgid "Zeitschrift"
+msgstr ""
+
+#: attic/ta-online/search/TASearcher.py:51 attic/ta-online/search/forms.py:24
+#: search/TASearcher.py:48 search/forms.py:24
+msgid "und"
+msgstr ""
+
+#: attic/ta-online/search/TASearcher.py:52 attic/ta-online/search/forms.py:25
+#: search/TASearcher.py:49 search/forms.py:25
+msgid "oder"
+msgstr ""
+
+#: attic/ta-online/search/TASearcher.py:53 attic/ta-online/search/forms.py:26
+#: search/TASearcher.py:50 search/forms.py:26
+msgid "nicht"
+msgstr ""
+
+#: attic/ta-online/search/forms.py:13 search/forms.py:13
+msgid "TA"
+msgstr ""
+
+#: attic/ta-online/search/forms.py:43 search/forms.py:43
+msgid "Suchbegriff"
+msgstr ""
+
+#: attic/ta-online/search/forms.py:44 attic/ta-online/search/forms.py:61
+#: attic/ta-online/templates/hitlist_base.html:15 search/forms.py:44
+#: search/forms.py:61 templates/hitlist_base.html:26
+msgid "Treffer pro Seite"
+msgstr ""
+
+#: attic/ta-online/search/forms.py:45 attic/ta-online/search/forms.py:60
+#: attic/ta-online/templates/hitlist_base.html:25 search/forms.py:45
+#: search/forms.py:60 templates/hitlist_base.html:36
+msgid "Sortierung"
+msgstr ""
+
+#: attic/ta-online/search/views.py:140 search/views.py:169
+msgid "Alle"
+msgstr ""
+
+#: attic/ta-online/search/views.py:141
+#: attic/ta-online/search/templatetags/entry_extras.py:46
+#: attic/ta-online/search/templatetags/entry_extras.py:60
+#: mylist/templatetags/entry_extras.py:45
+#: mylist/templatetags/entry_extras.py:62 search/views.py:170
+#: search/templatetags/entry_extras.py:45
+#: search/templatetags/entry_extras.py:62
+msgid "Artikel"
+msgstr ""
+
+#: attic/ta-online/search/views.py:142 search/views.py:171
+msgid "Konferenzberichte"
+msgstr ""
+
+#: attic/ta-online/search/views.py:143 search/views.py:172
+msgid "Monographien"
+msgstr ""
+
+#: attic/ta-online/search/views.py:144 search/views.py:173
+msgid "Sammelb&auml;nde"
+msgstr ""
+
+#: attic/ta-online/search/views.py:180
+#: attic/ta-online/templates/matches.html:8 search/views.py:211
+#: templates/matches.html:8
+msgid "Treffer f&uuml;r"
+msgstr ""
+
+#: attic/ta-online/search/templatetags/entry_extras.py:46
+#: attic/ta-online/templates/entry_body.html:27
+#: mylist/templatetags/entry_extras.py:45
+#: search/templatetags/entry_extras.py:45 templates/entry_body.html:26
+msgid "Nummer"
+msgstr ""
+
+#: attic/ta-online/search/templatetags/entry_extras.py:46
+#: attic/ta-online/templates/entry_body.html:57
+#: mylist/templatetags/entry_extras.py:45
+#: search/templatetags/entry_extras.py:45 templates/entry_body.html:54
+msgid "Kommentare"
+msgstr ""
+
+#: attic/ta-online/search/templatetags/entry_extras.py:46
+#: attic/ta-online/templates/entry_body.html:60
+#: mylist/templatetags/entry_extras.py:45
+#: search/templatetags/entry_extras.py:45 templates/entry_body.html:57
+msgid "Rezensionen"
+msgstr ""
+
+#: attic/ta-online/search/templatetags/entry_extras.py:46
+#: attic/ta-online/templates/entry_body.html:63
+#: mylist/templatetags/entry_extras.py:45
+#: search/templatetags/entry_extras.py:45 templates/entry_body.html:61
+msgid "Berichte"
+msgstr ""
+
+#: attic/ta-online/search/templatetags/entry_extras.py:46
+#: attic/ta-online/templates/edit_entry.html:120
+#: mylist/templatetags/entry_extras.py:45
+#: search/templatetags/entry_extras.py:45 templates/edit_entry.html:120
+msgid "Typ"
+msgstr ""
+
+#: attic/ta-online/search/templatetags/entry_extras.py:46
+#: attic/ta-online/templates/hitlist_base.html:119
+#: attic/ta-online/templates/navigation.html:34
+#: attic/ta-online/templates/browse/category_list.html:3
+#: mylist/templatetags/entry_extras.py:45
+#: search/templatetags/entry_extras.py:45 templates/hitlist_base.html:158
+#: templates/hitlist_base.html.py:162 templates/navigation.html:22
+#: templates/browse/category_list.html:6
+msgid "Schlagworte"
+msgstr ""
+
+#: attic/ta-online/search/templatetags/entry_extras.py:46
+#: attic/ta-online/templates/edit_entry.html:183
+#: mylist/templatetags/entry_extras.py:45
+#: search/templatetags/entry_extras.py:45 templates/edit_entry.html:183
+msgid "Datum"
+msgstr ""
+
+#: attic/ta-online/search/templatetags/entry_extras.py:60
+#: mylist/templatetags/entry_extras.py:62
+#: search/templatetags/entry_extras.py:62
+msgid "Sammelband"
+msgstr ""
+
+#: attic/ta-online/search/templatetags/entry_extras.py:60
+#: mylist/templatetags/entry_extras.py:62
+#: search/templatetags/entry_extras.py:62
+msgid "Monographie"
+msgstr ""
+
+#: attic/ta-online/search/templatetags/entry_extras.py:60
+#: mylist/templatetags/entry_extras.py:62
+#: search/templatetags/entry_extras.py:62
+msgid "Konferenzbericht"
+msgstr ""
+
+#: attic/ta-online/templates/Copy of base.html:26
+#: attic/ta-online/templates/simple.html:3 templates/Copy
+#: templates/simple.html:3
+msgid "Einfache Suche"
+msgstr ""
+
+#: attic/ta-online/templates/Copy of base.html:27
+#: attic/ta-online/templates/advanced.html:4 templates/Copy
+#: templates/advanced.html:4
+msgid "Erweiterte Suche"
+msgstr ""
+
+#: attic/ta-online/templates/Copy of base.html:28
+#: attic/ta-online/templates/mylist.html:4
+#: attic/ta-online/templates/navigation.html:40 mylist/views.py:24
+#: templates/Copy templates/navigation.html:28
+msgid "Merkliste"
+msgstr ""
+
+#: attic/ta-online/templates/Copy of base.html:53
+#: attic/ta-online/templates/base.html:126 templates/Copy
+#: templates/base.html:75
+msgid "Startseite"
+msgstr ""
+
+#: attic/ta-online/templates/advanced.html:32
+#: attic/ta-online/templates/simple.html:21 templates/advanced.html:32
+#: templates/simple.html:21
+msgid "Suchen"
+msgstr ""
+
+#: attic/ta-online/templates/base.html:6
+#: attic/ta-online/templates/base.html:61 templates/base.html:6
+#: templates/base.html.py:46
+msgid "Turkologischer Anzeiger Online"
+msgstr ""
+
+#: attic/ta-online/templates/base.html:34
+#: attic/ta-online/templates/hitlist_base.html:125
+#: attic/ta-online/templates/show_entry.html:52 templates/base.html:16
+#: templates/hitlist_base.html:170 templates/mylist.html:36
+#: templates/show_entry.html:67
+msgid "Aus Merkliste entfernen"
+msgstr ""
+
+#: attic/ta-online/templates/base.html:37 templates/base.html:16
+msgid "Zur Merkliste hinzufügen"
+msgstr ""
+
+#: attic/ta-online/templates/base.html:68 templates/base.html:55
+msgid "Schnellsuche"
+msgstr ""
+
+#: attic/ta-online/templates/base.html:70
+#: attic/ta-online/templates/base.html:71
+#: attic/ta-online/templates/base.html:72
+#: attic/ta-online/templates/base.html:73
+#: attic/ta-online/templates/base.html:74 templates/base.html:57
+#: templates/base.html.py:58 templates/base.html:59 templates/base.html.py:60
+#: templates/base.html:61
+msgid "Suchen..."
+msgstr ""
+
+#: attic/ta-online/templates/correct.html:4
+#: attic/ta-online/templates/show_entry.html:60 templates/correct.html:4
+msgid "Fehler melden"
+msgstr ""
+
+#: attic/ta-online/templates/edit_entry.html:133 templates/edit_entry.html:133
+msgid ""
+"\n"
+"      Autor"
+msgid_plural ""
+"Autoren\n"
+"      "
+msgstr[0] ""
+msgstr[1] ""
+
+#: attic/ta-online/templates/edit_entry.html:177 templates/edit_entry.html:177
+msgid "In"
+msgstr ""
+
+#: attic/ta-online/templates/edit_entry.html:198
+#: mylist/templatetags/entry_extras.py:45
+#: search/templatetags/entry_extras.py:45 templates/edit_entry.html:198
+msgid "Seiten"
+msgstr ""
+
+#: attic/ta-online/templates/edit_entry.html:203 templates/edit_entry.html:203
+msgid "Kommentar"
+msgstr ""
+
+#: attic/ta-online/templates/edit_entry.html:218 templates/edit_entry.html:218
+msgid "Rezension"
+msgstr ""
+
+#: attic/ta-online/templates/edit_entry.html:223 templates/edit_entry.html:223
+msgid "Abstract"
+msgstr ""
+
+#: attic/ta-online/templates/edit_entry.html:228 templates/edit_entry.html:228
+msgid "Herausgeber"
+msgstr ""
+
+#: attic/ta-online/templates/entry_body.html:31 templates/entry_body.html:30
+msgid ""
+"\n"
+"Autor:\n"
+msgid_plural ""
+"\n"
+"Autoren:\n"
+msgstr[0] ""
+msgstr[1] ""
+
+#: attic/ta-online/templates/entry_body.html:64 templates/entry_body.html:62
+msgid "Referate"
+msgstr ""
+
+#: attic/ta-online/templates/entry_body.html:85 templates/entry_body.html:82
+msgid "Referenzen"
+msgstr ""
+
+#: attic/ta-online/templates/hitlist_base.html:42
+#: attic/ta-online/templates/matches.html:12 templates/hitlist_base.html:57
+#: templates/matches.html:12
+msgid "Die Suche ergab keine Treffer."
+msgstr ""
+
+#: attic/ta-online/templates/hitlist_base.html:54
+#: templates/hitlist_base.html:74
+msgid "Vorwort"
+msgstr ""
+
+#: attic/ta-online/templates/hitlist_base.html:125
+#: attic/ta-online/templates/matches.html:76
+#: attic/ta-online/templates/show_entry.html:52
+#: templates/hitlist_base.html:170 templates/matches.html:76
+#: templates/show_entry.html:67
+msgid "Zur Merkliste hinzuf&uuml;gen"
+msgstr ""
+
+#: attic/ta-online/templates/matches.html:78 templates/matches.html:78
+msgid "Aus der Merkliste entfernen"
+msgstr ""
+
+#: attic/ta-online/templates/mylist.html:10 templates/mylist.html:13
+msgid "Keine Eintr&auml;ge vorhanden."
+msgstr ""
+
+#: attic/ta-online/templates/mylist.html:18
+msgid "L&ouml;schen"
+msgstr ""
+
+#: attic/ta-online/templates/mylist.html:23 templates/show_entry.html:76
+msgid "Exportieren"
+msgstr ""
+
+#: attic/ta-online/templates/navigation.html:29 templates/navigation.html:17
+msgid "Start"
+msgstr ""
+
+#: attic/ta-online/templates/navigation.html:30 templates/navigation.html:18
+msgid "Suche"
+msgstr ""
+
+#: attic/ta-online/templates/navigation.html:33 templates/navigation.html:21
+msgid "B&auml;nde"
+msgstr ""
+
+#: attic/ta-online/templates/navigation.html:45 templates/navigation.html:30
+msgid "Login"
+msgstr ""
+
+#: attic/ta-online/templates/navigation.html:47 templates/navigation.html:32
+msgid "Logout"
+msgstr ""
+
+#: attic/ta-online/templates/prefaces.html:3 templates/prefaces.html:3
+msgid "Vorworte"
+msgstr ""
+
+#: attic/ta-online/templates/show_entry.html:3 templates/show_entry.html:3
+msgid "Detailansicht"
+msgstr ""
+
+#: attic/ta-online/templates/show_entry.html:38 templates/show_entry.html:43
+msgid "Vorheriger Treffer"
+msgstr ""
+
+#: attic/ta-online/templates/show_entry.html:42 templates/show_entry.html:47
+msgid "Zur&uuml;ck zur Trefferliste"
+msgstr ""
+
+#: attic/ta-online/templates/show_entry.html:45 templates/show_entry.html:50
+msgid "N&auml;chster Treffer"
+msgstr ""
+
+#: attic/ta-online/templates/show_entry.html:58
+msgid "Eintrag bearbeiten"
+msgstr ""
+
+#: attic/ta-online/templates/browse/browse_categories.html:5
+#: templates/browse/browse_categories.html:5
+msgid "Alle Schlagworte"
+msgstr ""
+
+#: attic/ta-online/templates/browse/browse_ta.html:3
+#: templates/browse/browse_ta.html:3
+msgid "Turkologischer Anzeiger"
+msgstr ""
+
+#: attic/ta-online/templates/home/home.html:4 templates/home/home.html:4
+msgid "Willkommen"
+msgstr ""
+
+#: attic/ta-online/templates/home/home.html:7 templates/home/home.html:7
+msgid ""
+"\n"
+"<h3>Turkologischer Anzeiger</h3>\n"
+"<p>Der „Turkologische Anzeiger/Turkology Annual“ (TA), begr&uuml;ndet von "
+"Andreas Tietze (&dagger;) und Gy&ouml;rgy Hazai, ist eine unverzichtbare "
+"systematische Bibliographie f&uuml;r die Turkologie und die Osmanistik. "
+"Fachleute aus aller Welt sind an seiner Zusammenstellung beteiligt, die von "
+"mehreren Institutionen, einschlie&szlig;lich der UNESCO, finanziell "
+"unterst&uuml;tzt wird. Die 26 vom Institut f&uuml;r Orientalistik der "
+"Universit&auml;t Wien herausgegebenen B&auml;nde liegen bislang nur in "
+"gedruckter Form vor.<br/><br/>\n"
+"Ziel unseres Projekts ist es, alle 26 B&auml;nde zu digitalisieren und die "
+"Eintr&auml;ge in einer Online-Datenbank mit neuen effizienten Suchoptionen "
+"bereitzustellen. Eine Bearbeitungsumgebung zur Vorbereitung der Folgeb&auml;"
+"nde soll ebenfalls zur Verf&uuml;gung gestellt werden.</p>\n"
+"\t<div class=\"details\"><h3>Das Problem</h3>\n"
+"<p>Der TA umfasst Eintr&auml;ge in vielen verschiedenen Sprachen, "
+"einschlie&szlig;lich Transkriptionen aus dem Arabischen und aus Sprachen mit "
+"kyrillischem Alphabet. Bereits einzelne Eintr&auml;ge k&ouml;nnen aus "
+"Abschnitten in verschiedenen Sprachen bestehen. Wir erwarteten, dass dies "
+"ein ernsthaftes Problem bei der Digitalisierung mit Hilfe der am KJC "
+"verf&uuml;gbaren Optical Character Recognition (OCR)-Software darstellen "
+"w&uuml;rde: Auch sehr gute OCR-Ergebnisse k&ouml;nnen noch keine akzeptable "
+"Grundlage f&uuml;r den Aufbau einer Datenbank liefern, denn Eintr&auml;ge "
+"mit Erkennungsfehlern lassen sich bei der Suche nicht zuverl&auml;ssig "
+"abfragen.\n"
+"<br/><br/>\n"
+" Es stellte sich jedoch heraus, dass nach entsprechender Feinjustierung die "
+"OCR Ergebnisse von so guter Qualit&auml;t lieferte, dass die wenigen "
+"verbleibenden Fehler &uuml;berwiegend irrelevant f&uuml;r typische "
+"Suchanfragen waren. W&auml;hrend dies bedeutete, dass f&uuml;r unser Projekt "
+"der Aufwand der Entwicklung automatischer Software zur Korrektur der OCR-"
+"Ergebnisse nicht gerechtfertigt schien, stie&szlig;en wir auf andere "
+"Probleme: Die Syntaxanalyse der TA-Eintr&auml;ge erwies sich als weitaus "
+"schwieriger als erwartet, da die verschiedenen Eintrags-Typen und ihre "
+"Datenstrukturen oft nur implizit gekennzeichnet sind und sich einige von "
+"ihnen von Band zu Band &auml;ndern. Au&szlig;erdem musste die Syntaxanalyse "
+"(Parsing) mit Fehlern in der Struktur von Eintr&auml;gen zurechtkommen - "
+"Fehler, die menschliche Bearbeiter gemacht haben und die menschliche Leser "
+"kaum wahrnehmen w&uuml;rden, und dennoch Fehler, die ernsthafte Probleme "
+"f&uuml;r das Parsing darstellen k&ouml;nnen. Unsere Parsing-Software musste "
+"entsprechend auf die Daten zugeschnitten werden, um sowohl umfassend als "
+"auch robust zu sein.<br />&nbsp;\n"
+"</p>\n"
+"<h3>Partner</h3>\n"
+"<ul id=\"partners\">\n"
+"<li><a href=\"http://orientalistik.univie.ac.at/home\" class=\"external-link-"
+"new-window\" >Institut f&uuml;r Orientalistik, Universit&auml;t Wien</li>\n"
+"<li><a href=\"http://www.nytud.hu/eng/index.html\"  class=\"external-link-"
+"new-window\" >Research Institute for  Linguistics, Ungarische Akademie der "
+"Wissenschaften, Budapest</a></li>\n"
+"<li><a href=\"http://www.cl.uni-heidelberg.de/\"  class=\"external-link-new-"
+"window\" >Institut f&uuml;r Computerlinguistik, Universit&auml;t Heidelberg</"
+"a></li>\n"
+"<li><a href=\"http://www.islamwissenschaft.uni-hd.de/\" class=\"external-"
+"link-new-window\" >Seminar f&uuml;r Sprachen und Kulturen des Vorderen "
+"Orients (Islamwissenschaft), Universit&auml;t Heidelberg</a></li>\n"
+"</ul>\n"
+"<h3>Wichtiger Hinweis:</h3>\n"
+"<p>Wir sind nicht beteiligt an der Redaktion des TA selbst. Bitte "
+"kontaktieren Sie f&uuml;r Anfragen&nbsp;die Herausgeber oder die "
+"Universit&auml;t Wien.</p></div>\n"
+msgstr ""
+
+#: templates/mylist.html:21
+msgid "Liste exportieren"
+msgstr ""
+
+#: templates/show_entry.html:3
+msgid "Nr."
+msgstr ""
+
+#: templates/show_entry.html:86
+msgid "Schlie&szlig;en"
+msgstr ""
+
+#: templates/show_entry.html:87
+msgid "Speichern"
+msgstr ""

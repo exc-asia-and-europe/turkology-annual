@@ -1,0 +1,15 @@
+{%extends "base.html"%}
+{%load i18n %}
+{%block headline%}Vorwort: Band 1{%endblock%}
+{%block content%}
+<p>TURKOLOGISCHER ANZEIGER (<i>TA</i> 1)</p>
+<p>&Uuml;bersicht &uuml;ber die Ver&ouml;ffentlichungen auf dem Gebiet der osmanisch-t&uuml;rkischen Sprache, Literaturgeschichte und Geschichte (einschlie&szlig;lich des vor-osmanischen Kleinasiens) beginnend mit dem Erscheinungsjahr 1973. Eine j&auml;hrliche Fortsetzung und sp&auml;tere Ausdehnung auf andere Gebiete der Turkologie sind geplant. Redaktionsschlu&szlig;: 31. XII. 1974. Nachtr&auml;ge f&uuml;r 1973 und 1974 werden in der n&auml;chsten Lieferung erscheinen.</p>
+<p>F&uuml;r die Gesamtplanung sind Georg Hazai (Berlin) und Andreas Tietze (Wien) verantwortlich. In <i>TA</i> 1 wurden die Abteilungen A, C, D und X von A. Tietze, B von G. Hazai ausgearbeitet. Zahlreiche Kollegen haben ihre Mitarbeit angeboten. Zu <i>TA</i> 1 haben die folgenden Kollegen Materialien eingesandt, wof&uuml;r ihnen hier herzlich gedankt sei: Zygmunt Abrahamowicz (Krakau), Du&#x0161;anka Bojani&#x0107; (Belgrad), Van&#x010d;o Bo&#x0161;kov (Sarajevo), Lars Johanson (Sp&#x00e5;nga, Schweden), Barbara Kellner-Heinkele (Hamburg), Klaus Kreiser (Berlin), G&uuml;nay Kut (Chicago), Tadeusz Majda (Warschau), Edward Tryjarski (Warschau).</p>
+<p>Erkl&auml;rungen: Es wurden selbst&auml;ndige Werke und Artikel in Sammelwerken oder in Zeitschriften aufgenommen. Verlag und Preis konnten nicht angegeben werden. Rezensionen stehen bei dem Werk selbst (Rezensionen von vor 1973 erschienenen Werken wurden nicht aufgenommen). Nicht-lateinische Schriftarten (au&szlig;er dem Griechischen) wurden transkribiert (in manchen F&auml;llen - z. B. bei georgischen Titeln - wurde nur der Titel eines anderssprachigen Res&uuml;mees angef&uuml;hrt).</p>
+<p>Die Titel in anderen Sprachen als Englisch, Franz&ouml;sisch und Italienisch wurden am Ende der Eintragung &uuml;bersetzt (oder der Titel eines anderssprachigen Res&uuml;mees wurde verwendet), wobei manchmal kleine Erl&auml;uterungen hinzugef&uuml;gt wurden.</p>
+<p>Die Anordnung innerhalb der einzelnen Unterabteilungen ist sinngem&auml;&szlig; (vom Allgemeinen zum Besonderen, sehr oft chronologisch, manchmal themenbedingt-alphabetisch, in diesem Fall erscheinen die Leitw&ouml;rter fett gedruckt). Kreuzverweise und Autorenindex erleichtern die Benutzung.</p>
+<p>An dieser Stelle sei auch dem Fonds zur F&ouml;rderung der wissenschaftlichen Forschung der Dank f&uuml;r die Unterst&uuml;tzung dieser Arbeit ausgesprochen.</p>
+<p>Wir hoffen mit dieser Bibliographie einen n&uuml;tzlichen Arbeitsbehelf f&uuml;r alle Kollegen geschaffen zu haben.</p>
+<p>Andreas Tietze</p>
+
+{%endblock%}

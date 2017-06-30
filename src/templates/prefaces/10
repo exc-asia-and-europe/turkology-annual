@@ -1,0 +1,44 @@
+{%extends "base.html"%}
+{%load i18n %}
+{%block headline%}Vorwort: Band 10{%endblock%}
+{%block content%}
+
+
+<p>Turkologischer Anzeiger (<i>TA</i> 10)</p>
+<p>Im allgemeinen schlie&szlig;t sich dieser Band der Anlage der B&auml;nde 6-9 an. Der Abschnitt N ist nach wie vor auf die au&szlig;er-sowjetischen Publikationen zu den nicht-osmanischen T&uuml;rksprachen beschr&auml;nkt; f&uuml;r die sowjetischen Publikationen mu&szlig; auf die einschl&auml;gigen Bibliographien (siehe Vorwort, <i>TA</i> 6 oder <i>TA</i> 7) verwiesen werden. Das Startdatum f&uuml;r N ist 1979, w&auml;hrend es f&uuml;r die anderen Abschnitte 1973 ist.</p>
+<p>In <i>TA</i> 10 wurden - genau wie in <i>TA</i> 9 - die Abschnitte A-AJ, DEB-DECA und DH-DHX von Georg Hazai, B-BX von Lars Johanson, C-CJG von Ernst Gruber und Ingeborg Hauenschild, D-DDIA von Edith Ambros, DE-DEAA, DED-DGX, DI-DJB, DJX-DKJ und X von Markus K&ouml;hbach, DJC-DJGA von Barbara Kellner-Heinkele und N-NF von István Vásáry ausgearbeitet.</p>
+<p>Wie in den vorhergehenden B&auml;nden ist f&uuml;r den Hauptteil der Material-Sammlung Markus K&ouml;hbach verantwortlich. Erg&auml;nzt wurde sein Material durch das von den Mitarbeitern aus vielen L&auml;ndern eingesandte Material, f&uuml;r das wir ihnen im Namen aller Benutzer des Turkologischen Anzeigers unseren herzlichsten Dank aussprechen. Als neue Mitarbeiter begr&uuml;&szlig;en wir Yuzo Nagata (Japan), Wei Cuiyi (China) und Christoph Neumann (BRD).</p>
+<p>&Auml;gypten: Doris Behrens-Abouseif</p>
+<p>Albanien: Mahir Domi, Selami Pulaha</p>
+<p>Arabische L&auml;nder (au&szlig;er &Auml;gypten): Donald Cioeta, Barbara Kellner-Heinkele, Jon Mandaville</p>
+<p>Armenische Publikationen: Kevork Bardakjian</p>
+<p>Bulgarien: Salih Baklad&#x017e;iev</p>
+<p>China: Wei Cuiyi</p>
+<p>Deutschsprachige L&auml;nder: Wolfdieter Bihl, Klaus Kreiser, Christoph Neumann, Otmar Oehring</p>
+<p>England: Susan Skilliter</p>
+<p>Frankreich: Alexandre Popovic</p>
+<p>Griechenland und Zypern: Paul Hidiroglou</p>
+<p>Israel: Abraham Haim, Jacob M. Landau</p>
+<p>Italien: Aldo Gallotta, Biancamaria Scarda-Amoretti</p>
+<p>Japan: Yuzo Nagata</p>
+<p>Jugoslawien: Van&#x010d;o Bo&#x0161;kov, Ekrem &#x010c;au&#x0161;kevi&#x0107;, Olga Zirojevi&#x0107;</p>
+<p>Kanada: &Uuml;ner Turgay</p>
+<p>Niederlande: Dick Koopman</p>
+<p>Polen: Tadeusz Majda</p>
+<p>Rum&auml;nien: Cristina Fene&#x015f;an</p>
+<p>Skandinavische L&auml;nder: Bernt Brendemoen</p>
+<p>Tschechoslowakei: Vojtech Kop&#x010d;an</p>
+<p>T&uuml;rkei: Suraiya Faroqhi, Hans-Peter Laqueur, &#x0130;lber Ortayl&#x0131;, Gani Yener</p>
+<p>UdSSR: Svetlana Filippovna Ore&#x0161;kova, Z. O&#x017e;erel'eva, N. Rozalieva</p>
+<p>Ungarn: Valéria Csikai</p>
+<p>USA: Ronald C. Jennings, Paul J. Magnarella, Svat Souèek, Peter T. Suzuki</p>
+<p>Ein schwerer Schlag hat den Turkologischen Anzeiger durch den unerwarteten Tod eines unserer &auml;ltesten und gewissenhaftesten Mitarbeiter, Prof. Van&#x010d;o Bo&#x0161;kovs, getroffen. Wir werden seiner stets mit tiefem Bedauern gedenken.</p>
+<p>Wie immer schulden wir aufrichtigen Dank Dr. Franz G&ouml;rner von der Staatsbibliothek, Berlin, f&uuml;r seine Hilfe bei der L&ouml;sung schwieriger bibliographischer Fragen, der albanischen Akademie der Wissenschaften, Tirana, und dem Centre d'Information sur les Sources de l'Histoire Balkanique, Sofia, f&uuml;r die fruchtbare Zusammenarbeit sowie dem Bundesministerium f&uuml;r Wissenschaft und Forschung, Wien, und der UNESCO f&uuml;r ihre finanzielle Unterst&uuml;tzung.</p>
+<p>Der Abschlu&szlig; des ersten Jahrzehnts seit der Gr&uuml;ndung dieses gemeinn&uuml;tzigen Unternehmens ist uns ein willkommener Anla&szlig;, auch den Kollegen zu danken, die den Turkologischen Anzeiger durch ihre Abonnements oder die Abonnements ihrer Institute und Bibliotheken unterst&uuml;tzen und so das Ihre zu seinem Weiterbestehen beitragen.</p>
+<p>Georg Hazai</p>
+<p>Andreas Tietze</p>
+
+
+
+
+{%endblock%}

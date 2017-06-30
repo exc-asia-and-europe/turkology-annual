@@ -1,0 +1,38 @@
+{%extends "base.html"%}
+{%load i18n %}
+{%block headline%}Vorwort: Band 5{%endblock%}
+{%block content%}
+
+
+<p>TURKOLOGISCHER ANZEIGER (<i>TA</i> 5)</p>
+<p>Mit <i>TA</i> 5 wird die erste Phase des Turkologischen Anzeigers abgeschlossen. Sie war durch strenge Einhaltung der Begrenzung auf die Osmanistik charakterisiert. Mit <i>TA</i> 6 soll in eine neue Phase eingetreten werden, in der der Rahmen der Osmanistik hinsichtlich einiger wichtiger Gebiete zugunsten einer Erfassung der gesamten Turkologie gesprengt und so dem schon von Anfang an angestrebten Ziel n&auml;hergekommen wird. Unser Plan ist es, das zu erreichen, ohne die in <i>TA</i> 1-5 aufgebaute Form zu zerst&ouml;ren oder ihren Inhalt zu beeintr&auml;chtigen. Wie dies geschehen wird, kann erst im n&auml;chsten Band erl&auml;utert werden.</p>
+<p>Der vorliegende <i>TA</i> 5 enth&auml;lt keine wesentlichen Neuerungen. Ebenso wie in den beiden vorausgehenden Jahren wurden auch in <i>TA</i> 5 die Abschnitte A-AJ, DEB-DECA von Georg Hazai, B-BX von Lars Johanson, C-CJG von Horst Wilfrid Brands und Ernst A. Gruber, DJC-DJX von Barbara Kellner-Heinkele und alles &uuml;brige von Edith Ambros ausgearbeitet.</p>
+<p>F&uuml;r den Hauptteil der Materialsammlung ist diesmal Dr. Markus K&ouml;hbach verantwortlich. Wertvolles Material wurde auch wiederum von unseren freundlichen Mitarbeitern in aller Herren L&auml;nder gesammelt und &uuml;bersandt, wof&uuml;r ihnen hier nochmals der herzlichste Dank ausgesprochen sei:</p>
+<p>Albanien: Eqrem Çabej, Mahir Domi, Selami Pulaha</p>
+<p>Arabische L&auml;nder: Ronald Cioeta</p>
+<p>Bulgarien: Salih Baklad&#x017e;iev</p>
+<p>Deutschsprachige L&auml;nder: Wolfdieter Bihl, Karl Binswanger, Franz G&ouml;rner, Barbara Kellner-Heinkele</p>
+<p>England: Susan Skilliter</p>
+<p>Frankreich: Jean-Louis Bacqué-Grammont, Alexandre Popovic</p>
+<p>Griechenland und Zypern: Paul Hidiroglou</p>
+<p>Israel: Abraham Haim, Jacob M. Landau</p>
+<p>Italien: Aldo Gallotta, Biancamaria Scarcia-Amoretti</p>
+<p>Japan: Masao Mori, Kunihiro Shidara</p>
+<p>Jugoslawien: Van&#x010d;o Bo&#x0161;kov</p>
+<p>Kanada: Daniel Boyd</p>
+<p>Niederlande: Dick Koopman</p>
+<p>Polen: Tadeusz Majda</p>
+<p>Rum&auml;nien: Cristina Fene&#x015f;an-Bulgaru</p>
+<p>Skandinavische L&auml;nder: Lars Johanson</p>
+<p>Tschechoslowakei: Vojtech Kop&#x010d;an</p>
+<p>T&uuml;rkei: Suraiya Faroqhi, &#x0130;lber Ortayl&#x0131;, Mahmut &#x015e;akiro&#x011f;lu, Gani Yener</p>
+<p>Ungarn: Valéria Csikai</p>
+<p>USA: Ronald C. Jennings, Paul J. Magnarella, Svat Soucek, Peter T. Suzuki.</p>
+<p>Unser Dank gilt ferner der Albanischen Akademie der Wissenschaften und dem Centre International d'Information sur les Sources de l'Histoire Balkanique an der Bulgarischen Akademie der Wissenschaften f&uuml;r die fruchtbare Zusammenarbeit.</p>
+<p>Georg Hazai</p>
+<p>Andreas Tietze</p>
+
+
+
+
+{%endblock%}
