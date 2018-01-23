@@ -5,3 +5,5 @@ psycopg2==2.2.1
 django-localeurl
 django-staticfiles
 jcc==3.00
+pymongo
+regex
