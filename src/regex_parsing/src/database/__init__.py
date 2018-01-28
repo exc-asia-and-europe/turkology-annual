@@ -1,1 +1,0 @@
-"""This package manages all the database stuff."""

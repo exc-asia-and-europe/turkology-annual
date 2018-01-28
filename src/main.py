@@ -1,30 +1,83 @@
 import argparse
 import csv
 import logging
-import pymongo
 import os
+from pprint import pprint
+import pymongo
 
 import mongo_client
-import parse_wml
+from paragraph.paragraph_extraction import extract_paragraphs
+from paragraph.ocr_postprocessing import postprocess_paragraph
+from paragraph.type_detection import detect_paragraph_types
+from citation_isolated.assembly import assemble_citations
+from citation_isolated.parsing import CitationParser
 
 
 def main():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--import', dest='import_paragraphs', action='store_true', default=False, help='Import paragraphs from OCR')
+    parser.add_argument('--full', action='store_true', help='Run full pipeline')
+    parser.add_argument('--import', dest='import_paragraphs', action='store_true', default=False,
+                        help='Import paragraphs from OCR')
     parser.add_argument('--ocr-dir', default='/home/dustin/work/ta/data/ocr', help='Location of OCR directory')
-    parser.add_argument('--types', action='store_true', help='Determine entry types')
-    parser.add_argument('--category-file', default='/home/dustin/work/ta/data/TA_Kategorien_Endschema.csv', help='Path to category CSV')
-
+    parser.add_argument('--types', action='store_true', help='Detect entry types')
+    parser.add_argument('--category-file', default='/home/dustin/work/ta/data/TA_Kategorien_Endschema.csv',
+                        help='Path to category CSV')
+    parser.add_argument('--find-authors', action='store_true')
 
     args = parser.parse_args()
 
+    setup_logging()
+
     database = mongo_client.get_database('ta')
+    if args.full:
+        run_full_pipeline(args.ocr_dir, args.category_file, database)
+        return
+
     if args.import_paragraphs:
         write_paragraphs_to_database(args.ocr_dir, database)
     if args.types:
         category_mapping = get_category_mapping(args.category_file)
-        determine_entry_types(database, category_mapping)
+        detect_paragraph_types(database, category_mapping)
+    if args.find_authors:
+        known_authors = set([author.strip() for author in database.citations.distinct('authors') if author])
+        citations = database.citations.find({'authors': None, 'fullyParsed': False})
+        parser = CitationParser()
+        for count, citation in enumerate(parser.find_known_authors(citations, known_authors)):
+            if citation.get('authors'):
+                citation = parser.parse_citation(citation)
+                database.citations.save(citation)
+        logging.info('Found known authors in %d citations', count+1)
+
+
+def run_full_pipeline(ocr_dir, category_file, database, drop_existing=True):
+    volume_filenames = [os.path.join(ocr_dir, fileName) for fileName in os.listdir(ocr_dir) if
+                        fileName.startswith("TA") and fileName.endswith(".xml")]
+    volume_filenames.sort()
+    volume_filenames = volume_filenames[:20]
+    category_mapping = get_category_mapping(category_file)
+    if drop_existing:
+        database.citations.drop()
+    parser = CitationParser()
+    for volume_filename in volume_filenames:
+        logging.info("Processing %s...", volume_filename)
+        raw_citations = assemble_citations(
+            detect_paragraph_types(
+                #map(
+                #    postprocess_paragraph,
+                    extract_paragraphs(volume_filename)
+            #    )
+            , category_mapping
+            )
+        )
+        citations = [parser.parse_citation(raw_citation) for raw_citation in raw_citations]
+        if citations:
+            database.citations.insert_many(citations)
+    logging.info('Creating indexes')
+    database.citations.create_index([('volume', 1)])
+    database.citations.create_index([('number', 1)])
+    database.citations.create_index([('authors', 1)])
+    database.citations.create_index([('fullyParsed', 1)])
 
 
 def get_category_mapping(file_name):
@@ -34,27 +87,46 @@ def get_category_mapping(file_name):
         return category_mapping
 
 
-def determine_entry_types(database, category_mapping):
-    logging.info('Determining entry types...')
+'''def detect_entry_types(database, category_mapping):
+    logging.info('Detecting entry types...')
     for volume in database.paragraphs.distinct('volume'):
-        volume_paragraphs = database.paragraphs.find({'volume': volume}).sort([('volume', pymongo.ASCENDING), ('index', pymongo.ASCENDING)])
-        type_mapping = parse_wml.determine_entry_types(volume_paragraphs, category_mapping)
+        volume_paragraphs = database.paragraphs.find({'volume': volume}).sort(
+            [('volume', pymongo.ASCENDING), ('index', pymongo.ASCENDING)])
+        type_mapping = detect_entry_types(volume_paragraphs, category_mapping)
         for paragraph_id, paragraph_type in type_mapping.items():
             database.paragraphs.update_one({'_id': paragraph_id}, {'$set': {'type': paragraph_type}})
-    database.paragraphs.create_index([('type', 1)])
+    database.paragraphs.create_index([('type', 1)])'''
 
 
 def write_paragraphs_to_database(ocr_input_folder, database, drop_existing=True):
     if drop_existing:
         database.paragraphs.drop()
     volume_filenames = [os.path.join(ocr_input_folder, fileName) for fileName in os.listdir(ocr_input_folder) if
-                        not fileName.startswith(".") and fileName.endswith(".xml")]
+                        fileName.startswith("TA") and fileName.endswith(".xml")]
     volume_filenames.sort()
-    for volume_filename in volume_filenames[:3]: # XXX limit for testing
+    for volume_filename in volume_filenames:
         print("Processing %s..." % volume_filename)
-        paragraphs = parse_wml.parse_volume_file(volume_filename)
+        paragraphs = extract_paragraphs(volume_filename)
         database.paragraphs.insert_many(list(paragraphs))
     database.paragraphs.create_index([('volume', 1)])
+
+
+def setup_logging():
+    # set up logging to file - see previous section for more details
+    logging.basicConfig(level=logging.DEBUG,
+                        format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
+                        datefmt='%m-%d %H:%M',
+                        filename='/tmp/ta_processing.log',
+                        filemode='w')
+    # define a Handler which writes INFO messages or higher to the sys.stderr
+    console = logging.StreamHandler()
+    console.setLevel(logging.INFO)
+    # set a format which is simpler for console use
+    formatter = logging.Formatter('%(name)-12s: %(levelname)-8s %(message)s')
+    # tell the handler to use this format
+    console.setFormatter(formatter)
+    # add the handler to the root logger
+    logging.getLogger('').addHandler(console)
 
 
 if __name__ == '__main__':
@@ -106,6 +178,85 @@ for paragraph in wmlp.paragraphs:
 				break
 		except:
 			continue
+from wordmlparser.wmlparser import WMLParser
+from lineparsers.lineparser import LineParser
+
+from lineparsers.lineparserta18 import LineParserTa
+
+from alchemytransformer import transformToAlchemySyntax, getOffsets
+
+#wmlp = WMLParser("../input/TA01_02_Xhosa_WML_formatted_pb_nopic_patterns.xml")
+#wmlp = WMLParser("../input/TA18-01_Xhosa_patterns_WML-form_pb_nopic.xml")
+wmlp = WMLParser("/home/dustin/uni/bachelor-arbeit/data/fileserver/ocr-output/TA03_02_Xhosa_WML_formatted_pb_nopic_patterns.xml")
+
+unknown = False
+
+parses = []
+
+smallCapsStyles = [style for style, val in wmlp.extractStyleToSmallCaps().items() if val]
+
+for paragraph in wmlp.paragraphs:
+	#lineParser = LineParser(paragraph.getText())
+
+	lineParser = LineParserTa(paragraph.getText())
+
+	smallCapsRanges = [rng for rng, style in paragraph.textRStyle.items() if style in smallCapsStyles]
+	changed = True
+	while changed:
+		changed = False
+		for r1 in smallCapsRa
+"""
+"""from wordmlparser.wmlparser import WMLParser
+from lineparsers.lineparser import LineParser
+
+from lineparsers.lineparserta18 import LineParserTa
+
+from alchemytransformer import transformToAlchemySyntax, getOffsets
+
+#wmlp = WMLParser("../input/TA01_02_Xhosa_WML_formatted_pb_nopic_patterns.xml")
+#wmlp = WMLParser("../input/TA18-01_Xhosa_patterns_WML-form_pb_nopic.xml")
+wmlp = WMLParser("/home/dustin/uni/bachelor-arbeit/data/fileserver/ocr-output/TA03_02_Xhosa_WML_formatted_pb_nopic_patterns.xml")
+
+unknown = False 
+
+parses = []
+
+smallCapsStyles = [style for style, val in wmlp.extractStyleToSmallCaps().items() if val] 
+
+for paragraph in wmlp.paragraphs:
+	#lineParser = LineParser(paragraph.getText())
+
+	lineParser = LineParserTa(paragraph.getText())
+
+	smallCapsRanges = [rng for rng, style in paragraph.textRStyle.items() if style in smallCapsStyles]
+	changed = True 
+	while changed:
+		changed = False
+		for r1 in smallCapsRanges:
+			for r2 in smallCapsRanges:
+				if r1[1] == r2[0]:
+					smallCapsRanges.append((r1[0],r2[1]))
+					smallCapsRanges.remove(r1)
+					smallCapsRanges.remove(r2)
+					changed = True
+
+
+	methods = [lineParser.matchConference, lineParser.matchMonograph, lineParser.matchArticle, lineParser.matchCollection]
+	#curParse = lineParser.parseRecordLine(lineParser.rawStripped,[])
+	for method in methods:
+nges:
+			for r2 in smallCapsRanges:
+				if r1[1] == r2[0]:
+					smallCapsRanges.append((r1[0],r2[1]))
+					smallCapsRanges.remove(r1)
+					smallCapsRanges.remove(r2)
+					changed = True
+
+
+	methods = [lineParser.matchConference, lineParser.matchMonograph, lineParser.matchArticle, lineParser.matchCollection]
+	#curParse = lineParser.parseRecordLine(lineParser.rawStripped,[])
+	for method in methods:
+
 
 	if unknown:
 		if type(curParse) == type({}):
