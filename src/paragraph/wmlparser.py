@@ -3,27 +3,14 @@ from lxml import etree
 
 
 class WMLParser(object):
-    def __init__(self, xmlFileName):
+    def __init__(self, xml_filename):
         self.namespaces = {
             'w': 'http://schemas.microsoft.com/office/word/2003/wordml',
             'wx': 'http://schemas.microsoft.com/office/word/2003/auxHint',
         }
-        self.document = self._parse_document(xmlFileName)
+        self.document = etree.parse(xml_filename).getroot()
         self.styles = self._extract_char_styles()
         self.paragraphs = self._extract_paragraphs()
-
-    def _parse_document(self, xml_filename):
-        return etree.parse(xml_filename).getroot()
-
-
-    ''' <wx:font wx:val="Arial Unicode MS"></wx:font>
-      <w:sz w:val="16"></w:sz>
-      <w:sz-cs w:val="16"></w:sz-cs>
-      <w:b w:val="off"></w:b>
-      <w:b-cs w:val="off"></w:b-cs>
-      <w:i w:val="off"></w:i>
-      <w:i-cs w:val="off"></w:i-cs>
-      <w:smallCaps w:val="off"></w:smallCaps>'''
 
     def _extract_char_styles(self):
         char_styles = OrderedDict()
@@ -31,7 +18,8 @@ class WMLParser(object):
             char_style = {}
             style_id = self._xpath('./@w:styleId', element=style_node)[0]
             for attribute_node in self._xpath('w:rPr/*[not(@w:val)]|w:rPr/*[@w:val!=\'off\']', element=style_node):
-                value = attribute_node.get('{%s}%s' % (self.namespaces['wx'], 'val')) or attribute_node.get('{%s}%s' % (self.namespaces['w'], 'val'))
+                value = attribute_node.get('{%s}%s' % (self.namespaces['wx'], 'val')) or attribute_node.get(
+                    '{%s}%s' % (self.namespaces['w'], 'val'))
                 if value:
                     if value == 'on':
                         value = True
@@ -75,34 +63,10 @@ class WMLParser(object):
                     style_ranges[(index_start, index_end)] = self.styles[style_id]
             previous_style_id = style_id
             index_start = index_end
-            #print(tTag)
         return {
             'text': ''.join(text_parts),
             'styles': style_ranges,
         }
-        #pPr_node = self._xpath('w:pPr', element=paragraph_node)[0]
-
-
-    def extractStyleToSmallCaps(self):
-        '''
-        This method extracts information on small caps from the document and 
-        saves the information about indexes where small caps start and end into
-        a dictionary. This mapping is then returned.
-        '''
-        result = {}
-        #        print(self.domStyles)
-        for child in self.styles:
-            if child.get('w:type') == 'character':
-                styleId = child.get('w:styleId')
-                smallCapsTags = child.getElementsByTagName('w:smallCaps')
-                if smallCapsTags:
-                    if smallCapsTags[0].get('w:val') == 'on':
-                        result[styleId] = True
-                    else:
-                        result[styleId] = False
-                else:
-                    result[styleId] = False
-        return result
 
     def _xpath(self, expression, element=None):
         element = element or self.document
