@@ -2,15 +2,12 @@ import argparse
 import csv
 import logging
 import os
-from pprint import pprint
-import pymongo
 
 import mongo_client
 from paragraph.paragraph_extraction import extract_paragraphs
-from paragraph.ocr_postprocessing import postprocess_paragraph
 from paragraph.type_detection import detect_paragraph_types
 from citation_isolated.assembly import assemble_citations
-from citation_isolated.parsing import CitationParser
+from citation_isolated.citation_parsing import CitationParser
 
 
 def main():
@@ -54,22 +51,21 @@ def run_full_pipeline(ocr_dir, category_file, database, drop_existing=True):
     volume_filenames = [os.path.join(ocr_dir, fileName) for fileName in os.listdir(ocr_dir) if
                         fileName.startswith("TA") and fileName.endswith(".xml")]
     volume_filenames.sort()
-    volume_filenames = volume_filenames[:20]
+    volume_filenames = volume_filenames[10:]
     category_mapping = get_category_mapping(category_file)
     if drop_existing:
+        database.paragraphs.drop()
         database.citations.drop()
     parser = CitationParser()
     for volume_filename in volume_filenames:
         logging.info("Processing %s...", volume_filename)
-        raw_citations = assemble_citations(
-            detect_paragraph_types(
-                #map(
-                #    postprocess_paragraph,
-                    extract_paragraphs(volume_filename)
-            #    )
-            , category_mapping
-            )
-        )
+        paragraphs = extract_paragraphs(volume_filename)
+        typed_paragraphs = list(detect_paragraph_types(paragraphs, category_mapping))
+        for paragraph in typed_paragraphs:
+            paragraph['styles'] = list(paragraph['styles'].items())
+
+        database.paragraphs.insert_many(typed_paragraphs)
+        raw_citations = assemble_citations(typed_paragraphs)
         citations = [parser.parse_citation(raw_citation) for raw_citation in raw_citations]
         if citations:
             database.citations.insert_many(citations)

@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from citation_isolated.field_parsing import parse_citation_fields
+
 import re
 import regex
 
@@ -93,15 +95,15 @@ class CitationParser(object):
             citation['in'] = in_match.group(1)
             remaining_text = remaining_text[:in_match.span()[0]] + ' {{{ IN }}}' + remaining_text[in_match.span()[1]:]
 
-        author_match = cls.author_pattern.search(remaining_text)
-        if author_match:
-            citation['authors'] = [author_match.group().strip()]
-            remaining_text = '{{{ AUTHOR }}} ' + remaining_text[author_match.span()[1]:].strip()
-
         multiple_authors_match = cls.multiple_authors_pattern.search(remaining_text)
         if multiple_authors_match:
             citation['authors'] = [author.strip() for author in multiple_authors_match.group().split('—')]
             remaining_text = '{{{ AUTHOR }}} ' + remaining_text[multiple_authors_match.span()[1]:].strip()
+
+        author_match = cls.author_pattern.search(remaining_text)
+        if author_match:
+            citation['authors'] = [author_match.group().strip()]
+            remaining_text = '{{{ AUTHOR }}} ' + remaining_text[author_match.span()[1]:].strip()
 
         role_person_match = cls.role_person_pattern.search(remaining_text)
         if role_person_match:
@@ -128,6 +130,7 @@ class CitationParser(object):
             citation['fullyParsed'] = True
         else:
             citation['fullyParsed'] = False
+        #return parse_citation_fields(citation)
         return citation
 
 
@@ -157,6 +160,8 @@ if __name__ == '__main__':
         "9. Dërfer, G.    0 sostojanii tjurkologii v Federativnoj Respublike Germanii. In: ST 1974.6.98-109. [Die Turkologie in der Bundesrepublik Deutschland.]",
         "1272. DEVECI, Hasan A.    Cyprus yesterday, today — what next? London, 1976, 1 + 60 S. (Cyprus Turkish Association, 2).",
         "660. Kramer, Gerhard F.—McGrew, Roderick E.  Potemkin, the Porte, and the road to Tsargrad. The Shumla negotiations, 1789-1790. In: CASS 8.4.1974.467-487.",
+        "1226. Pollo, St. - Pulaha, S.     Akte të Rilindjes kombëtare shqiptare 1878-1912 [s. TA 5.1496, 6.1621].",
     ]:
+        # TA 2.162.3.1.1973.29-36
 
         pprint(parser.parse_citation({'volume': None, 'rawText': text}))
