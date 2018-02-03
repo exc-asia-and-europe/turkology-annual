@@ -130,8 +130,8 @@ class CitationParser(object):
             citation['fullyParsed'] = True
         else:
             citation['fullyParsed'] = False
-        #return parse_citation_fields(citation)
-        return citation
+        return parse_citation_fields(citation)
+        #return citation
 
 
     def find_known_authors(self, citations, known_authors):
