@@ -16,9 +16,9 @@ def main():
     parser.add_argument('--full', action='store_true', help='Run full pipeline')
     parser.add_argument('--import', dest='import_paragraphs', action='store_true', default=False,
                         help='Import paragraphs from OCR')
-    parser.add_argument('--ocr-dir', default='/home/dustin/work/ta/data/ocr', help='Location of OCR directory')
+    parser.add_argument('--ocr-dir', default='../../data/ocr', help='Location of OCR directory')
     parser.add_argument('--types', action='store_true', help='Detect entry types')
-    parser.add_argument('--category-file', default='/home/dustin/work/ta/data/TA_Kategorien_Endschema.csv',
+    parser.add_argument('--category-file', default='../../data/TA_Kategorien_Endschema.csv',
                         help='Path to category CSV')
     parser.add_argument('--find-authors', action='store_true')
 
