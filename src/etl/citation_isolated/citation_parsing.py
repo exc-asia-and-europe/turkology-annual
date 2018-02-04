@@ -4,7 +4,7 @@ import logging
 import re
 import regex
 
-from citation_isolated.field_parsing import parse_citation_fields
+from .field_parsing import parse_citation_fields
 
 
 class CitationParser(object):

@@ -7,8 +7,8 @@ Created on 12.03.2010
 """
 import re
 import lepl
-from utils.formattedstring import FormattedString
-from utils.parsemethod import parsemethod, rawlist
+from etl.utils.formattedstring import FormattedString
+from etl.utils.parsemethod import parsemethod, rawlist
 
 def TupleApply(matcher, function, raw=False, args=False):
     """With TupleApply you can create more then one named pairs from a

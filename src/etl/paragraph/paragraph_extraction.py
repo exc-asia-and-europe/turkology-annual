@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from paragraph.wmlparser import WMLParser
+from etl.paragraph.wmlparser import WMLParser
 
 
 def extract_paragraphs(volume_filename):
