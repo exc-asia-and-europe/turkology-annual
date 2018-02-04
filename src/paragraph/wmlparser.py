@@ -69,7 +69,7 @@ class WMLParser(object):
         }
 
     def _xpath(self, expression, element=None):
-        element = element or self.document
+        element = element if element is not None else self.document
         if element is self.document:
             expression = '/w:wordDocument' + ('' if expression[0] == '/' else '/') + expression
         return element.xpath(expression, namespaces=self.namespaces)
