@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from citation_isolated.field_parsing import parse_citation_fields
-
+import logging
 import re
 import regex
+
+from citation_isolated.field_parsing import parse_citation_fields
 
 
 class CitationParser(object):
@@ -18,7 +19,7 @@ class CitationParser(object):
     comment_pattern = re.compile('\[([^\]]+)\]\.?( {{{ REVIEW }}})?$')
     material_pattern = re.compile(', (\[?\d+\]? *(?:(?:Karte|Tafel|Tabelle|Falt(?:tafel|karte|tabelle))n?|Porträts?|Abb\.(?:Falt|Schlacht)pl(?:an|äne)))(\.)?')
     loc_year_pages_pattern = re.compile(r'([.,]) +\[?([^,.]+), +\[?(\d{4})\]?, +(?:([\d +DCLIVX]+) *[Ss]\.|[Ss]\. (\d+)\s*-\s*(\d+))')
-    in_pattern = re.compile(' +In ?: +([^.]{1,20} +([\d.\-— ();,*S/=]+|und)+)[.,]')
+    in_pattern = re.compile(' +In ?: +([^.]+ +[\d.\-— ();,*S/=und]+)[.,]')
     author_pattern = re.compile('^{last_given}   +'.format(last_given=last_name_given_names_pattern), re.UNICODE)
     multiple_authors_pattern = re.compile(
         '^{last_given}(?: *[—-] *{last_given})+   +'.format(last_given=last_name_given_names_pattern), re.UNICODE)
@@ -36,6 +37,7 @@ class CitationParser(object):
 
     @classmethod
     def parse_citation(cls, citation):
+        logging.debug('Parsing citation: {}'.format(str(citation)))
         if 'remainingText' in citation:
             remaining_text = citation['remainingText']
         else:
@@ -62,6 +64,7 @@ class CitationParser(object):
         for material_match in re.finditer(cls.material_pattern, remaining_text):
             citation.setdefault('material', []).append(material_match.group(1))
             material_spans.append((material_match.span(1)[0], material_match.span()[1]))
+
         if material_spans:
             remaining_text_parts = []
             previous_end = 0
@@ -71,7 +74,6 @@ class CitationParser(object):
                 previous_end = end
             remaining_text_parts.append(remaining_text[previous_end:])
             remaining_text = ''.join(remaining_text_parts)
-
 
         loc_year_pages_match = cls.loc_year_pages_pattern.search(remaining_text)
         if loc_year_pages_match:
@@ -161,6 +163,7 @@ if __name__ == '__main__':
         "1272. DEVECI, Hasan A.    Cyprus yesterday, today — what next? London, 1976, 1 + 60 S. (Cyprus Turkish Association, 2).",
         "660. Kramer, Gerhard F.—McGrew, Roderick E.  Potemkin, the Porte, and the road to Tsargrad. The Shumla negotiations, 1789-1790. In: CASS 8.4.1974.467-487.",
         "1226. Pollo, St. - Pulaha, S.     Akte të Rilindjes kombëtare shqiptare 1878-1912 [s. TA 5.1496, 6.1621].",
+        '1018. PlNON, Pierre       Les villes du pont vues par le Père de Jerphanion.      e g Tokat, Amasya, Sivas. In: TA 25.240.859-865.                                      CO Ό',
     ]:
         # TA 2.162.3.1.1973.29-36
 
