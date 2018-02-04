@@ -1,6 +1,7 @@
 import argparse
 import csv
 import logging
+from multiprocessing import Pool
 import os
 
 import mongo_client
@@ -16,23 +17,24 @@ def main():
     parser.add_argument('--full', action='store_true', help='Run full pipeline')
     parser.add_argument('--import', dest='import_paragraphs', action='store_true', default=False,
                         help='Import paragraphs from OCR')
-    parser.add_argument('--ocr-dir', default='../../data/ocr', help='Location of OCR directory')
+    parser.add_argument('--ocr-files', default='../../data/ocr/TA*.xml', nargs='*', help='Location of OCR directory')
     parser.add_argument('--types', action='store_true', help='Detect entry types')
     parser.add_argument('--category-file', default='../../data/TA_Kategorien_Endschema.csv',
                         help='Path to category CSV')
     parser.add_argument('--find-authors', action='store_true')
+    parser.add_argument('--verbose', '-v', action='store_true')
 
     args = parser.parse_args()
 
-    setup_logging()
+    setup_logging(args.verbose)
 
     database = mongo_client.get_database('ta')
     if args.full:
-        run_full_pipeline(args.ocr_dir, args.category_file, database)
+        run_full_pipeline(args.ocr_files, args.category_file, database)
         return
 
     if args.import_paragraphs:
-        write_paragraphs_to_database(args.ocr_dir, database)
+        write_paragraphs_to_database(args.ocr_files, database)
     if args.types:
         category_mapping = get_category_mapping(args.category_file)
         detect_paragraph_types(database, category_mapping)
@@ -47,33 +49,54 @@ def main():
         logging.info('Found known authors in %d citations', count+1)
 
 
-def run_full_pipeline(ocr_dir, category_file, database, drop_existing=True):
-    volume_filenames = [os.path.join(ocr_dir, fileName) for fileName in os.listdir(ocr_dir) if
-                        fileName.startswith("TA") and fileName.endswith(".xml")]
-    volume_filenames.sort()
-    volume_filenames = volume_filenames[10:]
+def run_full_pipeline(ocr_files, category_file, database, drop_existing=True):
     category_mapping = get_category_mapping(category_file)
     if drop_existing:
         database.paragraphs.drop()
         database.citations.drop()
-    parser = CitationParser()
-    for volume_filename in volume_filenames:
-        logging.info("Processing %s...", volume_filename)
-        paragraphs = extract_paragraphs(volume_filename)
-        typed_paragraphs = list(detect_paragraph_types(paragraphs, category_mapping))
-        for paragraph in typed_paragraphs:
-            paragraph['styles'] = list(paragraph['styles'].items())
 
-        database.paragraphs.insert_many(typed_paragraphs)
-        raw_citations = assemble_citations(typed_paragraphs)
-        citations = [parser.parse_citation(raw_citation) for raw_citation in raw_citations]
-        if citations:
-            database.citations.insert_many(citations)
+    with Pool(processes=8) as pool:
+        pool.starmap(run_full_pipeline_on_volume, [(volume_filename, category_mapping) for volume_filename in ocr_files])
+
+    #do stuff
     logging.info('Creating indexes')
     database.citations.create_index([('volume', 1)])
     database.citations.create_index([('number', 1)])
     database.citations.create_index([('authors', 1)])
     database.citations.create_index([('fullyParsed', 1)])
+
+
+def run_full_pipeline_on_volume(volume_filename, category_mapping):
+    parser = CitationParser()
+    logging.info("Processing %s...", volume_filename)
+
+    logging.debug('Extracting paragraphs...')
+    paragraphs = extract_paragraphs(volume_filename)
+
+    logging.debug('Determining paragraph types...')
+    typed_paragraphs = list(detect_paragraph_types(paragraphs, category_mapping))
+    for paragraph in typed_paragraphs:
+        paragraph['styles'] = list(paragraph['styles'].items())
+
+    logging.debug('Connecting to database...')
+    database = mongo_client.get_database('ta')
+
+    logging.debug('Writing paragraphs to database...')
+    database.paragraphs.insert_many(typed_paragraphs)
+
+    logging.debug('Assembling citations...')
+    raw_citations = assemble_citations(typed_paragraphs)
+
+    logging.debug('Parsing citations...')
+    citations = [parser.parse_citation(raw_citation) for raw_citation in raw_citations]
+
+    if citations:
+        logging.debug('Writing {} citations to database...'.format(len(citations)))
+        database.citations.insert_many(citations)
+    else:
+        logging.warning('No citations found.')
+    logging.info('Processing of %s done.', volume_filename)
+
 
 
 def get_category_mapping(file_name):
@@ -107,18 +130,18 @@ def write_paragraphs_to_database(ocr_input_folder, database, drop_existing=True)
     database.paragraphs.create_index([('volume', 1)])
 
 
-def setup_logging():
+def setup_logging(verbose):
     # set up logging to file - see previous section for more details
     logging.basicConfig(level=logging.DEBUG,
-                        format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
+                        format='%(asctime)s %(processName)s %(levelname)-8s %(message)s',
                         datefmt='%m-%d %H:%M',
                         filename='/tmp/ta_processing.log',
                         filemode='w')
     # define a Handler which writes INFO messages or higher to the sys.stderr
     console = logging.StreamHandler()
-    console.setLevel(logging.INFO)
+    console.setLevel(logging.DEBUG if verbose else logging.INFO)
     # set a format which is simpler for console use
-    formatter = logging.Formatter('%(name)-12s: %(levelname)-8s %(message)s')
+    formatter = logging.Formatter('[%(asctime)s][%(levelname)s][%(processName)s] %(message)s')
     # tell the handler to use this format
     console.setFormatter(formatter)
     # add the handler to the root logger
