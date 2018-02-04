@@ -2,3 +2,4 @@ pymongo
 regex
 nameparser
 lxml
+flask
