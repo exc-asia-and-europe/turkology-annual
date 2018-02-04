@@ -1,7 +1,7 @@
 import argparse
 import csv
 import logging
-from multiprocessing import Pool
+import multiprocessing
 
 from repositories.MongoRepository import MongoRepository
 from etl.paragraph.paragraph_extraction import extract_paragraphs
@@ -45,7 +45,7 @@ def run_full_pipeline(ocr_files, category_file, repository, drop_existing=True):
     if drop_existing:
         repository.drop_database()
 
-    with Pool(processes=8) as pool:
+    with multiprocessing.Pool() as pool:
         pool.starmap(run_full_pipeline_on_volume, [(volume_filename, category_mapping) for volume_filename in ocr_files])
 
 
