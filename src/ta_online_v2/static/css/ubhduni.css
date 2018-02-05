@@ -1,0 +1,298 @@
+body {
+  font-size: 0.9em;
+}
+
+h1 {font-size: 115%; font-weight: bold; padding-top: 0.0em; padding-bottom: 0.5em; line-height: 1em;}
+
+h2 {font-size: 105%; font-weight: bold; padding-top: 0.5em; padding-bottom: 0.5em; line-height: 1em; margin: 10px 0px 10px -1px;}
+
+h3 {font-size: 100%; font-weight: bold; padding-top: 0.2em; margin:10px 0px 10px -1px; margin-bottom: 0.2em; line-height: 1em;}
+
+h4 {font-size: 90%; font-weight: bold;}
+
+h5 {font-size: 85%; font-weight: bold;}
+
+
+.radio {font-family:sans-serif; font-size:15pt;}
+.checkbox {font-family:sans-serif; font-size:15pt;}
+
+.unsichtbar {display:none;}
+
+#content ul.menu {
+  margin: 0px;
+}
+
+#content ul.menu li {
+  padding-bottom: 25px;
+}
+
+#content ul.menu li h2 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin: 0px;
+}
+
+td.newsdat {
+  font-size: 0.9em;
+}
+
+.newslist {padding-bottom: 10px; }
+
+.newsdat { font-size: 0.9em; }
+
+.newshead { padding-left: 10px; padding-bottom: 3px; }
+
+.weiternews {
+  padding: 5px;
+  padding-top: 15px;
+  text-align: right;
+}
+
+#heidisuch { background: #EFEFEF; padding: 3px; padding-top: 6px; margin-bottom: 20px; margin-top: 10px; font-size: 0.9em; width: 200px; }
+
+.inputSearchTop {
+  background: #FFFFFF url('/nav4/grafik/layout/search.png') no-repeat scroll 1px center;
+  border:1px solid #666666;
+  color:#666666;
+  font-size:0.9em;
+  padding-left:15px;
+  width:160px;
+}
+
+img {border: 0;}
+
+.nobut {
+  margin-left: 10px;
+  padding-top: 5px;
+}
+
+#topBarInstitute2spalterVariabelUB {
+        height: 25px;
+        background-color: #990000;
+        margin-bottom: 0px;
+        min-width: 550px;
+}
+
+#greyBarUB {
+        height: 17px;
+        background-color: #efefef;
+        margin: 0px 0px 0px 0px;
+}
+
+
+#logotab {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#logolinks {
+  text-align: left; 
+  padding-left: 10px;
+  width:10%;
+}
+
+#logolinks, #logorechts{
+}
+
+#logorechts {
+  text-align: right;
+  padding-right: 10px;
+  width:10%;
+}
+#logomitte {
+  text-align:center;
+  vertical-align:bottom;
+}
+
+/* Seiteninhalte */
+.buchstaben {
+  font-size: 130%;
+  background: #FFFFCC;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  border-top: 1px solid #C0C0C0;
+  border-bottom: 1px solid #C0C0C0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.buchstaben * {padding: 2px;}
+
+.buchstabeaktiv {
+  color: #A00000;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.menubox {
+  margin: 15px 8px 15px 8px;
+  float: left;
+  width: 26em;
+}
+
+.menuboxhead {
+  font-weight: bold;
+  color: #000000;
+  background: #E6E6E6;
+  border-bottom: 2px solid #990000;
+  padding: 2px;
+}
+
+.menuboxbody { background: #F5F5F5; height: 27em;}
+
+.menuboxbody > * {padding: 4px;}
+
+ul.menu {
+  margin: 0px;
+  list-style-image:url("/nav1/grafik/layout/marker_blau.gif");
+  padding: 0px;
+  padding-left: 30px;
+}
+
+ul.menu li {
+  padding-left: 2px;
+  padding-bottom: 25px;
+}
+
+ul.menu li h2 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin: 0px;
+}
+
+.hinweis {font-size: 85%;}
+
+.tabback td {background: #ffffcc;}
+
+td.tabback {background: #ffffcc;}
+
+.tabback2 td {background: #f5f5f5;}
+
+td.tabback2 {background: #f5f5f5;}
+
+ul.ltyp1,ul.ltyp2 {list-style:none; padding-top: 10px; padding-left: 0;}
+
+ul.ltyp1>li {padding-top: 10px; padding-left: 0px;}
+
+ul.ltyp2>li {padding-left: 0px; padding-bottom: 0px;}
+
+li>ul.ltyp1,li>ul.ltyp2 {padding-left: 20px;}
+
+.einstellungen {font-family:monospace;}
+
+/* Container 2-spaltig */
+.zweispaltig {
+  width: 100%;
+  position: static;
+}
+
+.zweispaltiglinks {
+  width: 47%;
+  float: left;
+}
+
+.zweispaltigrechts {
+  width: 47%;
+  float: left;
+  padding-left: 25px;
+}
+
+.zweispaltigende {
+  clear: both;
+}
+
+/* PFL */
+.usernr {
+  color: #c00000;
+  font-style: italic;
+}
+
+.pfldaten {
+  background-color: #efefef;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.pfldaten td {
+  border: 1px solid #a0a0a0;
+  padding: 3px;
+}
+
+.pfldaten th {
+  padding: 3px;
+  background-color: #d0d0d0;
+  font-weight: bold;
+  border: 1px solid #a0a0a0;
+}
+
+.pflicht {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+.pflhinw {
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* HEIDOK */
+.heidokref {
+  border: #a00000 1px solid;
+  border-right: #a00000 2px solid;
+  border-bottom: #a00000 2px solid;
+  font-size: 0.9em;
+  padding: 3px;
+  margin: 0px 40px 10px 40px;
+}
+
+.heidokrefback {
+  text-align: right;
+  margin: 10px 40px 40px 40px;
+}
+
+.heidokreffrist {
+  margin-bottom: 10px;
+  text-align: center;
+  color: #ff0000;
+}
+
+.heidokabstr {margin: 5px 0px 4px 30px;}
+
+/* Login-Maske */
+.login {
+  width: 350px;
+  margin-left: 5px;
+  border: 1px solid #c0c0c0;
+  border-bottom: 2px solid #c0c0c0;
+  border-right: 2px solid #c0c0c0;
+  padding: 6px;
+}
+
+.login2 {
+  width: 350px;
+  margin-left: 11px;
+}
+
+#intern {
+  padding-left: 50px;
+  color: #a0a0a0;
+}
+
+/*TA*/
+
+
+.makro{
+	font-size:1.2em;
+	border:1px solid black;
+	background-color:#efefef;
+	margin-bottom:20px;
+	height:100px;
+	width:150px;
+	text-align:center;
+	float:left;
+
+}
+
+.makro th, .makro td{
+	display:block;
+}

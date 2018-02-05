@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ LANGUAGE_CODE }}" xml:lang="{{ LANGUAGE_CODE }}">
+<head>
+    <title>Turkology Annual Online</title>
+
+    <link rel="canonical" href="{{ CANONICAL_URL|safe }}"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" media="all"/>
+    <link href='http://fonts.googleapis.com/css?family=Brawler' rel='stylesheet' type='text/css'/>
+    <link rel="SHORTCUT ICON" href="/static/images/favicon.ico"/>
+
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+    <meta name="google-site-verification" content="wOupk6Fmvedt150cuYLtssmatgNERsTYIIAGvNUDbIw"/>
+    {% block meta %}{% endblock %}
+
+
+    <script type="text/javascript">mylist_messages = new Array("Add to My List", "Remove from My List");</script>
+
+    <script type="text/javascript" src="/static/scripts/jquery.js"></script>
+    <script type="text/javascript" src="/static/scripts/base.js"></script>
+
+
+    {% block script %}
+    {% endblock %}
+</head>
+
+
+<body>
+
+<div id="container">
+
+    <div id="navi">{% include "navigation.html" %}</div>
+
+
+    <div id="header">
+        <p id="cluster-logo"></p>
+        <div id="header-left">
+            <a href="/">Turkology Annual Online</a>
+
+
+        </div><!--header-left-->
+
+        <div id="header-right">
+
+            <div id="quicksearch" title="Quick search">
+                <form method="get" action="/" name="quicksearch">
+                    <input type="text" name="q" value="{{ request.args.q or '' }}"
+                           id="searchfield" placeholder="Search..."/>
+
+                    <span id="quicksearch-button"><input type="submit" value=""/></span>
+                </form>
+
+            </div><!--quicksearch-->
+
+        </div><!--header-right-->
+    </div><!--header-->
+
+
+    <div id="middle">
+        <h1>Home</h1>
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div><!--content-->
+    </div><!--midle-->
+
+
+</div><!--container-->
+</body>
+</html>

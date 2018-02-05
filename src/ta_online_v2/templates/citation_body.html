@@ -1,0 +1,107 @@
+{% load i18n%}
+{% load entry_extras %}
+{% block script %}
+
+<script type="text/javascript">
+
+	function elementIsEmpty(el) {
+	    return (/^(\s|&nbsp;)*$/.test(el.innerHTML);
+	}
+
+	function hideEmptyRows(){
+		var table = document.getElementById("entry-body");
+		for (var i=0, row;  row = table.rows[i]; i++) {
+			if (elementIsEmpty(row.cells[1])){
+				row.className = "hidden";
+			}
+		}
+	}	
+</script>
+{% endblock %}
+
+
+<table id="entry-body">
+  <tr class="ta-makro">
+  <th class="attribute">{%trans "Band"%}:</th><td>{{entry.volume}}</td></tr>
+   <tr class="ta-makro">
+  <th>{%trans "Nummer"%}:</th><td>{{entry.number}}</td></tr>
+  {% entry_field "Typ" entry.type %}
+  <tr{%if not entry.authors%} class="empty"{%endif%}>
+    <th>
+{% blocktrans count entry.authors|length as count%}
+Autor:
+{% plural %}
+Autoren:
+{% endblocktrans %}
+    </th> 
+    <td>
+    {% for author in entry.authors %}
+    <a href='{% url home %}?criterion1=author&query1="{{author}}"'>{{author}}</a><br />
+    {%endfor%}
+   </td>
+  </tr>
+
+  {% entry_field "Titel" entry.title %}
+  {% entry_field "Herausgeber" entry.editors %}
+  {% entry_field "Ort" entry.cities %}
+  {% entry_field "Jahr" entry.year %}
+  {% entry_field "In" entry.collections %}
+  {% if not entry.collections %}
+    {% entry_field "In" entry.referenceString %}
+  {%endif%}
+  {% entry_field "Datum" entry.date %}
+
+  {% entry_field "Seiten" entry.paginations %}
+  <tr{%if not entry.comment and not entry.bullets%} class="empty"{%endif%}><th>{%trans "Kommentare"%}:</th><td><ul>{% if entry.comment %}<li>{{entry.comment}}</li>{%endif%}{%for bullet in entry.bullets %}<li>{{bullet.title}}</li>{%endfor%}</ul></td></tr>
+  {% entry_field "Artikel" entry.articles %}
+
+{% if entry.reviews %}  <tr{% if not entry.reviews%} class="empty"{%endif%}><th>{%trans "Rezensionen"%}:</th><td><ul>{% for review in entry.reviews %}<li>{% for author in review.authors %}<a href='{% url home %}?query1="{{author}}"&criterion1=author'>{{author}}</a>{% if not forloop.last %}, {% endif %}{% endfor %}, 
+
+      {% for reference in review.references %}<a href='{% url home %}?query1="{{reference.title}}"&criterion1=journal'>{{reference}}</a>{% if not forloop.last%}, {%endif%}{%endfor%}</li>{%endfor%}
+       </ul></td></tr>{% endif %}
+  <tr{% if not entry.reports%} class="empty"{%endif%}><th>{%trans "Berichte"%}:</th><td><ul>{% for report in entry.reports %}<li>{{report}}</li>{%endfor%}</ul></td></tr>
+  <tr{% if not entry.abstracts%} class="empty"{%endif%}><th>{%trans "Referate"%}:</th><td><ul>{% for abstract in entry.abstracts %}<li>{{abstract}}</li>{%endfor%}</ul></td></tr>
+   <tr{% if not entry.getCategories %} class="empty"{% endif %}>
+   {% entry_field "Schlagworte" entry.getCategories %}
+    {%comment%}<td><ul>{% for category in entry.getCategories %}
+	{{category.superCategory.label}}
+	<li><a href="/?criterion1=category&query1='
+	{% ifequal LANGUAGE_CODE "en"%}
+	{{category.nameEN}}'">{{category.nameEN}}
+	{%else%}
+	{{category.nameDE}}'">{{category.label}}
+{%endifequal%}</a></li>
+       {% endfor %}
+	</td>
+  </tr>{%endcomment%}
+  {% entry_field "Abstract" entry.abstract %}
+
+{% if request.user.is_authenticated %}
+    {% if entry.type == "articleRepetition" or entry.type == "collectionRepetition" %}
+      <tr class="hidden">
+        <th>{% trans "Referenzen" %}:</th>
+	  <td>{% for reference in entry.references %}
+	        <a href="{% url show_entry reference.id %}">{{reference}}</a><br/>
+	      {% endfor %}
+	  </td>
+      </tr>
+    {% endif %}
+  <tr class="hidden"><th>ID:</th><td>{{entry.id}}</td></tr>
+<tr class="hidden"><th>Subentries:</th><td>{{entry.subEntries|join:"|<br/>"}}</td></tr>
+ <tr class="hidden"><th>Repetitions:</th><td><ul>{% for repetition in entry.repetitions %}<li><a href="{% url show_entry repetition.id %}">TA {{repetition.volume}}.{{repetition.number}}</a></li>{%endfor%}</ul></td></tr>
+ <tr class="hidden"><th>Bullets:</th><td>{% for bullet in entry.bullets %}{{bullet.categories}}{% endfor%}</td></tr>
+  <tr{% ifnotequal entry.type "unknown" %} class="hidden"{% endifnotequal %}>
+    <th>Raw:</th>
+    <td>{{entry.raw}}</td>
+  </tr>
+  <tr class="hidden">
+    <th>Problem:</th>
+    <td>{{entry.problem}}</td>
+  </tr>
+{% if request.user.is_authenticated %}<tr class="hidden"><th>MLN Demo</th><td><a target="_blank" href="http://176.28.23.43/ba/live_demo/{{ entry.id }}">Eintrag parsen</a> (Kann etwas dauern)</td></tr>{% endif %}
+              
+{%endif%}
+{%comment%}
+  <tr class="hidden">
+    <td colspan="2">{{entry_object}}</td></tr>{%endcomment%}
+</table>

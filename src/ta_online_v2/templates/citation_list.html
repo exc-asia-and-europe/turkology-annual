@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% block meta %}
+    <meta name="robots" content="noindex"/>{% endblock %}
+{% block script %}
+
+    <script lang="javascript" type="text/javascript">
+        function toggleFacet(name) {
+            facet = document.getElementById(name);
+            if (facet.style.display == "") {
+                facet.style.display = "block";
+            } else {
+                facet.style.display = "";
+            }
+        };
+    </script>
+    {% block subscript %}
+        <script type="text/javascript" src="/static/scripts/hitlist.js"></script>
+    {% endblock %}
+{% endblock %}
+{% block headline %}{{ title|safe }}{% endblock %}
+{% block subtitle %}{{ title|safe }} - {% endblock %}
+
+{% block content %}
+
+    {% block list_options %}
+        <div id="list-options">
+            <div id="hits-per-page">
+                Hits per page:
+                <select name="hitsperpage"
+                        onchange="window.location=''.replace(/XXX/g, this.value)">
+                    {% for size in page_sizes %}
+                        <option value="{{ size }}" {% if hits_per_page == size %}
+                                selected="selected"{% endif %}>{{ size }}</option>
+                    {% endfor %}
+                </select>
+                </form>
+            </div><!--hits-per-page-->
+
+            <div id="sorting">
+                Order by:
+                {% for code, name in sort_fields %}
+                    {% if code == order_by %}
+
+                        {% if ascending %}
+                            <a href="" class="active">{{ name }}&uarr;</a>
+                        {% else %}
+                            <a href="" class="active">{{ name }}&darr;</a>
+                        {% endif %}
+                    {% else %}
+                        <a href="">{{ name }}</a>
+                    {% endif %}
+                    </a>
+                {% endfor %}
+            </div><!--sorting-->
+        </div><!--list-options-->
+    {% endblock %}
+
+
+    {% if total_matches == 0 %}
+        {% block emptymessage %}
+            No matches found.
+        {% endblock %}
+    {% else %}
+
+
+        {% block extra %}
+            <div class="categories">
+                {% for cat in categories %}
+                    <div class="{% if not cat.active %}in{% endif %}active-tab">
+                        <a href="">
+                            {{ cat.repr|safe }}{% if cat.count %} ({{ cat.count }}){% endif %}</a></div>
+                {% endfor %}
+            </div><!--categories-->
+        {% endblock %}
+
+
+        {% block pages_top %}
+            <div class="pages">
+                {% if pagination.previous %}
+                    <a href="{{ pagination.previous }}">&lt;</a>&#160;
+                {% endif %}
+                {% for page in pagination.pages %}
+                    {% if page.url %}
+                        <a href="{{ page.url }}">{{ page.number }}</a>
+                    {% else %}
+                        <span class="current">{{ page.number }}</span>
+                    {% endif %}
+                    &#160;
+                {% endfor %}
+                {% if pagination.next %}
+                    <a href="{{ pagination.next }}">&gt;</a>
+                {% endif %}
+        {% endblock %}
+
+
+        <!--<form method="GET" name="sort" action="{{request.path_info}}">
+<select name="orderby" onchange="document.forms.sort.submit();">
+{% for name, repr in sort_fields %}
+<option value="{{name}}">{{repr}}</option>
+{%endfor%}
+{% for key, val in request.args.items() %}
+{% if key != "orderby"%}
+<input type="hidden" name="{{key}}" value="{{val}}"/>
+{%endif%}
+{%endfor%}
+</select>
+</form>-->
+        <div id="groups">
+            <ul>
+                {% for name, group in groups.items() %}
+                    <li>{{ name }}({{ group.size }})</li>
+                    <ul>
+                        {% for g in group %}
+                            <li><a href="">{{ g }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </ul>
+        </div>
+
+
+        <div id="matches">
+            {% for match in citations %}
+                <div class="entry" id="entry-{{ match._id }}">
+                    <table>
+                        <tr>
+                            <td class="entry-nr"><a class="nr" href="?sess={{ search_key }}">
+                                {{ loop.index0 + pagination.start_index }}</a>
+                            </td>
+
+                            <td class="entry-body">
+                            <span class="title"><a href="entries/{{ match.volume }}/{{ match.number }}?sess={{ search_key }}"
+                                                   title="{{ match.title }}">{% if match.title %}
+                                {{ match.title }}{% else %}{{ match.rawText }}{% endif %}</a></span>
+
+
+
+                                {% if match.authors %}    <span class="author">
+      {% for author in match.authors %}{{ author.raw }}{% if not loop.last %} - {% endif %}{% endfor %}</span>
+                                {% endif %}
+                                <span class="location-year">
+    {% if match.location %}{{ match.location }}{% endif %}{% if match.datePublished and match.location %}, {% endif %}
+    {% if match.datePublished %}{{ match.datePublished }}{% endif %}
+    <span class="ta-pos">
+      TA {{ match.volume }}, {{ match.number|safe }}
+   </span>
+
+
+                                    {% if match.keywords %}
+                                        <span class="keywords">
+    <span class="field-name">Keywords:</span> {{ ' | '.join(match.keywords) }}</span>
+                                    {% endif %}
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            {% endfor %}
+        </div><!--matches-->
+
+
+        {% block pages_bottom %}
+            <div class="pages">
+                {% if pagination.previous %}
+                    <a href="{{ pagination.previous }}">&lt;</a>&#160;
+                {% endif %}
+                {% for page in pagination.pages %}
+                    {% if page.url %}
+                        <a href="{{ page.url }}">{{ page.number }}</a>
+                    {% else %}
+                        <span class="current">{{ page.number }}</span>
+                    {% endif %}
+                    &#160;
+                {% endfor %}
+                {% if pagination.next %}
+                    <a href="{{ pagination.next }}">&gt;</a>
+                {% endif %}
+            </div><!--pages-->
+        {% endblock %}
+
+    {% endif %}
+{% endblock %}

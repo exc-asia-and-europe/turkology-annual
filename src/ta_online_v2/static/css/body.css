@@ -1,0 +1,9 @@
+body { 
+	font-size: 0.85em;
+	font-family: verdana, arial,helvetica,sans-serif;
+	overflow-y:scroll;	
+ }
+#hmenue li.schrift a#schriftk, #hmenue li.schrift a#schriftg { padding: 0px; padding-bottom: 0px; margin: 0px; margin-left: 2px; margin-bottom: 0px; border: none; }
+#hmenue li.schrift a#schriftm { padding: 0px; padding-bottom: 0px; margin: 0px; margin-left: 2px; margin-bottom: 0px; border: none; }
+#hmenue li.schrift a#schriftk img, #hmenue li.schrift a#schriftg img {border: 1px solid #DEDEDE;}
+#hmenue li.schrift a#schriftm img {border: 1px solid #C0C0C0; background-color: #DEDEDE;}
