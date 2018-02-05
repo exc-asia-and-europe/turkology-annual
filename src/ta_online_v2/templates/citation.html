@@ -1,138 +1,91 @@
 {% extends "base.html" %}
-{% load i18n%}
-{% load entry_extras %}
 
-{% block meta %}<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
-<meta name="abstract" content="{{ entry.raw }}" />
-<meta name="importance" content="ultra"></meta>
-<meta name="DC.title" content="{{ entry.title }}">
-{% for author in entry.authors %}
-<meta name="DC.creator" content="{{ author }}">
-{% endfor %}
-<meta name="DC.date" content="{% if entry.date %}{{ entry.date }}{% else %}{{ entry.year }}{% endif %}">
-{% for editor in entry.editors %}
-<meta name="DC.contributor" content="{{ editor }}">
-{% endfor %}
+{% block meta %}
+    <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"/>
+    <meta name="abstract" content="{{ citation.raw }}"/>
+    <meta name="importance" content="ultra"></meta>
+    <meta name="DC.title" content="{{ citation.title }}">
+    {% for author in citation.authors %}
+        <meta name="DC.creator" content="{{ author }}">
+    {% endfor %}
+    <meta name="DC.date" content="{% if citation.date %}{{ citation.date }}{% else %}{{ citation.year }}{% endif %}">
+    {% for editor in citation.editors %}
+        <meta name="DC.contributor" content="{{ editor }}">
+    {% endfor %}
 {% endblock %}
 
-{%block headline%}{%trans "Detailansicht"%}: {% trans "Band" %} {{entry.volume}}, {% trans "Nr." %} {{entry.number}}{% if request.GET.search_result %} (Treffer {{hit_number}} von {{total_hits}}){% endif %}{%endblock%}
+{% block headline %}Entry details: Volume {{ citation.volume }}, No.
+    {{ citation.number }}{% if request.args.search_result %} (Treffer {{ hit_number }} von {{ total_hits }})
+    {% endif %}{% endblock %}
 
-{%block subtitle%}{%trans "Detailansicht"%}: {% trans "Band" %} {{entry.volume}}, {% trans "Nr." %} {{entry.number}}{% if request.GET.search_result %} (Treffer {{hit_number}} von {{total_hits}}){% endif %} - {%endblock%}
+{% block subtitle %}Entry details: Volume {{ citation.volume }}, No.
+    {{ citation.number }}{% if request.args.search_result %} (Treffer {{ hit_number }} von {{ total_hits }}){% endif %}
+    - {% endblock %}
 
 {% block script %}
-<script type="text/javascript" src="{{ STATIC_URL }}scripts/entry.js"></script>
-<script type="text/javascript">var entry_id={{ entry.id }};</script>
-{% if request.user.is_authenticated %}
+    <script type="text/javascript" src="/static/scripts/entry.js"></script>
+    <script type="text/javascript">var entry_id='{{ citation.id }}';</script>
 
-<script type="text/javascript">
-function toggleVisibility(){
-	var visible = false;
-	var table = document.getElementById("entry-body");
-	for (var i=0; i < table.rows.length; i++){
-		var row = table.rows[i];
-		if (row.className == "hidden" || row.className == "empty"){
-			if (row.style.display == "table-row"){
-				row.style.display = "none";
-			} else {
-				row.style.display = "table-row";
-				visible = true;
-			}
-		} 
-	}	
-	if (visible){
-		document.getElementById("toggle-link").innerHTML = "Zus&auml;tzliche Felder verbergen";
-	} else{
-		document.getElementById("toggle-link").innerHTML = "Zus&auml;tzliche Felder anzeigen";
-	}
-}
-</script>
-{% endif %}
 {% endblock %}
 
 
 
 {% block content %}
 
-{% comment %} hit list navigation options {% endcomment %}
-<div id="hitlist-navigation">
+    <div id="hitlist-navigation">
 
-<div class="prev">{% if previous %}<a href="{% url show_entry previous %}?sess={{ search_key }}" title="{% trans "Vorheriger Treffer" %}">&lt;</a>
-{% endif %}</div>
+        <div class="prev">{% if previous %}<a href="/entries/{{ previous }}?sess={{ search_key }}"
+                                              title="Previous match">&lt;</a>
+        {% endif %}</div>
 
-{% if back_link %}
-<a href="{{ back_link }}">{% trans "Zur&uuml;ck zur Trefferliste" %}</a>
-{% endif %}
+        {% if back_link %}
+            <a href="{{ back_link }}">Back to results list</a>
+        {% endif %}
 
-<div class="next">{% if next %}<a href="{% url show_entry next %}?sess={{ search_key }}" title="{% trans "N&auml;chster Treffer" %}">&gt;</a>
-{% endif %}</div>
-</div>
+        <div class="next">{% if next %}<a href="/entries/{{ next }}?sess={{ search_key }}"
+                                          title="Next match">&gt;</a>
+        {% endif %}</div>
+    </div>
 
-{% comment %} // hit list navigation options {% endcomment %}
+    <div id="entry-options">
 
-{% comment %} entry-related side navigation {% endcomment %}
+        <div class="entry-option">
+            <a href="#" id="toggleEntry">
+                <img src="/static/images/{% if citation.id in mylist %}checked{% else %}unchecked{% endif %}.png"
+                     class="icon" id="mylist-image-{{ citation.id }}"/>
+                <span id="mylist-text-{{ citation.id }}">{% if citation.id in mylist %}
+                    Remove from My List{% else %}
+                    Add to My List{% endif %}</span>
+            </a>
+        </div>
 
-<div id="entry-options">
-
-  {% comment %} my list options {% endcomment %} 
-  <div class="entry-option">
-    <a href="#" id="toggleEntry">
-      <img src="{{ STATIC_URL }}images/{%if entry.id in mylist%}checked{%else%}unchecked{%endif%}.png" class="icon" id="mylist-image-{{entry.id}}" />
-      <span id="mylist-text-{{entry.id}}" >{% if entry.id in mylist%}{%trans "Aus Merkliste entfernen" %}{%else%}{%trans "Zur Merkliste hinzuf&uuml;gen"%}{%endif%}</span>
-    </a>
-  </div>
-
-  {% comment %} report error {% endcomment %}
-  <div class="entry-option">
-    <a href="#" class="toggle-export-menu">
-      <img src="{{ STATIC_URL }}images/disk.png" class="icon"/>
-      <span class="export-link">{% trans "Exportieren" %}</span></a>
-      <span class="export-formats">
+        <div class="entry-option">
+            <a href="#" class="toggle-export-menu">
+                <img src="/static/images/disk.png" class="icon"/>
+                <span class="export-link">Export</span></a>
+            <span class="export-formats">
         <a href="#" class="export-format" id="bibtex">BibTeX</a>
    <span class="separator"> | </span>
        <a href="#" class="export-format" id="ris">RIS</a>
 </span>
 
-<div id="export-window">
-  <div id="export-window-header">
-    <span id="export-window-format-name"></span>
-    <a href="#" title="{% trans "Schlie&szlig;en" %}"><span id="export-window-close-button"><img src="{{ STATIC_URL }}images/close-button.gif"/></span></a>
-    <a href="#"><span id="export-window-save-button"><img src="{{ STATIC_URL }}images/disk.jpg" class="small-icon" title="{% trans "Speichern" %}"/></span></a>
-  </div>
-  <div id="export-code-container"></div>
-
-</div>
-
-
-  </div>
-
-
-  {% comment %} report error 
-  <span class="entry-option">
-    <a href="{% url report_error entry.id %}">
-      <img src="{{ STATIC_URL }}images/alert.gif" class="icon"/>
-      {% if request.user.is_staff%}
-        {% trans "Eintrag bearbeiten" %}
-      {% else %}
-        {% trans "Fehler melden" %}
-      {%endif%}
-    </a>
-  </span>
-	{% endcomment %}
-
-  {% comment %} additional info (for admins) {% endcomment %}
-  <div class="entry-option">
-    {% if request.user.is_authenticated %}
-      <a id="toggle-link" href="javascript:toggleVisibility()">Zus&auml;tzliche Felder anzeigen</a>
-    {% endif %}
-  </div>
-
-</div><!--entry-options-->
-
-{% comment %} // entry-related side navigation {% endcomment %}
+            <div id="export-window">
+                <div id="export-window-header">
+                    <span id="export-window-format-name"></span>
+                    <a href="#" title="Close"><span id="export-window-close-button"><img
+                            src="/static/images/close-button.gif"/></span></a>
+                    <a href="#"><span id="export-window-save-button"><img src="/static/images/disk.jpg"
+                                                                          class="small-icon"
+                                                                          title="Save"/></span></a>
+                </div>
+                <div id="export-code-container"></div>
+            </div>
+        </div>
+    </div><!--entry-options-->
 
 
-{% comment %}  content of the entry  {% endcomment %}
-{% include "entry_body.html" %}
+
+    {% include "citation_body.html" %}
 
 
 {% endblock %}
