@@ -1,17 +1,17 @@
 import regex as re
 
 
-def detect_paragraph_types(paragraphs, category_mapping):
+def detect_paragraph_types(paragraphs, keyword_mapping):
     journal_section_begin_pattern = re.compile('ZEITSCHRIFTEN +UND')
     journal_pattern = re.compile('')
-    category_pattern_base = '({})'.format(
+    keyword_pattern_base = '({})'.format(
         '|'.join([
-            re.escape('{}. {}'.format(code, category))
-            for code, category in category_mapping.items()
+            re.escape('{}. {}'.format(code, keyword))
+            for code, keyword in keyword_mapping.items()
         ])
     )
-    category_pattern_exact = re.compile(category_pattern_base, re.IGNORECASE)
-    category_pattern_fuzzy = re.compile(category_pattern_base + '{e<=2}', re.IGNORECASE)
+    keyword_pattern_exact = re.compile(keyword_pattern_base, re.IGNORECASE)
+    keyword_pattern_fuzzy = re.compile(keyword_pattern_base + '{e<=2}', re.IGNORECASE)
     citation_pattern = re.compile(r'(\d+)\.\s+.+', re.DOTALL)
     broken_bullet_pattern = re.compile(r'^[φ#0].*')#, s\.( a\.)? \d+')
     page_number_pattern = re.compile('(\d+\s+Turkologischer Anzeiger|Turkologischer Anzeiger\s+\d+){e<=2}')
@@ -38,23 +38,23 @@ def detect_paragraph_types(paragraphs, category_mapping):
             journal_match = journal_pattern.search(text)
             if False and journal_match:
                 paragraph_type = 'journal'
-            elif category_pattern_fuzzy.fullmatch(text):
-                paragraph_type = 'category'
-            elif citation_section_has_begun and text.split('.')[0] in category_mapping:
-                paragraph_type = 'category'
-            if paragraph_type == 'category':
+            elif keyword_pattern_fuzzy.fullmatch(text):
+                paragraph_type = 'keyword'
+            elif citation_section_has_begun and text.split('.')[0] in keyword_mapping:
+                paragraph_type = 'keyword'
+            if paragraph_type == 'keyword':
                 citation_section_has_begun = True
 
         if citation_section_has_begun and not index_has_begun:
-            if category_pattern_exact.fullmatch(text):
-                paragraph_type = 'category'
+            if keyword_pattern_exact.fullmatch(text):
+                paragraph_type = 'keyword'
             elif citation_section_has_begun and citation_match and 0 < (int(citation_match.group(1)) - latest_citation_number) <= 5:
                 paragraph_type = 'citation'
                 latest_citation_number = int(citation_match.group(1))
-            elif category_pattern_fuzzy.fullmatch(text):
-                paragraph_type = 'category'
-            elif citation_section_has_begun and text.split('.')[0] in category_mapping:
-                paragraph_type = 'category'
+            elif keyword_pattern_fuzzy.fullmatch(text):
+                paragraph_type = 'keyword'
+            elif citation_section_has_begun and text.split('.')[0] in keyword_mapping:
+                paragraph_type = 'keyword'
             elif text.startswith('•') and is_possible_amendment:
                 paragraph_type = 'amendment'
             elif text.startswith('Rez.') and is_possible_amendment:

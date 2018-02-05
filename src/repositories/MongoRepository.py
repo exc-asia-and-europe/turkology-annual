@@ -1,3 +1,4 @@
+import bson
 import logging
 import pymongo
 
@@ -15,12 +16,50 @@ class MongoRepository(object):
         self.citations.create_index([('number', 1)])
         self.citations.create_index([('authors', 1)])
         self.citations.create_index([('fullyParsed', 1)])
+        self.citations.create_index([
+            ('rawText', 'text'),
+            ('amendments', 'text'),
+            ('keywords', 'text')]
+        )
 
-    def get_citations(self, query=None, limit=10000, skip=0, order_fields=(('volume', True), ('number', True))):
-        query = query or {}
+    def get_citation(self, volume=None, number=None, id=None):
+        if id:
+            citation = self.citations.find_one({'_id': bson.ObjectId(id)})
+        elif None in (volume, number):
+            raise ValueError('You must specify either an id or a volume and entry number')
+        else:
+            citation = self.citations.find_one({'volume': volume, 'number': number})
+        if not citation:
+            raise LookupError('Citation with id %s not found', id)
+        citation['id'] = id
+        return citation
 
-        order_fields = [(field_name, {True: pymongo.ASCENDING, False: pymongo.DESCENDING}[ascending]) for field_name, ascending in order_fields]
-        return self.citations.find(query).sort(order_fields).skip(skip).limit(limit)
+    def find_citations(self, query=None, limit=0, skip=0, order_fields=None):
+        if query is None:
+            query = {}
+        else:
+            query = {'$text': {'$search': query}}
+
+        projections = None
+        if order_fields:
+            order_fields = [(field_name, {True: pymongo.ASCENDING, False: pymongo.DESCENDING}[ascending]) for
+                            field_name, ascending in order_fields]
+        else:
+            if query:
+                order_fields = (('score', {'$meta': 'textScore'}),)
+                projections = {'score': {'$meta': "textScore"}}
+            else:
+                order_fields = (('volume', pymongo.ASCENDING), ('number', pymongo.ASCENDING))
+
+        if projections:
+            citations = self.citations.find(query, projections)
+        else:
+            citations = self.citations.find(query)
+        return {
+            'data': [{**citation, **{'id': citation['_id']}} for citation in
+                     citations.sort(order_fields).skip(skip).limit(limit)],
+            'total': self.citations.count(query),
+        }
 
     def insert_citations(self, citations):
         self.citations.insert_many(citations)
