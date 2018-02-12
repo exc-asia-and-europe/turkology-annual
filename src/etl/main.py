@@ -1,5 +1,6 @@
 import argparse
 import csv
+from datetime import datetime
 import logging
 import multiprocessing
 
@@ -36,11 +37,14 @@ def main():
         citations = repository.citations.find({'authors': None, 'fullyParsed': False})
         parser = CitationParser()
         count = -1
-        for count, citation in enumerate(parser.find_known_authors(citations, known_authors)):
-            if citation.get('authors'):
-                citation = parser.parse_citation(citation)
-                logging.debug('Found author(s) "{}" in "{}"\n'.format(citation['authors'], citation))
-                repository.citations.save(citation)
+        for count, updated_citation in enumerate(parser.find_known_authors(citations, known_authors)):
+            if updated_citation.get('authors'):
+                updated_citation = parser.parse_citation(updated_citation)
+                updated_citation['_timestamp'] = datetime.now()
+                updated_citation['_version'] = updated_citation.get('_version', 0) + 1
+                updated_citation['_creator'] = '<find_known_authors>'
+                logging.debug('Found author(s) "{}" in "{}"\n'.format(updated_citation['authors'], updated_citation))
+                repository.insert_citation(updated_citation)
         logging.info('Found known authors in %d citations', count+1)
 
 

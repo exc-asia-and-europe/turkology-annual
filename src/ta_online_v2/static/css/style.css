@@ -539,6 +539,10 @@ tr.hidden{
 	background-color:#FFEFD5;
 }
 
+table.version_info {
+	background-color:#FFEFD5;
+}
+
 tr.empty{
 	display:none;
 	color:gray;

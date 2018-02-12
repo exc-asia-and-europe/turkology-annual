@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from collections import OrderedDict
+from datetime import datetime
 
 
 def assemble_citations(paragraphs):
@@ -17,6 +18,9 @@ def assemble_citations(paragraphs):
                 volume=paragraph['volume'],
                 keywords=[current_keyword],
                 rawText=paragraph['text'],
+                _version=1,
+                _timestamp=datetime.now(),
+                _creator='<initial>',
             )
             if 'small_caps_ranges' in paragraph:
                 current_citation['small_caps_ranges'] = paragraph['small_caps_ranges']

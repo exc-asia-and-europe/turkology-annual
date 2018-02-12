@@ -638,7 +638,7 @@ tr.category{
 .entry{
 }
 
-.entry-body table{
+.entry-body table, table.version_info{
   width:100%;
   border-bottom:1px solid black;
   padding-bottom:15px;

@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, session, url_for
 import logging
 import math
+import pprint
 
 from repositories.MongoRepository import MongoRepository
 
@@ -49,12 +50,15 @@ def make_web_app(repository):
 
     @web_app.route('/entries/<volume>/<int:number>')
     def show_entry(volume, number):
+        version = request.args.get('version')
         if volume.isdigit():
             volume = int(volume)
-        citation = repository.get_citation(volume=volume, number=number)
+        citation = repository.get_citation(volume=volume, number=number, version=version)
+        citation_pretty = dict([(key, value) for key, value in citation.items() if not key.startswith('_')])
         return render_template(
             'citation.html',
-            citation=citation
+            citation=citation,
+            citation_pretty=pprint.pformat(citation_pretty, indent=4, width=80)
         )
 
     web_app.secret_key = '$%#$%wdsfej/3yX $%#$%R~dsfewmN]LWX/,fgfa?'

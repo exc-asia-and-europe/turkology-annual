@@ -1,3 +1,5 @@
+from datetime import datetime
+import logging
 import nameparser
 import re
 
@@ -15,13 +17,16 @@ def parse_field(field_name, value):
         'translators': parse_name,
         'in': parse_reference,
         'material': parse_material,
-    }.get(field_name, lambda x:x)
+        'date': parse_date,
+    }.get(field_name, lambda x: x)
 
-    if isinstance(value, list):
-        return [parse_function(sub_value) or sub_value for sub_value in value]
-    else:
-        return parse_function(value) or value
-
+    try:
+        if isinstance(value, list):
+            return [parse_function(sub_value) or sub_value for sub_value in value]
+        else:
+            return parse_function(value) or value
+    except:
+        logging.exception('Error parsing field \'{}\' with value \'{}\''.format(field_name, value))
 
 def parse_name(name):
     if not isinstance(name, str):
@@ -32,6 +37,7 @@ def parse_name(name):
 
 
 ta_reference_pattern = re.compile('^TA *(?P<volume>\d+)\.(?P<number>\d+)\.(?P<pageStart>\d+)[-—](?P<pageEnd>\d+)$')
+
 
 def parse_reference(reference):
     if not isinstance(reference, str):
@@ -70,3 +76,31 @@ def parse_material(material):
         'type': type_name,
         'raw': material,
     }
+
+
+def parse_date(date_str):
+    if not isinstance(date_str, str):
+        return date_str
+
+    match = re.match(
+        '(?:(\d{1,2})\. *(?:([IVX]{1,4})\. *)?(\d{4})?[-—])?(\d{1,2})\. *([IVX]{1,4})\. *(\d{4})',
+        date_str
+    )
+
+    if match:
+        roman_numerals = ('i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x', 'xi', 'xii')
+        day_end = int(match.group(4))
+        month_end = roman_numerals.index(match.group(5).lower()) + 1
+        year_end = int(match.group(6))
+
+        day_start = int(match.group(1)) if match.group(1) else day_end
+        month_start = roman_numerals.index(match.group(2).lower()) + 1 if match.group(2) else month_end
+        year_start = int(match.group(3)) if match.group(3) else year_end
+
+        date_start = datetime(year_start, month_start, day_start)
+        date_end = datetime(year_end, month_end, day_end)
+
+        return {
+            'start': date_start,
+            'end': date_end,
+        }

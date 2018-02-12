@@ -23,8 +23,8 @@
     - {% endblock %}
 
 {% block script %}
-    <script type="text/javascript" src="/static/scripts/entry.js"></script>
-    <script type="text/javascript">var entry_id='{{ citation.id }}';</script>
+    <script type="text/javascript" src="/static/js/entry.js"></script>
+    <script type="text/javascript">var entry_id='{{ citation._id }}';</script>
 
 {% endblock %}
 
@@ -51,9 +51,9 @@
 
         <div class="entry-option">
             <a href="#" id="toggleEntry">
-                <img src="/static/images/{% if citation.id in mylist %}checked{% else %}unchecked{% endif %}.png"
-                     class="icon" id="mylist-image-{{ citation.id }}"/>
-                <span id="mylist-text-{{ citation.id }}">{% if citation.id in mylist %}
+                <img src="/static/images/{% if citation._id in mylist %}checked{% else %}unchecked{% endif %}.png"
+                     class="icon" id="mylist-image-{{ citation._id }}"/>
+                <span id="mylist-text-{{ citation._id }}">{% if citation._id in mylist %}
                     Remove from My List{% else %}
                     Add to My List{% endif %}</span>
             </a>
