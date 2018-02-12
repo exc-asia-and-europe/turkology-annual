@@ -36,20 +36,51 @@ def parse_name(name):
     return name_dict
 
 
-ta_reference_pattern = re.compile('^TA *(?P<volume>\d+)\.(?P<number>\d+)\.(?P<pageStart>\d+)[-—](?P<pageEnd>\d+)$')
+year_pattern = '(?:(?P<year>\d{4})|(?P<yearStart>\d{4})[-—/](?P<yearEnd>\d{2}(?:\d{2})?))(?: *\((?P<yearParentheses>\d{4})\))?'
+pages_pattern = '(?:S\. ?)?(?P<pageStart>\d+)(?:[-—](?P<pageEnd>\d+))?'
+issues_pattern = '(?:(?P<issue>\d{1,3})|(?P<issueStart>\d{1,3})[-—](?P<issueEnd>\d{1,3}))'
+volume_pattern = '(?:(?P<volume>\d{1,2})|(?P<volumeStart>\d{1,2})[-—](?P<volumeEnd>\d{1,2}))'
+journal_pattern = '(?P<journal>(?:[^\W\d_]|[\- ])+?)'
+
+reference_patterns = [
+    ('ta', re.compile('^TA *(?P<volume>\d+)\. *(?P<number>\d+)(?:\. *%s)?$' % pages_pattern)),
+
+    #('volume.issue.year.pages', re.compile('^ *%s *%s\. *%s\. *%s$' % (year_pattern, issues_pattern, pages_pattern))),  # volume.issue.year.pages
+    #('year.issue.pages', re.compile('^(?P<journal>[\w ]+?) *%s\. *%s\. *%s$' % (year_pattern, issues_pattern, pages_pattern))),  # year.issue.pages
+    #('issue.year.pages', re.compile('^(?P<journal>[\w ]+?) *%s\. *%s. *%s$' % (issues_pattern, year_pattern, pages_pattern))),  # issue.year.pages
+    #('year.pages', re.compile('^(?P<journal>[\w ]+?) *%s. *%s$' % (year_pattern, pages_pattern))),  # year.pages
+]
+reference_patterns.extend(
+    [('journal', re.compile('^' + journal_pattern + ' *' + '\. *'.join(sub_patterns) + '$', re.UNICODE)) for sub_patterns in [
+        (volume_pattern, issues_pattern, year_pattern, pages_pattern),
+        (volume_pattern, issues_pattern, pages_pattern),
+        (year_pattern, issues_pattern, pages_pattern),
+        (volume_pattern, year_pattern, pages_pattern),
+        (year_pattern, pages_pattern),
+        (year_pattern,),
+    ]],
+)
 
 
-def parse_reference(reference):
-    if not isinstance(reference, str):
-        return reference
-    ta_reference_match = ta_reference_pattern.search(reference)
-    if ta_reference_match:
-        group_dict = ta_reference_match.groupdict()
-        for key, value in list(group_dict.items())[:]:
-            group_dict[key] = int(value)
-        group_dict['type'] = 'ta'
-        group_dict['raw'] = reference
-        return group_dict
+def parse_reference(raw_reference):
+    if not isinstance(raw_reference, str):
+        return raw_reference
+    raw_reference = raw_reference.strip('. ')
+    for reference_type, reference_pattern in reference_patterns:
+        reference_match = reference_pattern.search(raw_reference)
+        if reference_match:
+            group_dict = reference_match.groupdict()
+            for key, value in list(group_dict.items())[:]:
+                if value is None:
+                    del group_dict[key]
+                    continue
+                if value.isdigit():
+                    if key == 'yearEnd' and len(value) == 2:
+                        value = str(group_dict['yearStart'])[:2] + value
+                    group_dict[key] = int(value)
+            group_dict['type'] = reference_type
+            group_dict['raw'] = raw_reference
+            return group_dict
 
 
 def parse_material(material):

@@ -1,211 +1,197 @@
-{% block script %}
+<table class="citation-details">
+    <tr class="ta-makro">
+        <th class="attribute">Volume:</th>
+        <td>{{ citation.volume }}</td>
+    </tr>
+    <tr class="ta-makro">
+        <th>Number:</th>
+        <td>{{ citation.number }}</td>
+    </tr>
+    <tr>
+        <th>Type:</th>
+        <td>{{ citation.type }}</td>
+    </tr>
+    <tr{% if not citation.authors %} class="empty"{% endif %}>
+        <th>
+            Author(s):
+        </th>
+        <td>
+            {% for author in citation.authors %}
+                {{ author.raw }}<br/>
+            {% endfor %}
+        </td>
+    </tr>
 
-    <script type="text/javascript">
-
-        function elementIsEmpty(el) {
-            return /^(\s|&nbsp;)*$/.test(el.innerHTML);
-        }
-
-        function hideEmptyRows() {
-            var table = document.getElementById("entry-body");
-            for (var i = 0, row; row = table.rows[i]; i++) {
-                if (elementIsEmpty(row.cells[1])) {
-                    row.className = "hidden";
-                }
-            }
-        }
-    </script>
-{% endblock %}
-
-<div id="entry-body">
-    <table>
-        <tr class="ta-makro">
-            <th class="attribute">Volume:</th>
-            <td>{{ citation.volume }}</td>
-        </tr>
-        <tr class="ta-makro">
-            <th>Number:</th>
-            <td>{{ citation.number }}</td>
-        </tr>
+    {% if citation.editors %}
         <tr>
-            <th>Type:</th>
-            <td>{{ citation.type }}</td>
-        </tr>
-        <tr{% if not citation.authors %} class="empty"{% endif %}>
-            <th>
-                Author(s):
-            </th>
+            <th>Editor(s):</th>
             <td>
-                {% for author in citation.authors %}
+                {% for author in citation.editors %}
                     {{ author.raw }}<br/>
                 {% endfor %}
             </td>
         </tr>
-
-        {% if citation.editors %}
-            <tr>
-                <th>Editor(s):</th>
-                <td>
-                    {% for author in citation.editors %}
-                        {{ author.raw }}<br/>
-                    {% endfor %}
-                </td>
-            </tr>
-        {% endif %}
-        {% if citation.translators %}
-            <tr>
-                <th>Translator(s):</th>
-                <td>
-                    {% for author in citation.translators %}
-                        {{ author.raw }}<br/>
-                    {% endfor %}
-                </td>
-            </tr>
-        {% endif %}
-
-
+    {% endif %}
+    {% if citation.translators %}
         <tr>
-            <th>Title:</th>
-            <td>{{ citation.title }}</td>
-        </tr>
-
-        <tr>
-            <th>Location:</th>
-            <td>{{ citation.location }}</td>
-        </tr>
-        <tr>
-            <th>Publication date:</th>
-            <td>{{ citation.datePublished }}</td>
-        </tr>
-        {% if citation.date %}
-            <tr>
-                <th>Date from:</th>
-                <td>{{ citation.date.start }}</td>
-            </tr>
-            <tr>
-                <th>Date until:</th>
-                <td>{{ citation.date.end }}</td>
-            </tr>
-        {% endif %}
-        <tr>
-            <th>In:</th>
+            <th>Translator(s):</th>
             <td>
-                {% if citation['in'] and citation['in'].type == 'ta' %}
-                    <a href="/entries/{{ citation['in'].volume }}/{{ citation['in'].number }}">
-                        {{ citation['in'].raw }}
-                    </a>
-                {% else %}
-                    {{ citation['in'] }}
-                {% endif %}
+                {% for author in citation.translators %}
+                    {{ author.raw }}<br/>
+                {% endfor %}
             </td>
         </tr>
+    {% endif %}
 
-        {% if citation.pageStart %}
-            <tr>
-                <th>Page range:</th>
-                <td>{{ citation.pageStart }}-{{ citation.pageEnd }}</td>
-            </tr>
-        {% endif %}
-        {% if citation.numberOfPages %}
-            <tr>
-                <th>Number of pages:</th>
-                <td>{{ citation.numberOfPages }} pages{% for material in citation.material %}, {{ material.count }}
-                    {{ material.type + ('s' if material.count > 1 else '') }}{% endfor %}</td>
-            </tr>
-        {% endif %}
-        <tr{% if not citation.comment and not citation.amendments %} class="empty"{% endif %}>
-            <th>Comments:</th>
+
+    <tr>
+        <th>Title:</th>
+        <td>{{ citation.title }}</td>
+    </tr>
+    <tr>
+        <th>Number of volumes:</th>
+        <td>{{ citation.numberOfVolumes }}</td>
+    </tr>
+    <tr>
+        <th>Location:</th>
+        <td>{{ citation.location }}</td>
+    </tr>
+    <tr>
+        <th>Publication date:</th>
+        <td>{{ citation.datePublished }}</td>
+    </tr>
+    {% if citation.date %}
+        <tr>
+            <th>Date from:</th>
+            <td>{{ citation.date.start }}</td>
+        </tr>
+        <tr>
+            <th>Date until:</th>
+            <td>{{ citation.date.end }}</td>
+        </tr>
+    {% endif %}
+    <tr>
+        <th>In:</th>
+        <td>
+            {% if citation['in'] and citation['in'].type == 'ta' %}
+                <a href="/entries/{{ citation['in'].volume }}/{{ citation['in'].number }}">
+                    {{ citation['in'].raw }}
+                </a>
+            {% else %}
+                {{ citation['in'] }}
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <th>Series:</th>
+        <td>{{ citation.series }}</td>
+    </tr>
+
+    {% if citation.pageStart %}
+        <tr>
+            <th>Page range:</th>
+            <td>{{ citation.pageStart }}-{{ citation.pageEnd }}</td>
+        </tr>
+    {% endif %}
+    {% if citation.numberOfPages %}
+        <tr>
+            <th>Number of pages:</th>
+            <td>{{ citation.numberOfPages }} pages{% for material in citation.material %}, {{ material.count }}
+                {{ material.type + ('s' if material.count > 1 else '') }}{% endfor %}</td>
+        </tr>
+    {% endif %}
+    <tr{% if not citation.comment and not citation.amendments %} class="empty"{% endif %}>
+        <th>Comments:</th>
+        <td>
+            <ul>
+                {% if citation.weirdParentheses %}
+                    <li>{{ citation.weirdParentheses }}</li>
+                {% endif %}
+                {% if citation.comment %}
+                    <li>{{ citation.comment }}</li>{% endif %}
+                {% for bullet in citation.amendments %}
+                    <li>{{ bullet }}</li>{% endfor %}
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th>Articles:</th>
+        <td>{{ citation.articles }}</td>
+    </tr>
+
+    {% if citation.reviews %}
+        <tr{% if not citation.reviews %} class="empty"{% endif %}>
+            <th>Reviews:</th>
             <td>
                 <ul>
-                    {% if citation.weirdParentheses %}
-                        <li>{{ citation.weirdParentheses }}</li>
-                    {% endif %}
-                    {% if citation.comment %}
-                        <li>{{ citation.comment }}</li>{% endif %}
-                    {% for bullet in citation.amendments %}
-                        <li>{{ bullet }}</li>{% endfor %}
+                    {% for review in citation.reviews %}
+                        <li>{{ review }}</li>
+                    {% endfor %}
                 </ul>
             </td>
-        </tr>
-        <tr>
-            <th>Articles:</th>
-            <td>{{ citation.articles }}</td>
-        </tr>
+        </tr>{% endif %}
+    <tr{% if not citation.reports %} class="empty"{% endif %}>
+        <th>Reports:</th>
+        <td>
+            <ul>{% for report in citation.reports %}
+                <li>{{ report }}</li>{% endfor %}</ul>
+        </td>
+    </tr>
+    <tr{% if not citation.abstracts %} class="empty"{% endif %}>
+        <th>Abstracts:</th>
+        <td>
+            <ul>{% for abstract in citation.abstracts %}
+                <li>{{ abstract }}</li>{% endfor %}</ul>
+        </td>
+    </tr>
+    <tr{% if not citation.getCategories %} class="empty"{% endif %}>
+    <tr>
+        <th>Keywords:</th>
+        <td>{{ '<br>'.join(citation.keywords) }}</td>
+    </tr>
+    <tr>
+        <th>Abstract:</th>
+        <td>{{ citation.abstract }}</td>
+    </tr>
+</table>
+<table class="citation-details version-info">
+    <tr>
+        <th>Version:</th>
+        <td>{{ citation._version }}, {{ citation._timestamp }}, {{ citation._creator }}</td>
+    </tr>
+    <tr>
+        <th>Raw string:</th>
+        <td>{{ citation.rawText }}</td>
+    </tr>
+    <tr>
+        <th>Structure:</th>
+        <td>{{ citation.remainingText }}</td>
+    </tr>
+    <tr>
+        <th>Fully parsed:</th>
+        <td>{{ {True: 'Yes', False: 'No'}[citation.fullyParsed] }}</td>
+    </tr>
+    <tr>
+        <th>Version history:</th>
+        <td>
+            <ul>{% for cit in citation._versionHistory %}
+                <li><a href="{{ request.path }}?version={{ cit._version }}">
+                    {{ cit._version }}, {{ cit._timestamp }}, {{ cit._creator }}
+                </a></li>
 
-        {% if citation.reviews %}
-            <tr{% if not citation.reviews %} class="empty"{% endif %}>
-                <th>Reviews:</th>
-                <td>
-                    <ul>
-                        {% for review in citation.reviews %}
-                            <li>{{ review }}</li>
-                        {% endfor %}
-                    </ul>
-                </td>
-            </tr>{% endif %}
-        <tr{% if not citation.reports %} class="empty"{% endif %}>
-            <th>Reports:</th>
-            <td>
-                <ul>{% for report in citation.reports %}
-                    <li>{{ report }}</li>{% endfor %}</ul>
-            </td>
-        </tr>
-        <tr{% if not citation.abstracts %} class="empty"{% endif %}>
-            <th>Abstracts:</th>
-            <td>
-                <ul>{% for abstract in citation.abstracts %}
-                    <li>{{ abstract }}</li>{% endfor %}</ul>
-            </td>
-        </tr>
-        <tr{% if not citation.getCategories %} class="empty"{% endif %}>
-        <tr>
-            <th>Keywords:</th>
-            <td>{{ '<br>'.join(citation.keywords) }}</td>
-        </tr>
-        <tr>
-            <th>Abstract:</th>
-            <td>{{ citation.abstract }}</td>
-        </tr>
-    </table>
-    <table class="version_info">
-        <tr>
-            <th>Version:</th>
-            <td>{{ citation._version }}, {{ citation._timestamp }}, {{ citation._creator }}</td>
-        </tr>
-        <tr>
-            <th>Raw string:</th>
-            <td>{{ citation.rawText }}</td>
-        </tr>
-        <tr>
-            <th>Structure:</th>
-            <td>{{ citation.remainingText }}</td>
-        </tr>
-        <tr>
-            <th>Fully parsed:</th>
-            <td>{{ {True: 'Yes', False: 'No'}[citation.fullyParsed] }}</td>
-        </tr>
-        <tr>
-            <th>Version history:</th>
-            <td>
-                <ul>{% for cit in citation._versionHistory %}
-                    <li><a href="{{ request.path }}?version={{ cit._version }}">
-                        {{ cit._version }}, {{ cit._timestamp }}, {{ cit._creator }}
-                    </a></li>
+            {% endfor %}</ul>
+        </td>
 
-                {% endfor %}</ul>
-            </td>
+    </tr>
+    <tr>
+        <th>Currently hosted version:</th>
+        <td>
+            <a href="http://kjc-sv013.kjc.uni-heidelberg.de:8089/de/show_entry/{{ citation.volume }}/{{ citation.number }}">Link</a>
+        </td>
+    </tr>
+    <tr>
+        <th>JSON:</th>
+        <td style="white-space: pre-wrap">{{ citation_pretty }}</td>
+    </tr>
 
-        </tr>
-        <tr>
-            <th>Currently hosted version:</th>
-            <td>
-                <a href="http://kjc-sv013.kjc.uni-heidelberg.de:8089/de/show_entry/{{ citation.volume }}/{{ citation.number }}">Link</a>
-            </td>
-        </tr>
-        <tr>
-            <th>JSON:</th>
-            <td style="white-space: pre-wrap">{{ citation_pretty }}</td>
-        </tr>
-
-    </table>
-</div>
+</table>

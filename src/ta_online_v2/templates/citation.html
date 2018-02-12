@@ -1,18 +1,5 @@
 {% extends "base.html" %}
 
-{% block meta %}
-    <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"/>
-    <meta name="abstract" content="{{ citation.raw }}"/>
-    <meta name="importance" content="ultra"></meta>
-    <meta name="DC.title" content="{{ citation.title }}">
-    {% for author in citation.authors %}
-        <meta name="DC.creator" content="{{ author }}">
-    {% endfor %}
-    <meta name="DC.date" content="{% if citation.date %}{{ citation.date }}{% else %}{{ citation.year }}{% endif %}">
-    {% for editor in citation.editors %}
-        <meta name="DC.contributor" content="{{ editor }}">
-    {% endfor %}
-{% endblock %}
 
 {% block headline %}Entry details: Volume {{ citation.volume }}, No.
     {{ citation.number }}{% if request.args.search_result %} (Treffer {{ hit_number }} von {{ total_hits }})
@@ -24,7 +11,7 @@
 
 {% block script %}
     <script type="text/javascript" src="/static/js/entry.js"></script>
-    <script type="text/javascript">var entry_id='{{ citation._id }}';</script>
+    <script type="text/javascript">var entry_id = '{{ citation._id }}';</script>
 
 {% endblock %}
 
@@ -47,45 +34,59 @@
         {% endif %}</div>
     </div>
 
-    <div id="entry-options">
-
-        <div class="entry-option">
-            <a href="#" id="toggleEntry">
-                <img src="/static/images/{% if citation._id in mylist %}checked{% else %}unchecked{% endif %}.png"
-                     class="icon" id="mylist-image-{{ citation._id }}"/>
-                <span id="mylist-text-{{ citation._id }}">{% if citation._id in mylist %}
-                    Remove from My List{% else %}
-                    Add to My List{% endif %}</span>
-            </a>
-        </div>
-
-        <div class="entry-option">
-            <a href="#" class="toggle-export-menu">
-                <img src="/static/images/disk.png" class="icon"/>
-                <span class="export-link">Export</span></a>
-            <span class="export-formats">
-        <a href="#" class="export-format" id="bibtex">BibTeX</a>
-   <span class="separator"> | </span>
-       <a href="#" class="export-format" id="ris">RIS</a>
-</span>
-
-            <div id="export-window">
-                <div id="export-window-header">
-                    <span id="export-window-format-name"></span>
-                    <a href="#" title="Close"><span id="export-window-close-button"><img
-                            src="/static/images/close-button.gif"/></span></a>
-                    <a href="#"><span id="export-window-save-button"><img src="/static/images/disk.jpg"
-                                                                          class="small-icon"
-                                                                          title="Save"/></span></a>
-                </div>
-                <div id="export-code-container"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                {% include "citation_body.html" %}
             </div>
+
+            <!--div id="entry-options" class="col-xl-3">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="entry-option col">
+                            <a href="#" id="toggleEntry">
+                                <img src="/static/images/{% if citation._id in mylist %}checked{% else %}unchecked{% endif %}.png"
+                                     class="icon" id="mylist-image-{{ citation._id }}"/>
+                                <span id="mylist-text-{{ citation._id }}">{% if citation._id in mylist %}
+                                    Remove from My List{% else %}
+                                    Add to My List{% endif %}</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+
+
+                        <div class="entry-option col">
+                            <a href="#" class="toggle-export-menu">
+                                <img src="/static/images/disk.png" class="icon"/>
+                                <span class="export-link">Export</span>
+                            </a>
+                            <span class="export-formats">
+                        <a href="#" class="export-format" id="bibtex">BibTeX</a>
+                           <span class="separator"> | </span>
+                                   <a href="#" class="export-format" id="ris">RIS</a>
+                            </span>
+
+                            <div id="export-window">
+                                <div id="export-window-header">
+                                    <span id="export-window-format-name"></span>
+                                    <a href="#" title="Close"><span id="export-window-close-button"><img
+                                            src="/static/images/close-button.gif"/></span></a>
+                                    <a href="#"><span id="export-window-save-button"><img src="/static/images/disk.jpg"
+                                                                                          class="small-icon"
+                                                                                          title="Save"/></span></a>
+                                </div>
+                                <div id="export-code-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div-->
+
         </div>
-    </div><!--entry-options-->
+    </div>
 
-
-
-    {% include "citation_body.html" %}
 
 
 {% endblock %}

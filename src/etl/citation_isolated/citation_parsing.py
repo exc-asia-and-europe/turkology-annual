@@ -6,7 +6,7 @@ import regex
 
 try:
     from .field_parsing import parse_citation_fields
-except:
+except (ImportError, SystemError):
     from field_parsing import parse_citation_fields
 
 
@@ -27,7 +27,8 @@ class CitationParser(object):
     loc_date_pattern = re.compile(
         '^([^,]+), *((?:\d{1,2}\. *(?:(?:[IVX]{1,4})\. *)?(?:\d{4})?[-—])?\d{1,2}\. *[IVX]{1,4}\. *\d{4})'
     )
-    in_pattern = re.compile(' +In ?: +([^.]+ +[\d.\-— ();,*S/=und]+)[.,]')
+    volumes_loc_year_pattern = re.compile('(\d+) *Bde[.,]+ *(\w+), (\d{4}(?:[-—]\d{4}|(?: *, *\d{4})+)?)(?:, *([\d, +]+) *[Ss]\.)?')
+    in_pattern = re.compile(' +In ?: +([^.]+ +[\d.\-— ();,*S/=und]+)(?:[.,]|({{{))')
     author_pattern = re.compile('^({last_given})   +'.format(last_given=last_name_given_names_pattern), re.UNICODE)
     author_pattern_volume_1 = re.compile('^(%s\.):?(?<!geb\.) (?!{{{)+' % last_name_given_names_pattern, re.UNICODE)
     multiple_authors_pattern = re.compile(
@@ -36,12 +37,11 @@ class CitationParser(object):
     role_persons_pattern = re.compile(
         '\. ({given_last}(?: *(—| und ) *{given_last})+) (ed|trs)\.'.format(given_last=given_names_last_name_pattern))
     title_patterns = [
-        re.compile('{{{ AUTHOR }}}\s*(.+)\s*{{{ IN }}}'),
-        re.compile('{{{ AUTHOR }}}\s*(.+)\s*{{{ PERSON }}}'),
+        re.compile('{{{ AUTHOR }}}\s*(.+)\s*{{{ (?:IN|PERSON|NUM_VOLUMES) }}}'),
         re.compile('{{{ AUTHOR }}}\s*([^.(]+?)[.,]?\s*{{{'),
-        re.compile('^([^.,(]+?)[.,]?\s*{{{ (?:IN|PERSON) '),
+        re.compile('^([^.,(]+?)[.,]?\s*{{{ (?:IN|PERSON|NUM_VOLUMES|COMMENT|LOCATION) '),
     ]
-    weird_parentheses_pattern = re.compile('{{{ (?:PAGE_NUM|MATERIAL) }}}([ .,]*\(([^)]+)\)\.?)')
+    series_pattern = re.compile('{{{ (?:PAGE_NUM|MATERIAL|YEAR) }}}([ .,]*\(([^)]+)\))\. *?(?:$|{{{ COMMENT)')
 
     fully_parsed_pattern = re.compile('({{{\s*[\w_]+\s*}}}[., ]*)+')
 
@@ -77,6 +77,14 @@ class CitationParser(object):
             citation['type'] = 'conference'
             text = '{{{ LOCATION }}} {{{ DATE }}} ' + text[match.span()[1]:]
 
+        match = cls.volumes_loc_year_pattern.search(text)
+        if match:
+            citation['numberOfVolumes'] = int(match.group(1))
+            citation['location'] = match.group(2)
+            citation['datePublished'] = match.group(3)
+            if match.group(4):
+                citation['numberOfPages'] = match.group(4).strip()
+            text = text[:match.span()[0]] + ' {{{ NUM_VOLUMES }}} {{{ LOCATION }}} {{{ YEAR }}} ' + text[match.span()[1]:]
 
         material_spans = []
         for material_match in re.finditer(cls.material_pattern, text):
@@ -106,17 +114,20 @@ class CitationParser(object):
             text = text[:loc_year_pages_match.span()[0]] + loc_year_pages_match.group(
                 1) + ' {{{ LOCATION }}} {{{ YEAR }}} {{{ PAGE_NUM }}}' + text[loc_year_pages_match.span()[1]:]
 
-        weird_parentheses_match = cls.weird_parentheses_pattern.search(text)
-        if weird_parentheses_match:
-            citation['weirdParentheses'] = weird_parentheses_match.group(2).strip()  # TODO: Find out what this field is
-            text = text[:weird_parentheses_match.span(1)[0]] + text[
-                                                                                   weird_parentheses_match.span(1)[1]:]
+        series_match = cls.series_pattern.search(text)
+        if series_match:
+            citation['series'] = series_match.group(2).strip()  # TODO: Find out what this field is
+            text = text[:series_match.span(1)[0]] + '{{{ SERIES }}}' + text[series_match.span(1)[1]:]
 
         in_match = cls.in_pattern.search(text)
         if in_match:
             citation['in'] = in_match.group(1)
             citation['type'] = 'article'
-            text = text[:in_match.span()[0]] + ' {{{ IN }}}' + text[in_match.span()[1]:]
+            text = text[:in_match.span()[0]] + ' {{{ IN }}}'
+            if in_match.group(2):
+                text += text[in_match.span(2)[1]:]
+            else:
+                text += text[in_match.span()[1]:]
 
         multiple_authors_match = cls.multiple_authors_pattern.search(text)
         if multiple_authors_match:
@@ -209,6 +220,9 @@ if __name__ == '__main__':
         '3. Biographisches Lexikon zur Geschichte Südosteuropas. Mathias Bernath und Felix v. Schroeder ed., Gerda Bartl (Red.). Bd. 1, Α-F. München, 1974, XV+557 S. (Südosteuropäische Arbeiten, 75). Rez. Gerhard Stadler, Donauraum 19.3.-4.1974.209. — Johann Weidlein, SODV 23.3.1974.218.',
         '701. Brouček, Peter-LEiτscH, Walter-VocELKA, Karl—Wimmer, Jan-Wój-cıκ, Zbigniew Der Sieg bei Wien 1683. Wien-Warszawa, 1983, 187 S. 70 Abb., 4 Schlachtpläne, 1 Faltplan.',
         '117. Leningrad, 2.-4. VI. 1969: III Tjurkologičeskaja konferencija. 3. Turkologische Konferenz; die Referate sind abgedruckt in TA 1.89. Bericht: V.G.Guzev,N. A.Dulina,L. Ju.Tuguševa, TA 1.89.403-412.',
+        '879. ALLAMANI,   E.-PANAYOTOPOULOU, Κ.      ΊΙ   συμμαχική  εντολή για τήν κατάληψη της Σμύρνης και ή δραστηριοποίηση της ελληνικής ηγεσίας. In: ΤΑ 7.160.119-172 [The Allied decision concerning the Greek mandate on the occupation of Smyrna.]',
+        '291. Fourtis, Georgios N. Στρατıωτıκòv fλλη vo-τoυpκıκòv λεξıκóv. 2 Bde. Athenai, 1977. [Militärisches Fachwörterbuch Griechisch-Türkisch.]',
+        '16. Kononov, Α. N. Nekotorye itogi razvitija sovetskoj tjurkologii i zadaci Sovetskogo komiteta tjurkologov. In: ST 1974.2.3-12. [Einige Ergebnisse der Entwicklung der sowjetischen Turkologie und die Aufgaben des Sowjetischen Komitee der Turkologen.]',
     ]:
         # TA 2.162.3.1.1973.29-36
 
