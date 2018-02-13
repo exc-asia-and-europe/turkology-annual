@@ -28,7 +28,8 @@ class MongoRepository(object):
         elif None in (volume, number):
             raise ValueError('You must specify either an id or a volume and entry number')
         else:
-            citations = list(self.citations.find({'volume': volume, 'number': number}).sort([('_version', pymongo.DESCENDING)]))
+            search_dict = {'volume': volume, 'number': number}
+            citations = list(self.citations.find(search_dict).sort([('_version', pymongo.DESCENDING)]))
             if version:
                 version = int(version)
             else:
@@ -45,12 +46,13 @@ class MongoRepository(object):
         citation['id'] = id
         return citation
 
-    def find_citations(self, query=None, limit=0, skip=0, order_fields=None):
+    def find_citations(self, query=None, limit=0, skip=0, order_fields=None, fullyParsed=None):
         if query is None:
-            query = {}
+            criteria = {}
         else:
-            query = {'$text': {'$search': query}}
-
+            criteria = {'$text': {'$search': query}}
+        if fullyParsed is not None:
+            criteria['fullyParsed'] = fullyParsed
         projections = None
         if order_fields:
             order_fields = [(field_name, {True: pymongo.ASCENDING, False: pymongo.DESCENDING}[ascending]) for
@@ -63,12 +65,12 @@ class MongoRepository(object):
                 order_fields = (('volume', pymongo.ASCENDING), ('number', pymongo.ASCENDING))
 
         if projections:
-            citations = self.citations.find(query, projections)
+            citations = self.citations.find(criteria, projections)
         else:
-            citations = self.citations.find(query)
+            citations = self.citations.find(criteria)
         return {
             'data': list(citations.sort(order_fields).skip(skip).limit(limit)),
-            'total': self.citations.count(query),
+            'total': self.citations.count(criteria),
         }
 
     def insert_citations(self, citations):

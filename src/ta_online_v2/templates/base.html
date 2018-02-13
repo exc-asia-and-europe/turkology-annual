@@ -74,9 +74,13 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <div id="middle">
-                            <h1>Home</h1>
-                            <div id="content">
+                        <div id="middle" style="padding: 0;">
+                            <div class="row">
+                                <div class="col">
+                                    <h1>{% block title %}Home{% endblock %}</h1>
+                                </div>
+                            </div>
+                            <div id="content" class="container-fluid" style="padding: 0">
                                 {% block content %}{% endblock %}
                             </div><!--content-->
                         </div><!--midle-->
