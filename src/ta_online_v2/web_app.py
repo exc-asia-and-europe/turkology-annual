@@ -31,15 +31,12 @@ def make_web_app(repository):
 
         pagination = {
             'start_index': skip + 1,
-            'previous': url_for('show_citations', query=query, hitsperpage=hits_per_page,
-                                page=current_page - 1) if skip > 0 else None,
-            'next': url_for('show_citations', query=query, hitsperpage=hits_per_page,
-                            page=current_page + 1) if skip + 1 + len(citations) < total else None,
+            'previous': modify_query(page=current_page - 1) if skip > 0 else None,
+            'next': modify_query(page=current_page + 1) if skip + 1 + len(citations) < total else None,
             'total': total,
             'pages': [{
                 'number': page_num,
-                'url': url_for('show_citations', query=query, hitsperpage=hits_per_page,
-                               page=page_num) if page_num != current_page else None
+                'url': modify_query(page=page_num) if page_num != current_page else None
             } for page_num in range(page_window[0], page_window[1] + 1)]
         }
 
