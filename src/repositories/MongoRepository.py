@@ -14,8 +14,10 @@ class MongoRepository(object):
         logging.info('Creating indexes...')
         self.citations.create_index([('volume', 1)])
         self.citations.create_index([('number', 1)])
+        self.citations.create_index([('volume', 1), ('number', 1)])
         self.citations.create_index([('authors', 1)])
         self.citations.create_index([('fullyParsed', 1)])
+        self.citations.create_index([('_obsolete', 1)])
         self.citations.create_index([
             ('rawText', 'text'),
             ('amendments', 'text'),
@@ -53,6 +55,7 @@ class MongoRepository(object):
             criteria = {'$text': {'$search': query}}
         if fullyParsed is not None:
             criteria['fullyParsed'] = fullyParsed
+        criteria['_obsolete'] = {'$ne': True}
         projections = None
         if order_fields:
             order_fields = [(field_name, {True: pymongo.ASCENDING, False: pymongo.DESCENDING}[ascending]) for
@@ -79,6 +82,8 @@ class MongoRepository(object):
     def insert_citation(self, citation):
         if '_id' in citation:
             del citation['_id']
+        if citation.get('volume') and citation.get('number') and citation.get('_version', 0) > 1:
+            self.citations.update({'volume': citation['volume'], 'number': citation['number']}, {'$set': {'_obsolete': True}})
         self.citations.insert_one(citation)
 
     def insert_paragraphs(self, paragraphs):
