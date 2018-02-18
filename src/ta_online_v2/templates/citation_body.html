@@ -58,7 +58,7 @@
     </tr>
     <tr>
         <th>Publication date:</th>
-        <td>{{ citation.datePublished }}</td>
+        <td>{{ citation.datePublished or (citation.in.year if citation.in else '') }}</td>
     </tr>
     {% if citation.date %}
         <tr>
@@ -77,6 +77,8 @@
                 <a href="/entries/{{ citation['in'].volume }}/{{ citation['in'].number }}">
                     {{ citation['in'].raw }}
                 </a>
+            {% elif citation.in and citation.in.type == 'journal' %}
+                Journal: {{ citation.in.journal }}, Volume {{ citation.in.volume }}, Issue {{ citation.in.issue }}, Pages {{ citation.in.pageStart }} - {{ citation.in.pageEnd }}
             {% else %}
                 {{ citation['in'] }}
             {% endif %}
