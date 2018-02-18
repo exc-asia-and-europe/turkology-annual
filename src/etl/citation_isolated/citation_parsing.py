@@ -28,14 +28,16 @@ class CitationParser(object):
         '^([^,]+), *((?:\d{1,2}\. *(?:(?:[IVX]{1,4})\. *)?(?:\d{4})?[-—])?\d{1,2}\. *[IVX]{1,4}\. *\d{4})'
     )
     volumes_loc_year_pattern = re.compile('(\d+) *Bde[.,]+ *(\w+), (\d{4}(?:[-—]\d{4}|(?: *, *\d{4})+)?)(?:, *([\d, +]+) *[Ss]\.)?')
-    in_pattern = re.compile(' +In ?: +([^.]+ +[\d.\-— ();,*S/=und]+)(?:[.,]|({{{))')
+    in_pattern = re.compile(' +In ?: +([^.]+ *[\d.\-— ();,*S/=und]+)(?:[.,]|({{{))')
+    in_missing_pattern =  re.compile(' +([A-Z]+ +(?:\d+(?:-\d+)?)\.(?:\d+(?:-\d+)?\.){2,})(?:[., ]|({{{))')
+
     author_pattern = re.compile('^({last_given})   +'.format(last_given=last_name_given_names_pattern), re.UNICODE)
     author_pattern_volume_1 = re.compile('^(%s\.):?(?<!geb\.) (?!{{{)+' % last_name_given_names_pattern, re.UNICODE)
     multiple_authors_pattern = re.compile(
         '^{last_given}(?: *([—-]) *{last_given})+   +'.format(last_given=last_name_given_names_pattern), re.UNICODE)
     role_person_pattern = re.compile('\. *({given_last}) (ed|trs)\.'.format(given_last=given_names_last_name_pattern))
     role_persons_pattern = re.compile(
-        '\. ({given_last}(?: *(—| und ) *{given_last})+) (ed|trs)\.'.format(given_last=given_names_last_name_pattern))
+        '\. ({given_last}(?: *([—,]| und ) *{given_last})+) (ed|trs)\.'.format(given_last=given_names_last_name_pattern))
     title_patterns = [
         re.compile('{{{ AUTHOR }}}\s*(.+)\s*{{{ (?:IN|PERSON|NUM_VOLUMES) }}}'),
         re.compile('{{{ AUTHOR }}}\s*([^.(]+?)[.,]?\s*{{{'),
@@ -128,6 +130,16 @@ class CitationParser(object):
                 text += text[in_match.span(2)[1]:]
             else:
                 text += text[in_match.span()[1]:]
+
+        in_missing_match = cls.in_missing_pattern.search(text)
+        if in_missing_match:
+            citation['in'] = in_missing_match.group(1)
+            citation['type'] = 'article'
+            text = text[:in_missing_match.span()[0]] + ' {{{ IN }}}'
+            if in_missing_match.group(2):
+                text += text[in_missing_match.span(2)[1]:]
+            else:
+                text += text[in_missing_match.span()[1]:]
 
         multiple_authors_match = cls.multiple_authors_pattern.search(text)
         if multiple_authors_match:
@@ -223,6 +235,8 @@ if __name__ == '__main__':
         '879. ALLAMANI,   E.-PANAYOTOPOULOU, Κ.      ΊΙ   συμμαχική  εντολή για τήν κατάληψη της Σμύρνης και ή δραστηριοποίηση της ελληνικής ηγεσίας. In: ΤΑ 7.160.119-172 [The Allied decision concerning the Greek mandate on the occupation of Smyrna.]',
         '291. Fourtis, Georgios N. Στρατıωτıκòv fλλη vo-τoυpκıκòv λεξıκóv. 2 Bde. Athenai, 1977. [Militärisches Fachwörterbuch Griechisch-Türkisch.]',
         '16. Kononov, Α. N. Nekotorye itogi razvitija sovetskoj tjurkologii i zadaci Sovetskogo komiteta tjurkologov. In: ST 1974.2.3-12. [Einige Ergebnisse der Entwicklung der sowjetischen Turkologie und die Aufgaben des Sowjetischen Komitee der Turkologen.]',
+        '1. Lexikon der islamischen Welt. Klaus Kreiser, Werner Diem, Hans Georg Majer ed. 3 Bde., Stuttgart, 1974 (Urban-Taschenbücher, 200/1-3).',
+        '200. Ramazanov, K. T. Türk dillärinin ğänub-ğarb ġrupunda ġoša sözlär (jemäk-ičmäk adları). ADI 1974.2.51-60. [Wortpaare in den südwestlichen Turksprachen: Speisen und Getränke. Russ. Res.]',
     ]:
         # TA 2.162.3.1.1973.29-36
 
