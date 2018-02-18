@@ -134,4 +134,5 @@ def parse_date(date_str):
         return {
             'start': date_start,
             'end': date_end,
+            'raw': date_str,
         }

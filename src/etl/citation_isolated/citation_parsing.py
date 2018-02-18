@@ -19,7 +19,7 @@ class CitationParser(object):
 
     number_rest_pattern = re.compile('(\d+)\.\s*(.+)', re.DOTALL)
     review_pattern = re.compile(' +(Rez\.|Abstract +in:) (.*)$')
-    comment_pattern = re.compile('\[([^\]]+)\]\.?( {{{ REVIEW }}})?$')
+    comment_pattern = re.compile('\[([^\]]+)\]\.?( {{{ reviews }}})?$')
     material_pattern = re.compile(
         ', (\[?\d+\]? *(?:(?:Karte|Tafel|Tabelle|Falt(?:tafel|karte|tabelle))n?|Porträts?|Abb\.|Tab\.|(?:Falt|Schlacht)pl(?:an|äne)))(\.)?')
     loc_year_pages_pattern = re.compile(
@@ -39,17 +39,18 @@ class CitationParser(object):
     role_persons_pattern = re.compile(
         '\. ({given_last}(?: *([—,]| und ) *{given_last})+) (ed|trs)\.'.format(given_last=given_names_last_name_pattern))
     title_patterns = [
-        re.compile('{{{ AUTHOR }}}\s*(.+)\s*{{{ (?:IN|PERSON|NUM_VOLUMES) }}}'),
-        re.compile('{{{ AUTHOR }}}\s*([^.(]+?)[.,]?\s*{{{'),
-        re.compile('^([^.,(]+?)[.,]?\s*{{{ (?:IN|PERSON|NUM_VOLUMES|COMMENT|LOCATION) '),
+        re.compile('{{{ authors }}}\s*(.+)\s*{{{ (?:in|editors|translators|numberOfVolumes) }}}'),
+        re.compile('{{{ authors }}}\s*([^.(]+?)[.,]?\s*{{{'),
+        re.compile('^([^.,(]+?)[.,]?\s*{{{ (?:in|editors|translators|numberOfVolumes|comment|location) '),
     ]
-    series_pattern = re.compile('{{{ (?:PAGE_NUM|MATERIAL|YEAR) }}}([ .,]*\(([^)]+)\))\. *?(?:$|{{{ COMMENT)')
+    series_pattern = re.compile('{{{ (?:numberOfPages|material|datePublished) }}}([ .,]*\(([^)]+)\))\. *?(?:$|{{{ comment)')
 
     fully_parsed_pattern = re.compile('({{{\s*[\w_]+\s*}}}[., ]*)+')
 
     @classmethod
     def parse_citation(cls, citation):
         logging.debug('Parsing citation: {}'.format(str(citation)))
+
         if 'remainingText' in citation:
             text = citation['remainingText']
         else:
@@ -60,15 +61,17 @@ class CitationParser(object):
         if review_match:
             review_type = review_match.group(1)
             if review_type == 'Rez.':
-                citation['reviews'] = [review_match.group(2)]
+                field_name = 'reviews'
+                citation[field_name] = [review_match.group(2)]
             elif re.sub(' {2,}', ' ', review_type).lower() == 'abstract in:':
-                citation['abstractIn'] = review_match.group(2)
-            text = text[:review_match.span()[0]] + ' {{{ REVIEW }}}'
+                field_name = 'abstractIn'
+                citation[field_name] = review_match.group(2)
+            text = text[:review_match.span()[0]] + (' {{{ %s }}}' % field_name)
 
         comment_match = cls.comment_pattern.search(text)
         if comment_match:
             citation['comment'] = comment_match.group(1).strip().rstrip('.')
-            text = text[:comment_match.span()[0]] + ' {{{ COMMENT }}}'
+            text = text[:comment_match.span()[0]] + ' {{{ comment }}}'
             if comment_match.group(2):
                 text += comment_match.group(2)
 
@@ -77,7 +80,7 @@ class CitationParser(object):
             citation['location'] = match.group(1)
             citation['date'] = match.group(2)
             citation['type'] = 'conference'
-            text = '{{{ LOCATION }}} {{{ DATE }}} ' + text[match.span()[1]:]
+            text = '{{{ location }}} {{{ date }}} ' + text[match.span()[1]:]
 
         match = cls.volumes_loc_year_pattern.search(text)
         if match:
@@ -86,7 +89,7 @@ class CitationParser(object):
             citation['datePublished'] = match.group(3)
             if match.group(4):
                 citation['numberOfPages'] = match.group(4).strip()
-            text = text[:match.span()[0]] + ' {{{ NUM_VOLUMES }}} {{{ LOCATION }}} {{{ YEAR }}} ' + text[match.span()[1]:]
+            text = text[:match.span()[0]] + ' {{{ numberOfVolumes }}} {{{ location }}} {{{ datePublished }}} ' + text[match.span()[1]:]
 
         material_spans = []
         for material_match in re.finditer(cls.material_pattern, text):
@@ -98,7 +101,7 @@ class CitationParser(object):
             previous_end = 0
             for start, end in material_spans:
                 remaining_text_parts.append(text[previous_end:start])
-                remaining_text_parts.append('{{{ MATERIAL }}}')
+                remaining_text_parts.append('{{{ material }}}')
                 previous_end = end
             remaining_text_parts.append(text[previous_end:])
             text = ''.join(remaining_text_parts)
@@ -114,18 +117,18 @@ class CitationParser(object):
                 citation['pageStart'] = int(loc_year_pages_match.group(5))
                 citation['pageEnd'] = int(loc_year_pages_match.group(6))
             text = text[:loc_year_pages_match.span()[0]] + loc_year_pages_match.group(
-                1) + ' {{{ LOCATION }}} {{{ YEAR }}} {{{ PAGE_NUM }}}' + text[loc_year_pages_match.span()[1]:]
+                1) + ' {{{ location }}} {{{ datePublished }}} {{{ numberOfPages }}}' + text[loc_year_pages_match.span()[1]:]
 
         series_match = cls.series_pattern.search(text)
         if series_match:
-            citation['series'] = series_match.group(2).strip()  # TODO: Find out what this field is
-            text = text[:series_match.span(1)[0]] + '{{{ SERIES }}}' + text[series_match.span(1)[1]:]
+            citation['series'] = series_match.group(2).strip()
+            text = text[:series_match.span(1)[0]] + '{{{ series }}}' + text[series_match.span(1)[1]:]
 
         in_match = cls.in_pattern.search(text)
         if in_match:
             citation['in'] = in_match.group(1)
             citation['type'] = 'article'
-            text = text[:in_match.span()[0]] + ' {{{ IN }}}'
+            text = text[:in_match.span()[0]] + ' {{{ in }}}'
             if in_match.group(2):
                 text += text[in_match.span(2)[1]:]
             else:
@@ -135,7 +138,7 @@ class CitationParser(object):
         if in_missing_match:
             citation['in'] = in_missing_match.group(1)
             citation['type'] = 'article'
-            text = text[:in_missing_match.span()[0]] + ' {{{ IN }}}'
+            text = text[:in_missing_match.span()[0]] + ' {{{ in }}}'
             if in_missing_match.group(2):
                 text += text[in_missing_match.span(2)[1]:]
             else:
@@ -145,7 +148,7 @@ class CitationParser(object):
         if multiple_authors_match:
             citation['authors'] = [author.strip() for author in
                                    multiple_authors_match.group().split(multiple_authors_match.group(1))]
-            text = '{{{ AUTHOR }}} ' + text[multiple_authors_match.span()[1]:].strip()
+            text = '{{{ authors }}} ' + text[multiple_authors_match.span()[1]:].strip()
 
         if citation['volume'] == 1:
             author_match = cls.author_pattern_volume_1.search(text)
@@ -153,21 +156,21 @@ class CitationParser(object):
             author_match = cls.author_pattern.search(text)
         if author_match:
             citation['authors'] = [author_match.group(1).strip()]
-            text = '{{{ AUTHOR }}} ' + text[author_match.span()[1]:].strip()
+            text = '{{{ authors }}} ' + text[author_match.span()[1]:].strip()
 
         multiple_role_persons_match = cls.role_persons_pattern.search(text)
         if multiple_role_persons_match:
             role_name = {'ed': 'editors', 'trs': 'translators'}[multiple_role_persons_match.group(3)]
             citation[role_name] = multiple_role_persons_match.group(1).strip().split(
                 multiple_role_persons_match.group(2))
-            text = text[:multiple_role_persons_match.span(1)[0]] + ' {{{ PERSON }}} ' + text[
+            text = text[:multiple_role_persons_match.span(1)[0]] + (' {{{ %s }}} ' % role_name) + text[
                                                                                              multiple_role_persons_match.span()[
                                                                                                  1]:]
         role_person_match = cls.role_person_pattern.search(text)
         if role_person_match:
             role_name = {'ed': 'editors', 'trs': 'translators'}[role_person_match.group(2)]
             citation[role_name] = [role_person_match.group(1)]
-            text = text[:role_person_match.span(1)[0]] + ' {{{ PERSON }}} ' + text[role_person_match.span()[1]:]
+            text = text[:role_person_match.span(1)[0]] + (' {{{ %s }}} ' % role_name) + text[role_person_match.span()[1]:]
 
         if citation.get('editors'):
             citation['type'] = 'collection'
@@ -176,7 +179,7 @@ class CitationParser(object):
             title_match = title_pattern.search(text)
             if title_match:
                 citation['title'] = title_match.group(1).strip().rstrip('.,')
-                text = text[:title_match.span(1)[0]] + '{{{ TITLE }}}' + text[title_match.span(1)[1]:]
+                text = text[:title_match.span(1)[0]] + '{{{ title }}}' + text[title_match.span(1)[1]:]
                 break
 
         citation['remainingText'] = text
@@ -199,7 +202,7 @@ class CitationParser(object):
             if authors_match:
                 authors_match = authors_match[0]
                 author_names = [name.strip() for name in authors_match[:-1]]
-                remaining_text = '{{{ AUTHOR }}} ' + authors_match[-1]
+                remaining_text = '{{{ authors }}} ' + authors_match[-1]
                 citation['remaingText'] = remaining_text
                 citation['authors'] = author_names
                 yield citation
@@ -207,7 +210,7 @@ class CitationParser(object):
             author_match = authors_pattern.search(citation['remainingText'])
             if author_match:
                 author_name = author_match.group(1)
-                remaining_text = '{{{ AUTHOR }}} ' + citation['remainingText'][author_match.span(2)[0]:]
+                remaining_text = '{{{ authors }}} ' + citation['remainingText'][author_match.span(2)[0]:]
                 citation['remainingText'] = remaining_text
                 if self.fully_parsed_pattern.fullmatch(remaining_text):
                     citation['fullyParsed'] = True
