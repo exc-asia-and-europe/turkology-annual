@@ -1,3 +1,4 @@
+import argparse
 from flask import Flask, request, render_template, session, url_for
 import logging
 import math
@@ -6,6 +7,19 @@ import pprint
 from werkzeug.urls import url_encode
 
 from repositories.MongoRepository import MongoRepository
+
+
+def main():
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument('--port', '-p', type=int, default=5000, help='Port to listen on')
+    args = parser.parse_args()
+
+    repository = MongoRepository('ta')
+    web_app = make_web_app(repository)
+    debug = os.environ.get('ENV') != 'PROD'
+    web_app.run('0.0.0.0', debug=debug, port=args.port)
 
 
 def make_web_app(repository):
@@ -77,7 +91,4 @@ def make_web_app(repository):
 
 
 if __name__ == '__main__':
-    repository = MongoRepository('ta')
-    web_app = make_web_app(repository)
-    debug = os.environ.get('ENV') != 'PROD'
-    web_app.run('0.0.0.0', debug=debug)
+    main()
