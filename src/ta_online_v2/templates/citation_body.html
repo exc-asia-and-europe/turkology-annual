@@ -78,7 +78,9 @@
                     {{ citation['in'].raw }}
                 </a>
             {% elif citation.in and citation.in.type == 'journal' %}
-                Journal: {{ citation.in.journal }}, Volume {{ citation.in.volume }}, Issue {{ citation.in.issue }}, Pages {{ citation.in.pageStart }} - {{ citation.in.pageEnd }}
+                Journal: {{ citation.in.journal }}, Volume{{ citation.in.volume }}{% if citation.in.issue %}, Issue
+                {{ citation.in.issue }}{% elif citation.in.issueStart %}, Issue {{ citation.in.issueStart  }} -
+                {{ citation.in.issueEnd }}{% endif %}, Pages {{ citation.in.pageStart }} - {{ citation.in.pageEnd }}
             {% else %}
                 {{ citation['in'] }}
             {% endif %}
