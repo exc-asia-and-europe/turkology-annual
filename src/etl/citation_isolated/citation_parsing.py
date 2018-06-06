@@ -11,7 +11,7 @@ except (ImportError, SystemError):
 
 
 class CitationParser(object):
-    given_names_pattern = '(?:\w{1,2}\.(?:-\w{1,2}\.)?|[\w-]+)(?: (?:\w{1,2}\.(?:-\w{1,2}\.)?|[\w-]+)){,3}'
+    given_names_pattern = '(?:\w{1,2}\.(?:-\w{1,2}\.)?|[\w-]+)(?: (?:\w{1,2}\.(?:-\w{1,2}\.)?|[\w-]+)){,3}(?! +\w\.)'
     last_name_pattern = '\*?(?:\w+ ){,2}[\w\'-]+'
 
     last_name_given_names_pattern = '(?:{}, +{})'.format(last_name_pattern, given_names_pattern)
@@ -34,14 +34,14 @@ class CitationParser(object):
     author_pattern = re.compile('^({last_given})   +'.format(last_given=last_name_given_names_pattern), re.UNICODE)
     author_pattern_volume_1 = re.compile('^(%s\.):?(?<!geb\.) (?!{{{)+' % last_name_given_names_pattern, re.UNICODE)
     multiple_authors_pattern = re.compile(
-        '^{last_given}(?: *([—-]) *{last_given})+   +'.format(last_given=last_name_given_names_pattern), re.UNICODE)
+        '^{last_given}(?: *([—-]) *(?:{last_given}|{given_last}))+   +'.format(last_given=last_name_given_names_pattern, given_last=given_names_last_name_pattern), re.UNICODE)
     role_person_pattern = re.compile('\. *({given_last}) (ed|trs)\.'.format(given_last=given_names_last_name_pattern))
     role_persons_pattern = re.compile(
         '\. ({given_last}(?: *([—,]| und ) *{given_last})+) (ed|trs)\.'.format(given_last=given_names_last_name_pattern))
     title_patterns = [
         re.compile('{{{ authors }}}\s*(.+)\s*{{{ (?:in|editors|translators|numberOfVolumes) }}}'),
         re.compile('{{{ authors }}}\s*([^.(]+?)[.,]?\s*{{{'),
-        re.compile('^([^.,(]+?)[.,]?\s*{{{ (?:in|editors|translators|numberOfVolumes|comment|location) '),
+        re.compile('^((?:[^.,(](?!{{{))+?)[.,]?\s*{{{ (?:in|editors|translators|numberOfVolumes|comment|location) '),
     ]
     series_pattern = re.compile('{{{ (?:numberOfPages|material|datePublished) }}}([ .,]*\(([^)]+)\))\. *?(?:$|{{{ comment)')
 
@@ -240,6 +240,9 @@ if __name__ == '__main__':
         '16. Kononov, Α. N. Nekotorye itogi razvitija sovetskoj tjurkologii i zadaci Sovetskogo komiteta tjurkologov. In: ST 1974.2.3-12. [Einige Ergebnisse der Entwicklung der sowjetischen Turkologie und die Aufgaben des Sowjetischen Komitee der Turkologen.]',
         '1. Lexikon der islamischen Welt. Klaus Kreiser, Werner Diem, Hans Georg Majer ed. 3 Bde., Stuttgart, 1974 (Urban-Taschenbücher, 200/1-3).',
         '200. Ramazanov, K. T. Türk dillärinin ğänub-ğarb ġrupunda ġoša sözlär (jemäk-ičmäk adları). ADI 1974.2.51-60. [Wortpaare in den südwestlichen Turksprachen: Speisen und Getränke. Russ. Res.]',
+        '2392. Johnson,   C.   D.      Regular   disharmony   in   Kirghiz.   In: TA 10.274.8^-99.',
+        '954. Ebied, R. Y.—M. J. L. Young. A list of Ottoman governors of Aleppo, A. H. 1002-1168. In: AION 34.1.1974.103-108.',
+        '191. Ljubljana (Laibach), 4.-5. XII. 1975: Jugoslovenska orijentalistika i nesvrstani svijet [Die jugoslavische Orientalistik und die blockfreie Welt].',
     ]:
         # TA 2.162.3.1.1973.29-36
 
