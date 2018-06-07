@@ -48,7 +48,7 @@ def detect_paragraph_types(paragraphs, keyword_mapping):
         if citation_section_has_begun and not index_has_begun:
             if keyword_pattern_exact.fullmatch(text):
                 paragraph_type = 'keyword'
-            elif citation_section_has_begun and citation_match and 0 < (int(citation_match.group(1)) - latest_citation_number) <= 5:
+            elif citation_section_has_begun and citation_match and 0 < (int(citation_match.group(1)) - latest_citation_number) <= 500:
                 paragraph_type = 'citation'
                 latest_citation_number = int(citation_match.group(1))
             elif keyword_pattern_fuzzy.fullmatch(text):
