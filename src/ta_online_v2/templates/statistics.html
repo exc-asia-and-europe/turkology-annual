@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Statistics{% endblock %}
+{% block content %}
+    <h3>Entry counts per volume</h3>
+    <table class="table">
+        <thead><tr>
+            <td>Volume</td>
+            <td>Expected citations</td>
+            <td>Actual citations</td>
+            <td>Difference (expected - actual)</td>
+            <td>Completeness</td>
+        </tr></thead>
+        <tbody>
+        {% for volume in volumes %}
+            <tr>
+                <td>{{ volume.number }}</td>
+                <td>{{ volume.expected_count }}</td>
+                <td>{{ volume.actual_count }}</td>
+                <td>{{ volume.actual_count -  volume.expected_count }}</td>
+                <td>{{ volume.completeness * 100 }} %</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Completeness</h2>
+    <!-- Visualisierung von Einträgen, z. B. durch Punkte (grün=vorhanden und vollständig geparst, gelb=unvollständig geparst, rot=fehlend)
+     am besten mehrzeilig, da sehr viele Einträge vorhanden -->
+{% endblock %}

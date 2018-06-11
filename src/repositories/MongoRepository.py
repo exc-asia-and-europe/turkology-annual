@@ -76,6 +76,13 @@ class MongoRepository(object):
             'total': self.citations.count(criteria),
         }
 
+    def count_citations(self, criteria=None):
+        criteria = criteria or {}
+        return self.citations.count(criteria)
+
+    def get_volumes(self):
+        return self.citations.distinct("volume")#.sort([('volume', pymongo.ASCENDING)])
+
     def insert_citations(self, citations):
         self.citations.insert_many(citations)
 

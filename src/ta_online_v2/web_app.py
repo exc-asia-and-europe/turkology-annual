@@ -77,6 +77,54 @@ def make_web_app(repository):
             citation_pretty=pprint.pformat(citation_pretty, indent=4, width=80)
         )
 
+    @web_app.route('/statistics')
+    def show_statistics():
+        expected_counts = {
+            1: 1418,
+            2: 1739,
+            3: 2244,
+            4: 2484,
+            5: 2636,
+            6: 3062,
+            7: 2509,
+            8: 2247,
+            9: 2525,
+            10: 2522,
+            11: 2886,
+            12: 2130,
+            13: 2636,
+            14: 2810,
+            15: 2037,
+            16: 2206,
+            17: 2440,
+            '18-01': 2117,
+            19: 2076,
+            20: 2122,
+            21: 1926,
+            '22-23': 4102,
+            24: 2887,
+            25: 2373,
+            26: 3805,
+        }
+        volume_statistics = []
+        for volume in repository.get_volumes():
+            actual_count = repository.count_citations({'volume': volume})
+            expected_count = expected_counts[volume]
+            volume_statistics.append({
+                'number': volume,
+                'actual_count': actual_count,
+                'expected_count': expected_count,
+                'completeness': actual_count / expected_count,
+            })
+
+        #< td > {{volume.expected_count}} < / td >
+        #< td > {{volume.missing_percentage}} < / td >
+
+        return render_template(
+            'statistics.html',
+            volumes=volume_statistics,
+        )
+
     @web_app.template_global()
     def modify_query(**new_values):
         args = request.args.copy()
